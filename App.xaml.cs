@@ -1,4 +1,6 @@
-﻿namespace Stulio
+﻿using Stulio.View;
+
+namespace Stulio
 {
     public partial class App : Application
     {
@@ -6,8 +8,9 @@
         {
             InitializeComponent();
 
-            //MainPage = new AppShell();
-            MainPage = new StudentHomePage();
+            MainPage = new AppShell();
+            //MainPage = new StudentHomePage();
+            //MainPage = new LoginPage(); 
         }
     }
 }

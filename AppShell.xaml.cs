@@ -1,4 +1,4 @@
-﻿using Stulio.View;
+﻿using Stulio.Views;
 
 namespace Stulio
 {
@@ -7,7 +7,8 @@ namespace Stulio
         public AppShell()
         {
             InitializeComponent();
-            Routing.RegisterRoute(nameof(ProfilePage), typeof(ProfilePage));
+            // Routing.RegisterRoute(nameof(ProfilePage), typeof(ProfilePage));
+            Routing.RegisterRoute(nameof(AddUpdateStudentDetail), typeof(AddUpdateStudentDetail));
         }
     }
 }

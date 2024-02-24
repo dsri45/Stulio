@@ -4,15 +4,13 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Stulio.Model
+namespace Stulio.Models
 {
-    public class OtherExtracurriculars
+    public class AthleticParticipation
     {
-        public string ActivityName { get; set; }
-        public string ParticpatedYears { get; set; }
-        public string Role { get; set; }
-        public string Description { get; set; }
-        public string Achivements { get; set; }
 
+        public string Sport { get; set; }
+        public string ParticpatedYears { get; set; }
+        public string Achivements { get; set; }
     }
 }
