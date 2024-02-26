@@ -1,9 +1,15 @@
-namespace Stulio.View;
+using Stulio.ViewModels;
 
-public partial class ProfilePage : ContentPage
+namespace Stulio.Views
 {
-	public ProfilePage()
-	{
-		InitializeComponent();
-	}
+
+    public partial class ProfilePage : ContentPage
+    {
+    
+        public ProfilePage(ProfilePageViewModel viewModel)
+        {
+            InitializeComponent();
+            this.BindingContext = viewModel;
+        }
+    }
 }

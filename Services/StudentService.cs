@@ -50,5 +50,11 @@ namespace Stulio.Services
             await SetUpDb();
             return await _dbConnection.UpdateAsync(studentModel);
         }
+        public async Task<int> UpdateAboutMe(StudentModel studentModel)
+        {
+            await SetUpDb();
+            return await _dbConnection.UpdateAsync(studentModel);
+        }
+
     }
 }

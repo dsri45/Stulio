@@ -1,4 +1,5 @@
-﻿using Stulio.View;
+﻿using Stulio.ViewModels;
+using Stulio.Views;
 
 namespace Stulio
 {
@@ -11,6 +12,8 @@ namespace Stulio
             MainPage = new AppShell();
             //MainPage = new StudentHomePage();
             //MainPage = new LoginPage(); 
+            //MainPage = new NavigationPage(new ProfilePage());   
+     
         }
     }
 }

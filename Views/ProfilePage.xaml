@@ -1,13 +1,16 @@
 <?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             x:Class="Stulio.View.ProfilePage"
+             xmlns:viewModels="clr-namespace:Stulio.ViewModels"
+             x:DataType="viewModels:ProfilePageViewModel"
+             x:Class="Stulio.Views.ProfilePage"
              Title="Profile">
+    
     <ScrollView VerticalScrollBarVisibility="Never" HorizontalScrollBarVisibility="Never">
         <!-- Main layout-->
         <Grid RowDefinitions="Auto,Auto,Auto,Auto,Auto,Auto,Auto,Auto,Auto,Auto" Padding="20,0">
             <!--Timeline -->
-            <Frame Grid.Row="0" BorderColor="White" VerticalOptions="Start" HeightRequest="160" HasShadow="False" CornerRadius="20" Margin="0,45,0,20" Padding="0" IsClippedToBounds="True">
+            <Frame Grid.Row="0" BorderColor="White" VerticalOptions="Start" HeightRequest="160" HasShadow="False" CornerRadius="20" Margin="0,10,0,10" Padding="0" IsClippedToBounds="True">
                 <Image Source="timeline" Aspect="AspectFill"/>
             </Frame>
             <!-- Image Profile-->
@@ -25,12 +28,15 @@
                 <Button Grid.Column="4" Text="Regular" TextColor="#e29389" FontAttributes="Bold" Margin="5,0,0,0" CornerRadius="10" FontSize="9" WidthRequest="{OnPlatform iOS='50', Android='59'}" HeightRequest="{OnPlatform iOS='21', Android='30'}" BackgroundColor="#fae6e4"/>
 
             </Grid>
-
-            <Label Grid.Row="4" Text="Dhanasri's Note" FontAttributes="Bold" TextColor="#383b67" HorizontalTextAlignment="Start" Margin="0,40,0,20" FontSize="20"/>
-            <Label Grid.Row="5" TextColor="#8d92b9" HorizontalTextAlignment="Start" FontSize="15" Text="Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.&#10;&#10;Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat."/>
+            <Grid Grid.Row="4" ColumnDefinitions="Auto,Auto,Auto,Auto,Auto" VerticalOptions="Center" HorizontalOptions="Start" Margin="0,20,0,0">
+                <Label Grid.Column="1" Text="About Me"  FontAttributes="Bold" TextColor="#383b67" HorizontalTextAlignment="Start" Margin="0,20,0,0" FontSize="16"/>
+                <Button Grid.Column="2" ImageSource="pen.png" Margin="10,15,0,0" WidthRequest="20" HeightRequest="20" CornerRadius="9" HorizontalOptions="Center" BackgroundColor="#9192b7" Command="{Binding UpdateAboutMeCommand}" />
+            </Grid>
+           
+            <Label Grid.Row="7" TextColor="#8d92b9" HorizontalTextAlignment="Start" FontSize="15" Text="Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.&#10;&#10;Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat."/>
 
             <!-- Homework-->
-            <Label Grid.Row="6" Text="AboutMe" FontAttributes="Bold" TextColor="#383b67" HorizontalTextAlignment="Start" Margin="0,30,0,10" FontSize="20"/>
+            <!--<Label Grid.Row="6" Text="AboutMe" FontAttributes="Bold" TextColor="#383b67" HorizontalTextAlignment="Start" Margin="0,30,0,10" FontSize="20"/>
             <CollectionView Grid.Row="7" HorizontalScrollBarVisibility="Never"
                             ItemsSource="{Binding homeWorks}" Margin="0,0,-10,0"
                             HeightRequest="140"
@@ -47,7 +53,7 @@
                         </StackLayout>
                     </DataTemplate>
                 </CollectionView.ItemTemplate>
-            </CollectionView>
+            </CollectionView>-->
             <!-- Line & Final buttons-->
             <BoxView Grid.Row="8" HorizontalOptions="FillAndExpand" HeightRequest="1"  Margin="-20,0,0,20" Color="#eaeaf0"/>
             <Grid ColumnDefinitions="Auto,*" HorizontalOptions="FillAndExpand" Grid.Row="9" Margin="0,0,0,20">

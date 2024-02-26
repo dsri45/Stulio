@@ -6,10 +6,16 @@
     xmlns:views="clr-namespace:Stulio.Views"
     Shell.FlyoutBehavior="Disabled"
     Title="Stulio">
-
-    <ShellContent
-        Title="Home"
-        ContentTemplate="{DataTemplate views:StudentListPage}"
-        Route="MainPage" />
-
+    <TabBar>
+        <ShellContent Title="Profile"
+                     Icon="profile.jpg"
+                     ContentTemplate="{DataTemplate views:ProfilePage}" />
+        <ShellContent Title="StudentList"
+                     Icon="dog.png"
+                     ContentTemplate="{DataTemplate views:AddUpdateStudentDetail}" />
+        <ShellContent Title="Search"
+                     Icon="search.png"
+                     ContentTemplate="{DataTemplate views:StudentListPage}" />
+    </TabBar>
+    
 </Shell>

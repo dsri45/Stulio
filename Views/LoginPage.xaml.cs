@@ -3,7 +3,7 @@ using Stulio.Models;
 using System;
 using System.Collections.ObjectModel;
 
-namespace Stulio.View;
+namespace Stulio.Views;
 
 public partial class LoginPage : ContentPage
 {

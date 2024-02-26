@@ -12,13 +12,13 @@ using System.Threading.Tasks;
 namespace Stulio.ViewModels
 {
     [QueryProperty(nameof(StudentDetail), "StudentDetail")]
-    public partial class AddUpdateStudentDetailViewModel : ObservableObject
+    public partial class AddUpdateStudentViewModel : ObservableObject
     {
         [ObservableProperty]
         private StudentModel _studentDetail = new StudentModel();
 
         private readonly IStudentService _studentService;
-        public AddUpdateStudentDetailViewModel(IStudentService studentService)
+        public AddUpdateStudentViewModel(IStudentService studentService)
         {
             _studentService = studentService;
         }

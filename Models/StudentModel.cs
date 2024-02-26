@@ -16,7 +16,7 @@ namespace Stulio.Models
         public string Email { get; set; }
         [Ignore]
         public string FullName => $"{FirstName} {LastName}";
-
         public string PhoneNumber { get; set; }
+        public string  AboutMe { get; set; }
     }
 }

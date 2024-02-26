@@ -8,7 +8,9 @@ namespace Stulio
         {
             InitializeComponent();
             // Routing.RegisterRoute(nameof(ProfilePage), typeof(ProfilePage));
+            Routing.RegisterRoute(nameof(ProfilePage), typeof(ProfilePage));
             Routing.RegisterRoute(nameof(AddUpdateStudentDetail), typeof(AddUpdateStudentDetail));
+            Routing.RegisterRoute(nameof(AboutMe), typeof(AboutMe));
         }
     }
 }
