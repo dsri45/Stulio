@@ -11,11 +11,12 @@ using System.Threading.Tasks;
 
 namespace Stulio.ViewModels
 {
-    [QueryProperty(nameof(StudentDetail), "AboutMe")]
+    [QueryProperty(nameof(StudentDetail), "StudentDetail")]
     public partial class AboutMeViewModel : ObservableObject
     {
         [ObservableProperty]
-        private StudentModel _studentDetail = new StudentModel();
+        StudentModel studentDetail;
+// private StudentModel _studentDetail = new StudentModel();
 
         private readonly IStudentService _studentService;
         public AboutMeViewModel(IStudentService studentService)
@@ -27,9 +28,9 @@ namespace Stulio.ViewModels
         public async void UpdateAboutMe()
         {
             int response = -1;
-            if (StudentDetail.StudentID > 0)
+            if (studentDetail.StudentID > 0)
             {
-                response = await _studentService.UpdateAboutMe(StudentDetail);
+                response = await _studentService.UpdateAboutMe(studentDetail);
             }
            
 

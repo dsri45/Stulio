@@ -4,7 +4,7 @@
              xmlns:viewModels="clr-namespace:Stulio.ViewModels"
              x:DataType="viewModels:AboutMeViewModel"
              x:Class="Stulio.Views.AboutMe"
-             Title="Add / Update About Me">
+             Title="About Me">
     <ContentPage.Resources>
         <ResourceDictionary>
             <Style TargetType="Label">
@@ -15,14 +15,19 @@
     </ContentPage.Resources>
     <StackLayout Margin="10" Spacing="15">
         <VerticalStackLayout>
-            <Label Text="About Me" FontAttributes="Bold" TextColor="#383b67" HorizontalTextAlignment="Start" Margin="0,20,0,0" FontSize="16" />
+            <Label Text="About Me1" FontAttributes="Bold" TextColor="#383b67" HorizontalTextAlignment="Start" Margin="0,20,0,0" FontSize="16" />
             <!--<Entry Text="{Binding StudentDetail.AboutMe}" Placeholder="About Me" />-->
-            <Editor x:Name="editor"
+            <!--<Editor x:Name="editor"
             Placeholder="Enter your response here"
             HeightRequest="300"
             TextChanged="OnEditorTextChanged"
-            Completed="OnEditorCompleted"  Text="{Binding StudentDetail.AboutMe}"/>
+            Completed="OnEditorCompleted"  
+            Text="{Binding StudentDetail.AboutMe}"/>-->
             <!--<BoxView HeightRequest="0.8" Color="Gray" />-->
+            <Editor x:Name="editor"
+            Placeholder="Enter your response here"
+            HeightRequest="300"
+            Text="{Binding StudentDetail.AboutMe}"/>    
         </VerticalStackLayout>
 
 

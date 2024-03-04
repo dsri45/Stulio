@@ -14,9 +14,9 @@ namespace Stulio.Services
     {
         Task<List<StudentModel>> GetStudentList();
         Task<int> AddStudent(StudentModel studentModel);
+        Task<StudentModel> LoadStudentByID(int studentID);
         Task<int> DeleteStudent(StudentModel studentModel);
         Task<int> UpdateStudent(StudentModel studentModel);
-
         Task<int> UpdateAboutMe(StudentModel studentModel);
     }
 }

@@ -44,6 +44,25 @@ namespace Stulio.Services
             var studentList = await _dbConnection.Table<StudentModel>().ToListAsync();
             return studentList;
         }
+        public async Task<StudentModel> LoadStudentByID(int studentID)
+        {
+            await SetUpDb();
+            var student = await _dbConnection.Table<StudentModel>().Where(s => s.StudentID == studentID).FirstOrDefaultAsync();
+            if(student == null)
+            {
+
+                student = new StudentModel
+                {
+                    StudentID = 1, // Default ID
+                    FirstName = "Dhanasri",
+                    LastName = "Prabhu",
+                    Email = "DhansriPrabhu03@gmail.com",
+                    PhoneNumber = "425 606 9993",
+                    AboutMe = "Passionate high school student deeply committed to the world of computer science, with a fervent interest in artificial intelligence (AI) and its applications. I am actively seeking opportunities to push boundaries and contribute to cutting-edge research. Motivated by the intersection of computer science and biology, I am excited to embark on a journey of exploration, leveraging technology to drive innovation and contribute to advancements in the field."
+                };
+            }
+            return student;
+        }
 
         public async Task<int> UpdateStudent(StudentModel studentModel)
         {

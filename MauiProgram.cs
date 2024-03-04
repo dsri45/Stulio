@@ -28,14 +28,14 @@ namespace Stulio
             //Views Registration
             builder.Services.AddSingleton<ProfilePage>();
             builder.Services.AddSingleton<StudentListPage>();
-            builder.Services.AddTransient<AddUpdateStudentDetail>();
-            builder.Services.AddTransient<AboutMe>();
+            builder.Services.AddSingleton<AddUpdateStudentDetail>();
+            builder.Services.AddSingleton<AboutMe>();
 
 
             //View Modles 
             builder.Services.AddSingleton<StudentListPageViewModel>();
-            builder.Services.AddTransient<AboutMeViewModel>();
-            builder.Services.AddTransient<ProfilePageViewModel>();
+            builder.Services.AddSingleton<AboutMeViewModel>();
+            builder.Services.AddSingleton<ProfilePageViewModel>();
             builder.Services.AddSingleton<AddUpdateStudentViewModel>();
 
             return builder.Build();

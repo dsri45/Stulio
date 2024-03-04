@@ -12,22 +12,33 @@ using System.Threading.Tasks;
 
 namespace Stulio.ViewModels
 {
-    [QueryProperty(nameof(StudentDetail), "StudentDetail")]
+    //[QueryProperty(nameof(StudentDetail), "StudentDetail")]
     public partial class ProfilePageViewModel : ObservableObject
     {
         [ObservableProperty]
-        private StudentModel _studentDetail = new StudentModel();
+        private StudentModel studentDetail;
 
         private readonly IStudentService _studentService;
         public ProfilePageViewModel(IStudentService studentService)
         {
             _studentService = studentService;
+           
+        }
+
+
+        [RelayCommand]
+        public async void LoadByStudentID()
+        {
+            StudentDetail = await _studentService.LoadStudentByID(1);
+
         }
 
         [RelayCommand]
         public async void UpdateAboutMe()
         {
-            await AppShell.Current.GoToAsync(nameof(AboutMe));
+            await AppShell.Current.GoToAsync(nameof(AboutMe),true, new Dictionary<string, object> 
+            { {"StudentDetail", StudentDetail } });
+
         }
 
 
@@ -62,6 +73,9 @@ namespace Stulio.ViewModels
             }
         }
 
+     
+
+        
     }
 }
 
