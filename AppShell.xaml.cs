@@ -7,10 +7,13 @@ namespace Stulio
         public AppShell()
         {
             InitializeComponent();
-            // Routing.RegisterRoute(nameof(ProfilePage), typeof(ProfilePage));
-            Routing.RegisterRoute(nameof(ProfilePage), typeof(ProfilePage));
+            Routing.RegisterRoute("login", typeof(LoginPage));
+            Routing.RegisterRoute("home", typeof(ProfilePage));
             Routing.RegisterRoute(nameof(AddUpdateStudentDetail), typeof(AddUpdateStudentDetail));
             Routing.RegisterRoute(nameof(AboutMe), typeof(AboutMe));
+            Routing.RegisterRoute(nameof(AcademicAchievements), typeof(AcademicAchievements));
+            Routing.RegisterRoute("settings", typeof(SettingsPage));
+
         }
     }
 }

@@ -12,8 +12,8 @@ namespace Stulio
             MainPage = new AppShell();
             //MainPage = new StudentHomePage();
             //MainPage = new LoginPage(); 
-            //MainPage = new NavigationPage(new ProfilePage());   
-     
+            //MainPage = new NavigationPage(new ProfilePage());
+
         }
     }
 }

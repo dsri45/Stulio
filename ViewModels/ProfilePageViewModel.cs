@@ -73,9 +73,13 @@ namespace Stulio.ViewModels
             }
         }
 
-     
+        [RelayCommand]
+        async Task EnterAcademicAchievements(string s)
+        {
+            await Shell.Current.GoToAsync(nameof(AcademicAchievements));
+        }
 
-        
+
     }
 }
 

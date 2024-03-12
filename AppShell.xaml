@@ -7,19 +7,38 @@
     Shell.FlyoutBehavior="Disabled"
   
     Title="Stulio">
-    
-    
-    
+
+    <!--Loading Page-->
+    <ShellContent
+        Title="Home"
+        ContentTemplate="{DataTemplate views:LoadingPage}"
+        Route="loading" />
+
+    <!--Login Page-->
+    <ShellContent 
+        Title="Login" 
+        ContentTemplate="{DataTemplate views:LoginPage}"
+        Route="login"/>
+    <!--Main Page-->
+
     <TabBar>
-        <ShellContent Title="Profile"
-                     Icon="home.png"
-                     ContentTemplate="{DataTemplate views:ProfilePage}" />
+        
         <ShellContent Title="Network"
                      Icon="search.png"
                      ContentTemplate="{DataTemplate views:AddUpdateStudentDetail}" />
+        <ShellContent Title="Profile"
+                     Icon="home.png"
+                     ContentTemplate="{DataTemplate views:ProfilePage}" />  
         <ShellContent Title="Forums"
                      Icon="lightbulb.png"
                      ContentTemplate="{DataTemplate views:StudentListPage}" />
+        <Tab Title="Settings" Icon="gear_fill.svg">
+            <ShellContent
+                Icon="house_door_fill.svg"
+        Title="Settings"
+        ContentTemplate="{DataTemplate views:SettingsPage}"
+        Route="settings" />
+        </Tab>
     </TabBar>
     
 </Shell>

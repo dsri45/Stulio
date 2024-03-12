@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="Stulio.Views.AcademicAchievements"
+             xmlns:viewmodel="clr-namespace:Stulio.ViewModels"
+             Title="AcademicAchievements">
+   
+    <Frame x:Name="AcademicFrame"
+       BackgroundColor="White"
+       CornerRadius="15"
+       Padding="15"
+       Margin="20,40,20,0" >
+
+           <StackLayout Margin="10" Spacing="15">
+            <VerticalStackLayout>
+                <Label Text="Date "  />
+                    <DatePicker MinimumDate="01/01/2022"   MaximumDate="12/31/2022"   Date="06/21/2022" />
+            </VerticalStackLayout>
+            <VerticalStackLayout>
+                <Label Text="Class" />
+                <Entry Text="{Binding StudentDetail.Email}" Placeholder="Class" />
+            </VerticalStackLayout>
+            <VerticalStackLayout>
+                <Label Text="Award" />
+                <Editor x:Name="editor" Placeholder="Award"  HeightRequest="50"  Text="{Binding StudentDetail.AboutMe}"/>        
+            </VerticalStackLayout>
+ 
+
+
+            <VerticalStackLayout>
+                <Label Text="Academic Achievements Picture" />
+                 <Button
+                    x:Name="ImageSelect"
+                    Text="Upload"
+                    SemanticProperties.Hint="Select Image"
+                    Clicked="SelectBarcode"
+ />               
+                <Label x:Name="outputText"  Padding="10"/>
+                <Image
+                    x:Name="barcodeImage"
+                    SemanticProperties.Description="Selected Barcode"
+                    HeightRequest="100"
+                    HorizontalOptions="Center" />       
+            </VerticalStackLayout>
+            
+                   
+               
+            <Button Text="Save" Command="{Binding AddUpdateStudentCommand}"/>
+            <Button Text="Profile" Command="{Binding GoBackCommand}"/>     
+        </StackLayout>
+       
+    </Frame>
+</ContentPage>
+

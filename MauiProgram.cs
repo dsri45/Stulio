@@ -2,6 +2,7 @@
 using Stulio.Views;
 using Stulio.ViewModels;
 using Stulio.Services;
+using CommunityToolkit.Maui;
 
 namespace Stulio
 {
@@ -11,15 +12,15 @@ namespace Stulio
         {
             var builder = MauiApp.CreateBuilder();
             builder
-                .UseMauiApp<App>()
-                .ConfigureFonts(fonts =>
-                {
-                    fonts.AddFont("OpenSans-Regular.ttf", "OpenSansRegular");
-                    fonts.AddFont("OpenSans-Semibold.ttf", "OpenSansSemibold");
-                });
+               .UseMauiApp<App>().UseMauiCommunityToolkit()
+            .ConfigureFonts(fonts =>
+            {
+                fonts.AddFont("OpenSans-Regular.ttf", "OpenSansRegular");
+                fonts.AddFont("OpenSans-Semibold.ttf", "OpenSansSemibold");
+            });
 
 #if DEBUG
-    		builder.Logging.AddDebug();
+            builder.Logging.AddDebug();
 #endif
             // Services
             builder.Services.AddSingleton<IStudentService, StudentService>();
@@ -30,6 +31,7 @@ namespace Stulio
             builder.Services.AddSingleton<StudentListPage>();
             builder.Services.AddSingleton<AddUpdateStudentDetail>();
             builder.Services.AddSingleton<AboutMe>();
+            builder.Services.AddSingleton<AcademicAchievements>();
 
 
             //View Modles 
@@ -37,6 +39,7 @@ namespace Stulio
             builder.Services.AddSingleton<AboutMeViewModel>();
             builder.Services.AddSingleton<ProfilePageViewModel>();
             builder.Services.AddSingleton<AddUpdateStudentViewModel>();
+            builder.Services.AddSingleton<AcademicAchievementsViewModel>();
 
             return builder.Build();
         }
