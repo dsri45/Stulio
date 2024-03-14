@@ -74,6 +74,9 @@
 	  <Compile Update="Views\AboutMe.xaml.cs">
 	    <DependentUpon>AboutMe.xaml</DependentUpon>
 	  </Compile>
+	  <Compile Update="Views\AddUpdateAcademicAchievements.xaml.cs">
+	    <DependentUpon>AddUpdateAcademicAchievements.xaml</DependentUpon>
+	  </Compile>
 	</ItemGroup>
 
 	<ItemGroup>
@@ -84,6 +87,9 @@
 	    <Generator>MSBuild:Compile</Generator>
 	  </MauiXaml>
 	  <MauiXaml Update="Views\AdditionalInformationView.xaml">
+	    <Generator>MSBuild:Compile</Generator>
+	  </MauiXaml>
+	  <MauiXaml Update="Views\AddUpdateAcademicAchievements.xaml">
 	    <Generator>MSBuild:Compile</Generator>
 	  </MauiXaml>
 	  <MauiXaml Update="Views\AddUpdateStudentDetail.xaml">

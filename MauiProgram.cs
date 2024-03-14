@@ -24,6 +24,7 @@ namespace Stulio
 #endif
             // Services
             builder.Services.AddSingleton<IStudentService, StudentService>();
+            builder.Services.AddSingleton<IAcademicAchievementsService, AcademicAchievementservice>();
 
             builder.Services.AddSingleton<LoginPage>();
             //Views Registration
@@ -32,7 +33,9 @@ namespace Stulio
             builder.Services.AddSingleton<AddUpdateStudentDetail>();
             builder.Services.AddSingleton<AboutMe>();
             builder.Services.AddSingleton<AcademicAchievements>();
+            builder.Services.AddSingleton<AddUpdateAcademicAchievements>();
 
+            
 
             //View Modles 
             builder.Services.AddSingleton<StudentListPageViewModel>();
@@ -40,6 +43,10 @@ namespace Stulio
             builder.Services.AddSingleton<ProfilePageViewModel>();
             builder.Services.AddSingleton<AddUpdateStudentViewModel>();
             builder.Services.AddSingleton<AcademicAchievementsViewModel>();
+            builder.Services.AddSingleton<AddUpdateAcademicAchievementsViewModel>();
+            
+
+
 
             return builder.Build();
         }

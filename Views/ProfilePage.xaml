@@ -4,7 +4,7 @@
              xmlns:viewModels="clr-namespace:Stulio.ViewModels"
              x:DataType="viewModels:ProfilePageViewModel"
              x:Class="Stulio.Views.ProfilePage"
-             Title="Profile">
+             Title="">
 
    
 
@@ -14,16 +14,16 @@
 
         <StackLayout>
             <Grid RowDefinitions="Auto,Auto,Auto,Auto,Auto,Auto,Auto,Auto,Auto,Auto,Auto, Auto " Padding="10,0">
-                <!--Timeline -->
-                <Frame Grid.Row="0" BorderColor="White" VerticalOptions="Start" HeightRequest="160" HasShadow="False" CornerRadius="20" Margin="0,0,0,10" Padding="0" IsClippedToBounds="True">
-                    <Image Source="timeline3" Aspect="AspectFill"/>
-                </Frame>
                 <!-- Image Profile-->
-                <Frame Grid.Row="1" Margin="0,-90,0,0" BorderColor="White" HorizontalOptions="Center" WidthRequest="110" HeightRequest="{OnPlatform iOS='110', Android='110'}" HasShadow="False" CornerRadius="55" Padding="0" IsClippedToBounds="True">
+                <Frame Grid.Row="0"  Margin="0,0,0,10" BorderColor="White" HorizontalOptions="Center" WidthRequest="200" HeightRequest="{OnPlatform iOS='200', Android='200'}" HasShadow="False" CornerRadius="100" Padding="0" IsClippedToBounds="True" ZIndex="3">
                     <Image Source="dhanasriprofile" Aspect="AspectFill"/>
                 </Frame>
+                <!--Timeline -->
+                <Frame Grid.Row="1" BorderColor="White" VerticalOptions="Start" HeightRequest="200" HasShadow="False" CornerRadius="20" Margin="0,-150,0,0" Padding="0" IsClippedToBounds="True">
+                    <Image Source="timeline3" Aspect="AspectFill" />
+                </Frame>
                 <!-- Profile name & general description-->
-                <Label Grid.Row="2" Text="{Binding StudentDetail.FullName}" FontAttributes="Bold" TextColor="#383b67" HorizontalTextAlignment="Center" Margin="0,20,0,0" FontSize="22"/>
+                <Label Grid.Row="1" Text="{Binding StudentDetail.FullName}" FontAttributes="Bold" TextColor="#383b67" HorizontalTextAlignment="Center" Margin="0,20,0,0" FontSize="22"/>
 
                 <Grid Grid.Row="3" ColumnDefinitions="Auto,Auto,Auto,Auto,Auto" VerticalOptions="Center" HorizontalOptions="Center" Margin="0,10,0,0">
                     <Button Grid.Column="0" ImageSource="location" WidthRequest="18" HeightRequest="18" CornerRadius="9" HorizontalOptions="Center" BackgroundColor="#9192b7"/>

@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="Stulio.Views.AddUpdateAcademicAchievements"
+             Title="Update Academic Achievements">
+    <ContentPage.Resources> 
+        <ResourceDictionary>
+            <Style TargetType="Label">
+                <Setter Property="FontSize" Value="14" />
+                <Setter Property="TextColor" Value="SlateGray" />
+            </Style>
+        </ResourceDictionary>
+    </ContentPage.Resources>
+    <StackLayout Margin="10" Spacing="15">
+        <VerticalStackLayout>
+            <Label Text="Award" />
+            <Entry  Text="{Binding AcademicAchievements.Award}" Placeholder="Award" />
+        </VerticalStackLayout>
+        <VerticalStackLayout>
+            <Label Text="Date Achived"  />
+            <Entry Text="{Binding AcademicAchievements.DateAchived}" Placeholder="Mon-Year" />
+        </VerticalStackLayout>
+        <VerticalStackLayout>
+            <Label Text="Class" />
+            <Entry Text="{Binding AcademicAchievements.Class}" Placeholder="Class" />
+        </VerticalStackLayout>
+        <VerticalStackLayout>
+            <Label Text="Description" />
+            <Entry Text="{Binding AcademicAchievements.Description}" Placeholder="Description" />
+        </VerticalStackLayout>
+
+        <Button Text="Save" Command="{Binding UpdateAcademicAchievementsCommand}"/>
+    </StackLayout>
+</ContentPage>

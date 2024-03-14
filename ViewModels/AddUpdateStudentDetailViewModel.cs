@@ -46,7 +46,8 @@ namespace Stulio.ViewModels
 
             if (response > 0)
             {
-                await Shell.Current.DisplayAlert("Student Info Saved", "Record Saved", "OK");
+                //await Shell.Current.DisplayAlert("Student Info Saved", "Record Saved", "OK");
+                await Shell.Current.GoToAsync("..");
             }
             else
             {
