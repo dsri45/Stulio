@@ -20,7 +20,7 @@ namespace Stulio.Models
         public string GradeLevel { get; set; }
         public int GraduationYear { get; set; }
         public AcademicAchievementsModel AcademicAchievements { get; set; }
-        public List<ClubsOrganizations> ClubsOrganizations { get; set; }
+        public List<ClubsAndOrganizationsModel> ClubsOrganizations { get; set; }
         public List<AthleticParticipation> AthleticParticipation { get; set; }
         public List<CommunityService> CommunityService { get; set; }
         public List<OtherExtracurriculars> OtherExtracurriculars { get; set; }

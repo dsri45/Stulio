@@ -6,8 +6,10 @@ using System.Threading.Tasks;
 
 namespace Stulio.Models
 {
-    public class ClubsOrganizations
+    public class ClubsAndOrganizationsModel
     {
+
+        public int StudentID { get; set; }
         public string ClubName { get; set; }
         public string ParticpatedYears { get; set; }
         public string Role { get; set; }

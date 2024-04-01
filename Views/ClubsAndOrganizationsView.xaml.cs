@@ -1,16 +1,24 @@
 namespace Stulio.Views;
+using Stulio.ViewModels;
 
-using System;
 
 public partial class ClubsAndOrganizationsView : ContentPage
 {
 
-
-	public ClubsAndOrganizationsView()
+    private ClubsAndOrganizationsViewModel _viewMode;
+    public ClubsAndOrganizationsView(ClubsAndOrganizationsViewModel viewModel)
 	{
-		InitializeComponent();
-		
-	}
+        InitializeComponent();
+        _viewMode = viewModel;
+        this.BindingContext = viewModel;
 
-  
+    }
+
+    protected override void OnAppearing()
+    {
+        base.OnAppearing();
+        _viewMode.GetClubsAndOrganizationsListCommand.Execute(null);
+    }
+
+
 }
