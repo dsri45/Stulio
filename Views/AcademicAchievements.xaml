@@ -35,7 +35,7 @@
        
         <StackLayout Margin="5">
   
-            <Button Text="Add Academic Achievements" Command="{Binding AddUpdateAcademicAchievementsCommand}"  />
+            
 
             <CollectionView ItemsSource="{Binding AcademicAchievements}">
                 <CollectionView.ItemTemplate>
@@ -44,10 +44,10 @@
                             <SwipeView.LeftItems>
                                 <SwipeItems>
  
-                                    <SwipeItem Text="Edit" IconImageSource="dotnet_bot" BackgroundColor="LightBlue" 
+                                    <SwipeItem Text="Edit" IconImageSource="edit.png" BackgroundColor="LightBlue" 
                                        CommandParameter="{Binding .}"
                                        Command="{Binding Source={x:RelativeSource AncestorType={x:Type viewModels:AcademicAchievementsViewModel}},Path=EditAcademicAchievementsCommand}" />
-                                    <SwipeItem Text="Delete" IconImageSource="dotnet_bot" BackgroundColor="Red"  CommandParameter="{Binding .}"
+                                    <SwipeItem Text="Delete" IconImageSource="delete.png" BackgroundColor="Red"  CommandParameter="{Binding .}"
                                        Command="{Binding Source={x:RelativeSource AncestorType={x:Type viewModels:AcademicAchievementsViewModel}},Path=DeleteAcademicAchievementsCommand}" />
                                 </SwipeItems>
                             </SwipeView.LeftItems>
@@ -71,6 +71,7 @@
                 </CollectionView.ItemTemplate>
             </CollectionView>
 
+            <Button Text="Add Academic Achievements" Command="{Binding AddUpdateAcademicAchievementsCommand}"  />
             
         </StackLayout>
 

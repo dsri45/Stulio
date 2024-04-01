@@ -61,6 +61,12 @@ namespace Stulio.Services
                     AboutMe = "Passionate high school student deeply committed to the world of computer science, with a fervent interest in artificial intelligence (AI) and its applications. I am actively seeking opportunities to push boundaries and contribute to cutting-edge research. Motivated by the intersection of computer science and biology, I am excited to embark on a journey of exploration, leveraging technology to drive innovation and contribute to advancements in the field."
                 };
             }
+
+            // Save studentID
+            Preferences.Set("studentID", student.StudentID);
+
+            // Retrieve studentID
+            //var studentID = Preferences.Get("studentID", defaultValue);
             return student;
         }
 

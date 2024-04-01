@@ -4,34 +4,100 @@
     xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
     xmlns:views="clr-namespace:Stulio.Views"
-    Shell.FlyoutBehavior="Disabled"
+    Shell.FlyoutBehavior="Flyout"
   
     Title="Stulio">
 
     <!--Loading Page-->
-    <ShellContent
+    <!--<ShellContent
         Title="Home"
         ContentTemplate="{DataTemplate views:LoadingPage}"
         Route="loading" />
 
-    <!--Login Page-->
+    --><!--Login Page--><!--
     <ShellContent 
         Title="Login" 
         ContentTemplate="{DataTemplate views:LoginPage}"
         Route="login"/>
-    <!--Main Page-->
+    --><!--Main Page-->
 
-    <TabBar>
+    
+
+    <FlyoutItem  Title="Dhanasri Prabhu" FlyoutDisplayOptions="AsMultipleItems" >
+
         
-        <ShellContent Title="Network"
-                     Icon="search.png"
-                     ContentTemplate="{DataTemplate views:AddUpdateStudentDetail}" />
+
+        <Tab Title="Profile" Icon="home.png">
+            <ShellContent Title="Profile"
+             ContentTemplate="{DataTemplate views:ProfilePage}"/>
+            
+        </Tab>
+
+        <Tab Title="Network" Icon="search.png">
+            <ShellContent Title="Network"
+             ContentTemplate="{DataTemplate views:AddUpdateStudentDetail}" />
+        </Tab>
+
+        <Tab Title="Forums" Icon="lightbulb.png">
+            <ShellContent Title="Forums"
+             ContentTemplate="{DataTemplate views:StudentListPage}" />
+        
+        </Tab>
+       
+
+
+    </FlyoutItem>
+
+   
+    <!--<FlyoutItem Title=" Dashboard" FlyoutDisplayOptions="AsMultipleItems"  >
+
+     <ShellContent
+      Title = "Settings" 
+      Icon = "search.png"
+      ContentTemplate = "{DataTemplate views:SettingsPage}"
+     />
+
+        <ShellContent
+         Title = "Customer" 
+         ContentTemplate = "{DataTemplate views:ProfilePage}"
+         /> 
+    </FlyoutItem>-->
+
+   
+
+    <!--<MenuItem Text="Context menu option"   />-->
+
+
+    <!--<FlyoutItem Title="Base" Icon="football.png" FlyoutDisplayOptions = "AsMultipleItems">
+        <ShellContent
+            Title = "Customer" 
+            ContentTemplate = "{DataTemplate views:ProfilePage}"
+            Route = "ProfilePage"
+            Icon= "pen.png"/>
+        <ShellContent
+            Title = "Settings" 
+            ContentTemplate = "{DataTemplate views:SettingsPage}"
+            Route = "SettingsPage"/>
+    
+    
+   
+        
+    </FlyoutItem>-->
+
+
+    <!--<TabBar>
         <ShellContent Title="Profile"
-                     Icon="home.png"
-                     ContentTemplate="{DataTemplate views:ProfilePage}" />  
+                      Icon="home.png"
+                      ContentTemplate="{DataTemplate views:ProfilePage}" />
+
+        <ShellContent Title="Network"
+                      Icon="search.png"
+                      ContentTemplate="{DataTemplate views:AddUpdateStudentDetail}" />
+
         <ShellContent Title="Forums"
-                     Icon="lightbulb.png"
-                     ContentTemplate="{DataTemplate views:StudentListPage}" />
+                      Icon="lightbulb.png"
+                      ContentTemplate="{DataTemplate views:StudentListPage}" />
+        
         <Tab Title="Settings" Icon="gear_fill.svg">
             <ShellContent
                 Icon="house_door_fill.svg"
@@ -39,7 +105,7 @@
         ContentTemplate="{DataTemplate views:SettingsPage}"
         Route="settings" />
         </Tab>
-    </TabBar>
+    </TabBar>-->
     
 </Shell>
 

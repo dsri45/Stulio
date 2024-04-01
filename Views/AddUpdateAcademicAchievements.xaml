@@ -26,8 +26,9 @@
         </VerticalStackLayout>
         <VerticalStackLayout>
             <Label Text="Description" />
-            <Entry Text="{Binding AcademicAchievements.Description}" Placeholder="Description" />
+            <Editor x:Name="editor" Placeholder="Description"   HeightRequest="150"  Text="{Binding AcademicAchievements.Description}"/>
         </VerticalStackLayout>
+        
 
         <Button Text="Save" Command="{Binding UpdateAcademicAchievementsCommand}"/>
     </StackLayout>
