@@ -22,7 +22,7 @@ namespace Stulio.ViewModels
         public ProfilePageViewModel(IStudentService studentService)
         {
             _studentService = studentService;
-           
+
         }
 
 
@@ -36,7 +36,7 @@ namespace Stulio.ViewModels
         [RelayCommand]
         public async void UpdateAboutMe()
         {
-            await AppShell.Current.GoToAsync(nameof(AboutMe),true, new Dictionary<string, object> 
+            await AppShell.Current.GoToAsync(nameof(AboutMe), true, new Dictionary<string, object>
             { {"StudentDetail", StudentDetail } });
 
         }
@@ -77,9 +77,15 @@ namespace Stulio.ViewModels
         async Task EnterAcademicAchievements(string s)
         {
             await Shell.Current.GoToAsync(nameof(AcademicAchievements));
+
         }
 
+        [RelayCommand]
+        async Task EnterClubsAndOrganizations(string s)
+        {
+            await Shell.Current.GoToAsync(nameof(ClubsAndOrganizationsView));
+        }
+    }
 
     }
-}
 

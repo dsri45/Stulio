@@ -6,15 +6,17 @@
           xmlns:viewModels="clr-namespace:Stulio.ViewModels"
           x:DataType="viewModels:AcademicAchievementsViewModel"
           x:Class="Stulio.Views.AcademicAchievements"
-          Title="Academic Achievements">
-        
-        <Frame x:Name="AcademicFrame"
-       BackgroundColor="White"
-       CornerRadius="5"
-       Padding="5"
-       Margin="20,10,20,10" >
+          Title="Academic Achievements"
+          BackgroundColor="#7A5FA4">
 
-        <Shell.SearchHandler>
+    
+    <Frame x:Name="AcademicFrame"
+       BackgroundColor="White"
+       CornerRadius="0"
+       Padding="5"
+       Margin="0,200,0,0" >
+
+        <!--<Shell.SearchHandler>
             <searchHandlers:AcademicAchievementSearchHandler
                 Placeholder="Search Name"
                 ShowsResults="True"
@@ -31,11 +33,13 @@
                     </DataTemplate>
                 </searchHandlers:AcademicAchievementSearchHandler.ItemTemplate>
             </searchHandlers:AcademicAchievementSearchHandler>
-        </Shell.SearchHandler>
+        </Shell.SearchHandler>-->
+
        
+
         <StackLayout Margin="5">
-  
-            
+        
+
 
             <CollectionView ItemsSource="{Binding AcademicAchievements}">
                 <CollectionView.ItemTemplate>
@@ -54,9 +58,9 @@
                             <Frame Margin="20,10,20,10" Padding="5">
                                 <VerticalStackLayout>
                                     <HorizontalStackLayout Spacing="5">
-                                     <Label Text="{Binding Award}" FontSize="18" FontAttributes="Bold" />
+                                        <Label Text="{Binding Award}" FontSize="18" FontAttributes="Bold" Padding="5,0,0,0"/>
                                     </HorizontalStackLayout>
-                                    <Label Text="{Binding DateAchived}" />
+                                    <Label Text="{Binding DateAchived}" Padding="5,0,0,0" />
                                     <Label Text="{Binding Class}" />
                                     <Label Text="{Binding Description}" />
                                 </VerticalStackLayout>
@@ -65,6 +69,7 @@
                                               CommandParameter="{Binding .}" />
                                 </Frame.GestureRecognizers>
                             </Frame>
+
                         </SwipeView>
 
                     </DataTemplate>
@@ -73,7 +78,11 @@
 
             <Button Text="Add Academic Achievements" Command="{Binding AddUpdateAcademicAchievementsCommand}"  />
             
+            
         </StackLayout>
+          
 
     </Frame>
+
+
 </ContentPage>
