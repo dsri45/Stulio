@@ -1,0 +1,113 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="Stulio.Views.AthleticParticipationView"
+             xmlns:models="clr-namespace:Stulio.Models"
+             xmlns:searchHandlers="clr-namespace:Stulio.SearchHandlers"
+             xmlns:viewModels="clr-namespace:Stulio.ViewModels"
+             x:DataType="viewModels:AthleticParticipationViewModel"
+             Background="#4A7CB9">
+    <Grid RowDefinitions=".23*,.7*">
+        <VerticalStackLayout Spacing="10">
+            <Label Margin="0,20,-10,0"
+                FontAttributes="Bold"
+                FontFamily="bold"
+                Text="ATHLETIC PARTICIPATION"
+                FontSize="30"
+                HorizontalTextAlignment="Center"
+                VerticalTextAlignment="Center"
+                TextColor="White"/>
+            <Grid Margin="25,0,0,0" ColumnDefinitions="Auto,*">
+                 <Label
+                 Margin="10,0,0,0"
+                 FontFamily="regular"
+                 Text= "                   d                                                              !"
+                 FontSize="16"
+                 TextColor="White"
+                 HorizontalTextAlignment="Center"
+                 VerticalTextAlignment="Center"/>   
+                <Button Text="Add Sport" 
+                     Command="{Binding AddUpdateAthleticParticipationCommand}" 
+                     TextColor="#4A7CB9"
+                     BorderColor="#4A7CB9"
+                     BorderWidth="4" 
+                     BackgroundColor="White"
+                     FontSize="16"/>
+            </Grid>
+        </VerticalStackLayout>
+
+        <Grid Grid.Row="1">
+
+            <RoundRectangle BackgroundColor="White" CornerRadius="25,25,0,0"/>
+
+            <CollectionView ItemsSource="{Binding AthleticParticipation}">
+                <!--<CollectionView.ItemsSource>
+                 <x:Array Type="{x:Type x:String}">
+                     <x:String>Club 1</x:String>
+                     <x:String>Club 2</x:String>
+                     <x:String>Club 3</x:String>
+                     <x:String>Club 4</x:String>
+                     <x:String>Club 5</x:String>
+                 </x:Array>
+             </CollectionView.ItemsSource>-->
+                <CollectionView.ItemsLayout>
+                    <LinearItemsLayout ItemSpacing="15" Orientation="Vertical"/>
+                </CollectionView.ItemsLayout>
+                <CollectionView.ItemTemplate>
+                    <DataTemplate x:DataType="models:AthleticParticipationModel">
+                        <Grid Padding="20,20,20,0" 
+                           HeightRequest="250"
+                           RowDefinitions=".6*,.4*">
+
+                            <RoundRectangle Grid.RowSpan="2"
+                                         Background="White"
+                                         CornerRadius="10">
+                                <RoundRectangle.Shadow>
+                                    <Shadow Brush="#CFD0D4"
+                                         Opacity=" 0.8"
+                                         Offset="10,10"/>
+                                </RoundRectangle.Shadow>
+                            </RoundRectangle>
+                            <Grid ColumnDefinitions=".4*,.2*,.4*"
+                               RowDefinitions=" .6*,.4*">
+                                <Image
+                                 Grid.RowSpan="2"
+                                 Grid.ColumnSpan="3"
+                                 Aspect="AspectFill"
+                                 Source="timeline3.png"/>
+
+                            </Grid>
+                            <Grid Grid.Row="1" Margin="0,10,0,0"
+                               Padding=" 10" ColumnDefinitions="120,*,*" RowDefinitions="*,*">
+                                <Label Grid.ColumnSpan="3"
+                                    FontFamily="bold"
+                                    FontSize="Large"
+                                    HorizontalTextAlignment="Start"
+                                    Text="{Binding Sport}"
+                                    TextColor="Black"/>
+                                <Label Grid.Row="1"
+                                    Grid.Column="2"
+                                    Margin="0,10,0,0"
+                                    FontFamily="regular"
+                                    HorizontalOptions="End"
+                                    Text="{Binding Role}"
+                                    TextColor="Black"
+                                    VerticalOptions="Start"/>
+                                <Label Grid.Row="1"
+                                    Margin="0,10,0,0"
+                                    FontFamily="regular"
+                                    Text="{Binding ParticpatedYears}"
+                                    TextColor="Black"
+                                    VerticalOptions="Center"/>
+
+                            </Grid>
+                        </Grid>
+                    </DataTemplate>
+                </CollectionView.ItemTemplate>
+            </CollectionView>
+
+
+        </Grid>
+
+    </Grid>
+</ContentPage>

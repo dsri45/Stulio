@@ -21,8 +21,8 @@ namespace Stulio.Models
         public int GraduationYear { get; set; }
         public AcademicAchievementsModel AcademicAchievements { get; set; }
         public List<ClubsAndOrganizationsModel> ClubsOrganizations { get; set; }
-        public List<AthleticParticipation> AthleticParticipation { get; set; }
-        public List<CommunityService> CommunityService { get; set; }
+        public List<AthleticParticipationModel> AthleticParticipation { get; set; }
+        public List<CommunityServiceModel> CommunityService { get; set; }
         public List<OtherExtracurriculars> OtherExtracurriculars { get; set; }
         public DateTime CreatedDateTime { get; set; }
         public DateTime UpdatedDateTime { get; set; }

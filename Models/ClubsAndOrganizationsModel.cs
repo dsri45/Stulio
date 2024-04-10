@@ -8,7 +8,7 @@ namespace Stulio.Models
 {
     public class ClubsAndOrganizationsModel
     {
-
+        public int AcademicId { get; set; }
         public int StudentID { get; set; }
         public string ClubName { get; set; }
         public string ParticpatedYears { get; set; }

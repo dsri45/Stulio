@@ -12,20 +12,20 @@
     <!--<ShellContent
         Title="Home"
         ContentTemplate="{DataTemplate views:LoadingPage}"
-        Route="loading" />
+        Route="loading" />-->
 
-    --><!--Login Page--><!--
-    <ShellContent 
+    <!--Login Page-->
+    <!--<ShellContent 
         Title="Login" 
         ContentTemplate="{DataTemplate views:LoginPage}"
-        Route="login"/>
-    --><!--Main Page-->
+        Route="login"/>-->
+    <!--Main Page-->
 
     
 
     <FlyoutItem  Title="Dhanasri Prabhu" FlyoutDisplayOptions="AsMultipleItems" >
 
-        
+       
 
         <Tab Title="Profile" Icon="home.png">
             <ShellContent Title="Profile"

@@ -27,8 +27,14 @@ namespace Stulio
             // Services
             builder.Services.AddSingleton<IStudentService, StudentService>();
             builder.Services.AddSingleton<IAcademicAchievementsService, AcademicAchievementservice>();
+            builder.Services.AddSingleton<IClubsAndOrganizationsService, ClubsAndOrganizationsService>();
+            builder.Services.AddSingleton<IAthleticParticipationService, AthleticParticipationService>();
+            builder.Services.AddSingleton<ICommunityServiceService, CommunityServiceService>();
+            builder.Services.AddSingleton<IUserService, UserService>();
 
             builder.Services.AddSingleton<LoginPage>();
+            builder.Services.AddSingleton<SignUpPage>();
+
             //Views Registration
             builder.Services.AddSingleton<ProfilePage>();
             builder.Services.AddSingleton<StudentListPage>();
@@ -36,8 +42,14 @@ namespace Stulio
             builder.Services.AddSingleton<AboutMe>();
             builder.Services.AddSingleton<AcademicAchievements>();
             builder.Services.AddSingleton<AddUpdateAcademicAchievements>();
+            builder.Services.AddSingleton<ClubsAndOrganizationsView>();
+            builder.Services.AddSingleton<AddUpdateClubsAndOrganizations>();
+            builder.Services.AddSingleton<AthleticParticipationView>();
+            builder.Services.AddSingleton<AddUpdateAthleticParticipation>();
+            builder.Services.AddSingleton<CommunityServiceView>();
+            builder.Services.AddSingleton<AddUpdateCommunityService>();
 
-            
+
 
             //View Modles 
             builder.Services.AddSingleton<StudentListPageViewModel>();
@@ -46,7 +58,13 @@ namespace Stulio
             builder.Services.AddSingleton<AddUpdateStudentViewModel>();
             builder.Services.AddSingleton<AcademicAchievementsViewModel>();
             builder.Services.AddSingleton<AddUpdateAcademicAchievementsViewModel>();
-            
+            builder.Services.AddSingleton<ClubsAndOrganizationsViewModel>();
+            builder.Services.AddSingleton<AddUpdateClubsAndOrganizationsViewModel>();
+            builder.Services.AddSingleton<AthleticParticipationViewModel>();
+            builder.Services.AddSingleton<AddUpdateAthleticParticipationViewModel>();
+            builder.Services.AddSingleton<CommunityServiceViewModel>();
+            builder.Services.AddSingleton< AddUpdateCommunityServiceViewModel > ();
+            builder.Services.AddSingleton<UserViewModel>();
 
 
 

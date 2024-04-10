@@ -9,9 +9,10 @@ namespace Stulio
         {
             InitializeComponent();
 
-            MainPage = new AppShell();
+            //MainPage = new AppShell();
             //MainPage = new StudentHomePage();
-            //MainPage = new LoginPage(); 
+            //MainPage = new LoginPage();
+            MainPage = new NavigationPage(new LoginPage());
             //MainPage = new NavigationPage(new ProfilePage());
 
         }

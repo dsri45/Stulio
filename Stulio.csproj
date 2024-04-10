@@ -1,5 +1,4 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
-
 	<PropertyGroup>
 		<TargetFrameworks>net8.0-android;net8.0-ios;net8.0-maccatalyst</TargetFrameworks>
 		<TargetFrameworks Condition="$([MSBuild]::IsOSPlatform('windows'))">$(TargetFrameworks);net8.0-windows10.0.19041.0</TargetFrameworks>
@@ -77,6 +76,15 @@
 	  <Compile Update="Views\AddUpdateAcademicAchievements.xaml.cs">
 	    <DependentUpon>AddUpdateAcademicAchievements.xaml</DependentUpon>
 	  </Compile>
+	  <Compile Update="Views\AddUpdateAthleticParticipation.xaml.cs">
+	    <DependentUpon>AddUpdateAthleticParticipation.xaml</DependentUpon>
+	  </Compile>
+	  <Compile Update="Views\AddUpdateCommunityService.xaml.cs">
+	    <DependentUpon>AddUpdateCommunityService.xaml</DependentUpon>
+	  </Compile>
+	  <Compile Update="Views\AthleticParticipationView.xaml.cs">
+	    <DependentUpon>AthleticParticipationView.xaml</DependentUpon>
+	  </Compile>
 	</ItemGroup>
 
 	<ItemGroup>
@@ -92,10 +100,19 @@
 	  <MauiXaml Update="Views\AddUpdateAcademicAchievements.xaml">
 	    <Generator>MSBuild:Compile</Generator>
 	  </MauiXaml>
+	  <MauiXaml Update="Views\AddUpdateAthleticParticipation.xaml">
+	    <Generator>MSBuild:Compile</Generator>
+	  </MauiXaml>
+	  <MauiXaml Update="Views\AddUpdateCommunityService.xaml">
+	    <Generator>MSBuild:Compile</Generator>
+	  </MauiXaml>
+	  <MauiXaml Update="Views\AddUpdateClubsAndOrganizations.xaml">
+	    <Generator>MSBuild:Compile</Generator>
+	  </MauiXaml>
 	  <MauiXaml Update="Views\AddUpdateStudentDetail.xaml">
 	    <Generator>MSBuild:Compile</Generator>
 	  </MauiXaml>
-	  <MauiXaml Update="Views\AtheleticParticipationView.xaml">
+	  <MauiXaml Update="Views\AthleticParticipationView.xaml">
 	    <Generator>MSBuild:Compile</Generator>
 	  </MauiXaml>
 	  <MauiXaml Update="Views\ClubsAndOrganizationsView.xaml">
@@ -114,6 +131,9 @@
 	    <Generator>MSBuild:Compile</Generator>
 	  </MauiXaml>
 	  <MauiXaml Update="Views\SettingsPage.xaml">
+	    <Generator>MSBuild:Compile</Generator>
+	  </MauiXaml>
+	  <MauiXaml Update="Views\SignUpPage.xaml">
 	    <Generator>MSBuild:Compile</Generator>
 	  </MauiXaml>
 	  <MauiXaml Update="Views\StudentListPage.xaml">
