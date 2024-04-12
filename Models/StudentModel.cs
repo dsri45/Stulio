@@ -9,7 +9,7 @@ namespace Stulio.Models
 {
     public class StudentModel
     {
-        [PrimaryKey, AutoIncrement]
+        [PrimaryKey]
         public int StudentID { get; set; }
         public string FirstName { get; set; }
         public string LastName { get; set; }

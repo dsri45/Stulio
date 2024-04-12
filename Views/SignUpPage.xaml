@@ -22,23 +22,33 @@
         </VerticalStackLayout>
 
         <VerticalStackLayout>
-            <Label Text="User Name"  />
-            <Entry Text="{Binding User.Username}" Placeholder="User Name" />
+            <Label Text="First Name"  />
+            <Entry Text="{Binding UserDetail.FirstName}" Placeholder="First Name" />
         </VerticalStackLayout>
 
         <VerticalStackLayout>
-            <Label Text="Password" />
-            <Entry  Text="{Binding Password,Mode=TwoWay}" Placeholder="Password" />
+            <Label Text="Last Name" />
+            <Entry  Text="{Binding UserDetail.LastName}" Placeholder="Last Name" />
         </VerticalStackLayout>
 
         <VerticalStackLayout>
             <Label Text="Email" />
-            <Entry Text="{Binding User.Email}" Placeholder="Email" />
+            <Entry Text="{Binding UserDetail.Email}" Placeholder="Email" />
         </VerticalStackLayout>
 
         <VerticalStackLayout>
             <Label Text="School Name" />
-            <Entry Text="{Binding User.SchoolName}" Placeholder="School Name" />
+            <Entry Text="{Binding UserDetail.SchoolName}" Placeholder="School Name" />
+        </VerticalStackLayout>
+
+        <VerticalStackLayout>
+            <Label Text="User Name"  />
+            <Entry Text="{Binding UserDetail.Username}" Placeholder="User Name" />
+        </VerticalStackLayout>
+
+        <VerticalStackLayout>
+            <Label Text="Password" />
+            <Entry  Text="{Binding UserDetail.Password,Mode=TwoWay}" Placeholder="Password" />
         </VerticalStackLayout>
 
         <Button Text="Sign Up" Command="{Binding AddUpdateUserCommand}"/>

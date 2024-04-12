@@ -11,6 +11,7 @@ using System.Threading.Tasks;
 
 namespace Stulio.ViewModels
 {
+
     [QueryProperty(nameof(UserDetail), "UserDetail")]
     public partial class UserViewModel : ObservableObject
     {
@@ -27,7 +28,10 @@ namespace Stulio.ViewModels
         public async void AddUpdateUser()
         {
             int response = -1;
-            if (UserDetail.UserId > 0)
+            StudentService studentService = new StudentService();
+            StudentModel studentModel = new StudentModel(); 
+            var userExists = await _userService.LoadUserByUserName(UserDetail.Username,UserDetail.Password);
+            if (userExists.Username == UserDetail.Username)
             {
                 response = await _userService.UpdateUser(UserDetail);
             }
@@ -35,19 +39,28 @@ namespace Stulio.ViewModels
             {
                 response = await _userService.AddUser(new Models.UserModel
                 {
-                    UserId = UserDetail.UserId,
-                    Password = UserDetail.Password,
+                    FirstName = UserDetail.FirstName, 
+                    LastName = UserDetail.LastName,  
                     Email = UserDetail.Email,
-                    SchoolName = UserDetail.SchoolName              
+                    SchoolName = UserDetail.SchoolName,
+                    Username = UserDetail.Username,
+                    Password = UserDetail.Password
                 });
             }
-
-
-
             if (response > 0)
             {
-                //await Shell.Current.DisplayAlert("Student Info Saved", "Record Saved", "OK");
-                await Shell.Current.GoToAsync("..");
+                var studentID = Preferences.Get("UserID", 1);
+                studentService.AddStudent(new Models.StudentModel
+                {
+                     
+                    StudentID = studentID,
+                    FirstName = UserDetail.FirstName,
+                    LastName = UserDetail.LastName,
+                    Email = UserDetail.Email,
+
+                });
+
+                App.Current.MainPage = new AppShell();
             }
             else
             {

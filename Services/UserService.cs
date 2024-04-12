@@ -7,6 +7,7 @@ using System.Text;
 using System.Threading.Tasks;
 
 
+
 namespace Stulio.Services
 {
     public class UserService : IUserService
@@ -19,9 +20,9 @@ namespace Stulio.Services
             {
 
 
-                string dbPath = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.LocalApplicationData), "Student.db3");
+                string dbPath = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.LocalApplicationData), "Student1.db3");
                 //string dbPath = @"C:\Users\dhana\AppData\Local\Student.db3";
-                _dbConnection = new SQLiteAsyncConnection(dbPath);
+                 _dbConnection = new SQLiteAsyncConnection(dbPath);
                 await _dbConnection.CreateTableAsync<UserModel>();
             }
         }
@@ -29,7 +30,10 @@ namespace Stulio.Services
         public async Task<int> AddUser(UserModel UserModel)
         {
             await SetUpDb();
-            return await _dbConnection.InsertAsync(UserModel);
+            await _dbConnection.CreateTableAsync<UserModel>();
+            await _dbConnection.InsertAsync(UserModel);
+            Preferences.Set("UserID", UserModel.UserId);
+            return UserModel.UserId;
         }
 
         public async Task<int> DeleteUser(UserModel UserModel)
@@ -71,6 +75,41 @@ namespace Stulio.Services
             return user;
         }
 
+        public async Task<UserModel> LoadUserByUserName(string UserName, string Password)
+        {
+            try
+            {
+                await SetUpDb();
+                var user = await _dbConnection.Table<UserModel>().Where(s => s.Username == UserName && s.Password == Password).FirstOrDefaultAsync();
+                if (user == null)
+                {
+
+                    user = new UserModel
+                    {
+                        UserId = 1, // Default ID
+                        Username = "Dhanasri",
+                        Password = "Prabhu",
+                        Email = "DhansriPrabhu03@gmail.com",
+                        SchoolName = "425 606 9993",
+                    };
+
+
+                }
+
+                // Save UserID
+                Preferences.Set("UserID", user.UserId);
+
+                
+                return user;
+            }
+            catch (Exception ex)
+            {
+                // Handle exceptions, such as database connectivity issues or SQL syntax errors
+                Console.WriteLine($"Error: {ex.Message}");
+                return null;
+            }
+        }
+        
         public async Task<int> UpdateUser(UserModel userModel)
         {
             await SetUpDb();

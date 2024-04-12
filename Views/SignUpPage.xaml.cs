@@ -4,9 +4,11 @@ namespace Stulio.Views;
 
 public partial class SignUpPage : ContentPage
 {
-	public SignUpPage(UserViewModel viewModel)
+    private UserViewModel _viewMode;
+    public SignUpPage(UserViewModel viewModel)
 	{
 		InitializeComponent();
+        _viewMode = viewModel;
         this.BindingContext = viewModel;
     }
 }

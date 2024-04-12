@@ -29,7 +29,8 @@ namespace Stulio.ViewModels
         [RelayCommand]
         public async void LoadByStudentID()
         {
-            StudentDetail = await _studentService.LoadStudentByID(1);
+            int UserID = Preferences.Get("UserID",1);
+            StudentDetail = await _studentService.LoadStudentByID(UserID);
 
         }
 

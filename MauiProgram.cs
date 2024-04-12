@@ -48,6 +48,7 @@ namespace Stulio
             builder.Services.AddSingleton<AddUpdateAthleticParticipation>();
             builder.Services.AddSingleton<CommunityServiceView>();
             builder.Services.AddSingleton<AddUpdateCommunityService>();
+            builder.Services.AddSingleton<LoginPage>();
 
 
 
@@ -65,6 +66,7 @@ namespace Stulio
             builder.Services.AddSingleton<CommunityServiceViewModel>();
             builder.Services.AddSingleton< AddUpdateCommunityServiceViewModel > ();
             builder.Services.AddSingleton<UserViewModel>();
+            builder.Services.AddSingleton<LoginPageViewModel>();
 
 
 

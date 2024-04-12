@@ -15,6 +15,7 @@ namespace Stulio.Services
         Task<List<UserModel>> GetUserList();
         Task<int> AddUser(UserModel userModel);
         Task<UserModel> LoadUserByID(int UserID);
+        Task<UserModel> LoadUserByUserName(string UserName, string Password);
         Task<int> DeleteUser(UserModel userModel);
         Task<int> UpdateUser(UserModel userModel);
 

@@ -17,13 +17,16 @@ namespace Stulio.Views
         protected override void OnAppearing()
         {
             base.OnAppearing();
-            _viewMode.LoadByStudentIDCommand.Execute(null);
+          
+            // Retrieve UserID
+            var UserID = Preferences.Get("UserID", 1);
+
+            _viewMode.LoadByStudentIDCommand.Execute(UserID);
 
             //// Save student ID after successful login
             //Application.Current.Properties["StudentID"] = yourStudentID;
 
-            //// Retrieve student ID elsewhere in the app
-            //var studentID = (string)Application.Current.Properties["StudentID"];
+           
         }
         private void CloseAboutMe(object sender, EventArgs e)
         {

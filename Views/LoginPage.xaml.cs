@@ -9,59 +9,77 @@ namespace Stulio.Views;
 
 public partial class LoginPage : ContentPage
 {
-    public LoginPage()
+
+    private LoginPageViewModel _viewMode;
+    public LoginPage(LoginPageViewModel viewModel)
     {
         InitializeComponent();
+        _viewMode = viewModel;
+        this.BindingContext = viewModel;
     }
 
-    protected override bool OnBackButtonPressed()
-    {
-        Application.Current.Quit();
-        return true;
-    }
+    //public LoginPage()
+    //{
+    //    InitializeComponent();
+    //}
 
-    private async void LoginButton_Clicked(object sender, EventArgs e)
-    {
-        if (IsCredentialCorrect(Username.Text, Password.Text))
-        {
-            //await SecureStorage.SetAsync("hasAuth", "true");
-            //profilePageViewModel.LoadByStudentID()
-            //StudentService studentService = new StudentService();
-            //ProfilePageViewModel profilePageViewModel = new ProfilePageViewModel(studentService);
-            //await App.Current.MainPage.Navigation.PushAsync(new ProfilePage(profilePageViewModel));
-            //await Shell.Current.GoToAsync("ProfilePage");
-            //await Navigation.PushAsync(new ProfilePage());
-            App.Current.MainPage = new AppShell();
+    //protected override bool OnBackButtonPressed()
+    //{
+    //    Application.Current.Quit();
+    //    return true;
+    //}
 
-
-        }
-        else
-        {
-            await DisplayAlert("Login failed", "Uusername or password if invalid", "Try again");
-        }
-    }
+    //private async void LoginButton_Clicked(object sender, EventArgs e)
+    //{
+    //    if (IsCredentialCorrect(Username.Text, Password.Text))
+    //    {
+    //        App.Current.MainPage = new AppShell();
+    //    }
+    //    else
+    //    {
+    //        await DisplayAlert("Login failed", "Uusername or password if invalid", "Try again");
+    //    }
+    //}
 
 
-    bool IsCredentialCorrect(string username, string password)
-    {
-        return Username.Text == "admin" && Password.Text == "1234";
-    }
+    //bool IsCredentialCorrect(string username, string password)
+    //{
+    //    UserService userService = new UserService();
+    //    UserModel user = userService.LoadUserByUserName(username, password).Result;
+    //    return user.Username.Equals(username);
+    //    //return Username.Text == "admin" && Password.Text == "1234";
+
+        
+    //}
 
     private async void SignUpButton_Clicked(object sender, EventArgs e)
     {
         // Navigate to sign-up page
-       // var userViewModel = new UserViewModel();
-       // await Navigation.PushAsync(new SignUpPage(userViewModel));
+        UserService userservice = new UserService();
+        var userViewModel = new UserViewModel(userservice);
+        await Navigation.PushAsync(new SignUpPage(userViewModel));
 
         //var navParam = new Dictionary<string, object>();
         //UserModel user = new UserModel();
         //navParam.Add("UserDetail", user);
         //await AppShell.Current.GoToAsync(nameof(SignUpPage), navParam);
 
-        await Share.Default.RequestAsync(new ShareTextRequest
-        {
-            Uri = "https://example.com",
-            Title = "Share Web Link"
-        });
+        //await Share.Default.RequestAsync(new ShareTextRequest
+        //{
+        //    Uri = "https://google.com",
+        //    Title = "Share Web Link"
+        //});
+
+        //string fileName = "signup4.png"; // Replace with your image file name
+        //string filePath = Path.Combine(FileSystem.CacheDirectory, fileName);
+
+        //// Write your image data to the file (e.g., download it from a URL)
+        //// ...
+
+        //await Share.Default.RequestAsync(new ShareFileRequest
+        //{
+        //    Title = "Share Image",
+        //    File = new ShareFile(filePath)
+        //});
     }
 }
