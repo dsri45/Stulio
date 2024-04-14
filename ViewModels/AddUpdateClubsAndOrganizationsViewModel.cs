@@ -28,7 +28,7 @@ namespace Stulio.ViewModels
         public async void UpdateClubsAndOrganizations()
         {
             int response = -1;
-            if (ClubsAndOrganizations.AcademicId > 0)
+            if (ClubsAndOrganizations.ClubId > 0)
             {
                 response = await _Service.UpdateClubsAndOrganizations(ClubsAndOrganizations);
             }
@@ -36,7 +36,7 @@ namespace Stulio.ViewModels
             {
                 response = await _Service.AddClubsAndOrganizations(new Models.ClubsAndOrganizationsModel
                 {
-                    AcademicId = ClubsAndOrganizations.AcademicId,
+                    ClubId = ClubsAndOrganizations.ClubId,
                     StudentID = ClubsAndOrganizations.StudentID,
                     ClubName = ClubsAndOrganizations.ClubName,
                     ParticpatedYears = ClubsAndOrganizations.ParticpatedYears,

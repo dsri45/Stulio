@@ -13,7 +13,7 @@ namespace Stulio.Services
     {
         Task<List<CommunityServiceModel>> GetCommunityServiceList();
         Task<int> AddCommunityService(CommunityServiceModel communityServiceModel);
-        Task<CommunityServiceModel> LoadCommunityServiceByID(int studentID);
+        Task<CommunityServiceModel> LoadCommunityServiceByID(int studentID, int communityId);
         Task<int> DeleteCommunityService(CommunityServiceModel communityServiceModel);
         Task<int> UpdateCommunityService(CommunityServiceModel communityServiceModel);
 

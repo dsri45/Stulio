@@ -37,7 +37,7 @@ namespace Stulio.ViewModels
                 response = await _Service.AddAcademicAchievements(new Models.AcademicAchievementsModel
                 {
                     AcademicId = AcademicAchievements.AcademicId,
-                    StudentID = AcademicAchievements.StudentID,
+                    StudentID = Preferences.Get("UserID", 1),
                     DateAchived = AcademicAchievements.DateAchived,
                     Award = AcademicAchievements.Award,
                     Class = AcademicAchievements.Class,

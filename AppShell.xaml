@@ -43,7 +43,11 @@
              ContentTemplate="{DataTemplate views:StudentListPage}" />
         
         </Tab>
-       
+        <Tab Title="Logout" Icon="lightbulb.png">
+            <ShellContent Title="Logout"
+            ContentTemplate="{DataTemplate views:StudentListPage}" />
+
+        </Tab>
 
 
     </FlyoutItem>

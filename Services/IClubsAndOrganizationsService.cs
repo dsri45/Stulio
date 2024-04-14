@@ -13,7 +13,7 @@ namespace Stulio.Services
     {
         Task<List<ClubsAndOrganizationsModel>> GetClubsAndOrganizationsList();
         Task<int> AddClubsAndOrganizations(ClubsAndOrganizationsModel clubsAndOrganizationsModel);
-        Task<ClubsAndOrganizationsModel> LoadClubsAndOrganizationsByID(int studentID);
+        Task<ClubsAndOrganizationsModel> LoadClubsAndOrganizationsByID(int studentID, int clubId);
         Task<int> DeleteClubsAndOrganizations(ClubsAndOrganizationsModel clubsAndOrganizationsModel);
         Task<int> UpdateClubsAndOrganizations(ClubsAndOrganizationsModel clubsAndOrganizationsModel);
 

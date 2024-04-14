@@ -2,6 +2,9 @@
 <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="Stulio.Views.AddUpdateAcademicAchievements"
+             xmlns:viewModels="clr-namespace:Stulio.ViewModels"
+             x:DataType="viewModels:AddUpdateAcademicAchievementsViewModel"
+             xmlns:models="clr-namespace:Stulio.Models"
              Title="Update Academic Achievements">
     <ContentPage.Resources> 
         <ResourceDictionary>
@@ -12,6 +15,14 @@
         </ResourceDictionary>
     </ContentPage.Resources>
     <StackLayout Margin="10" Spacing="15">
+        <VerticalStackLayout>
+            <Label Text="ID" />
+            <Entry  Text="{Binding AcademicAchievements.AcademicId}" Placeholder="academicid" />
+        </VerticalStackLayout>
+        <VerticalStackLayout>
+            <Label Text="SID" />
+            <Entry  Text="{Binding AcademicAchievements.StudentID}" Placeholder="studentid" />
+        </VerticalStackLayout>
         <VerticalStackLayout>
             <Label Text="Award" />
             <Entry  Text="{Binding AcademicAchievements.Award}" Placeholder="Award" />

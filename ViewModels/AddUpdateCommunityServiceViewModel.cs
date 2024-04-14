@@ -28,7 +28,8 @@ namespace Stulio.ViewModels
         public async void UpdateCommunityService()
         {
             int response = -1;
-            if (CommunityService.AcademicId > 0)
+           
+            if (CommunityService.CommunityId > 0)
             {
                 response = await _Service.UpdateCommunityService(CommunityService);
             }
@@ -36,8 +37,8 @@ namespace Stulio.ViewModels
             {
                 response = await _Service.AddCommunityService(new Models.CommunityServiceModel
                 {
-                    AcademicId = CommunityService.AcademicId,
-                    StudentID = CommunityService.StudentID,
+                    CommunityId = CommunityService.CommunityId,
+                    StudentID = Preferences.Get("UserID", 1),
                     ServiceName = CommunityService.ServiceName,
                     ParticpatedYears = CommunityService.ParticpatedYears,
                     VoulnteeredHours = CommunityService.VoulnteeredHours,

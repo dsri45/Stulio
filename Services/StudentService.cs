@@ -19,7 +19,7 @@ namespace Stulio.Services
             {
 
 
-                string dbPath = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.LocalApplicationData), "Student.db3");
+                string dbPath = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.LocalApplicationData), "Student2.db3");
                 //string dbPath = @"C:\Users\dhana\AppData\Local\Student.db3";
                 _dbConnection = new SQLiteAsyncConnection(dbPath);
                 await _dbConnection.CreateTableAsync<StudentModel>();

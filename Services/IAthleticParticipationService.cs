@@ -13,7 +13,7 @@ namespace Stulio.Services
     {
         Task<List<AthleticParticipationModel>> GetAthleticParticipationList();
         Task<int> AddAthleticParticipation(AthleticParticipationModel athleticParticipationModel);
-        Task<AthleticParticipationModel> LoadAthleticParticipationByID(int studentID);
+        Task<AthleticParticipationModel> LoadAthleticParticipationByID(int studentID, int atheleticId);
         Task<int> DeleteAthleticParticipation(AthleticParticipationModel athleticParticipationModel);
         Task<int> UpdateAthleticParticipation(AthleticParticipationModel athleticParticipationModel);
 

@@ -17,7 +17,7 @@ namespace Stulio.Services
         {
             if (_dbConnection == null)
             {
-                string dbPath = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.LocalApplicationData), "Student.db3");
+                string dbPath = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.LocalApplicationData), "Student2.db3");
                 //string dbPath = @"C:\Users\dhana\AppData\Local\Student.db3";
                 _dbConnection = new SQLiteAsyncConnection(dbPath);
                 await _dbConnection.CreateTableAsync<CommunityServiceModel>();
@@ -44,10 +44,10 @@ namespace Stulio.Services
             return communityServiceList;
         }
 
-        public async Task<CommunityServiceModel> LoadCommunityServiceByID(int studentID)
+        public async Task<CommunityServiceModel> LoadCommunityServiceByID(int studentID, int communityId)
         {
             await SetUpDb();
-            var communityService = await _dbConnection.Table<CommunityServiceModel>().Where(s => s.StudentID == studentID).FirstOrDefaultAsync();
+            var communityService = await _dbConnection.Table<CommunityServiceModel>().Where(s => s.StudentID == studentID && s.CommunityId == communityId).FirstOrDefaultAsync();
             if (communityService == null)
             {
 

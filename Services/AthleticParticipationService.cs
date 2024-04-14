@@ -17,7 +17,7 @@ namespace Stulio.Services
         {
             if (_dbConnection == null)
             {
-                string dbPath = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.LocalApplicationData), "Student.db3");
+                string dbPath = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.LocalApplicationData), "Student2.db3");
                 //string dbPath = @"C:\Users\dhana\AppData\Local\Student.db3";
                 _dbConnection = new SQLiteAsyncConnection(dbPath);
                 await _dbConnection.CreateTableAsync<AthleticParticipationModel>();
@@ -44,10 +44,10 @@ namespace Stulio.Services
             return athleticParticipationList;
         }
 
-        public async Task<AthleticParticipationModel> LoadAthleticParticipationByID(int studentID)
+        public async Task<AthleticParticipationModel> LoadAthleticParticipationByID(int studentID, int atheleticId)
         {
             await SetUpDb();
-            var athleticParticipation = await _dbConnection.Table<AthleticParticipationModel>().Where(s => s.StudentID == studentID).FirstOrDefaultAsync();
+            var athleticParticipation = await _dbConnection.Table<AthleticParticipationModel>().Where(s => s.StudentID == studentID && s.AthleticId == atheleticId).FirstOrDefaultAsync();
             if (athleticParticipation == null)
             {
 

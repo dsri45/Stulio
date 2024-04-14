@@ -19,7 +19,7 @@ namespace Stulio.Services
             {
 
 
-                string dbPath = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.LocalApplicationData), "Student.db3");
+                string dbPath = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.LocalApplicationData), "Student2.db3");
                 //string dbPath = @"C:\Users\dhana\AppData\Local\Student.db3";
                 _dbConnection = new SQLiteAsyncConnection(dbPath);
                 await _dbConnection.CreateTableAsync<AcademicAchievementsModel>();
@@ -44,16 +44,17 @@ namespace Stulio.Services
             var academicAchievementsList = await _dbConnection.Table<AcademicAchievementsModel>().ToListAsync();
             return academicAchievementsList;
         }
-        public async Task<AcademicAchievementsModel> LoadAcademicAchievementsByID(int studentID)
+        public async Task<AcademicAchievementsModel> LoadAcademicAchievementsByID(int studentID, int AcademicId)
         {
             await SetUpDb();
-            var academicAchievements = await _dbConnection.Table<AcademicAchievementsModel>().Where(s => s.StudentID == studentID).FirstOrDefaultAsync();
+            var academicAchievements = await _dbConnection.Table<AcademicAchievementsModel>().Where(s => s.StudentID == studentID && s.AcademicId==AcademicId).FirstOrDefaultAsync();
             if(academicAchievements == null)
             {
 
                 academicAchievements = new AcademicAchievementsModel
                 {
                     StudentID = 1, // Default ID
+                    AcademicId = 1,
                     DateAchived= "",
                     Award = "",
                     Class = ""
