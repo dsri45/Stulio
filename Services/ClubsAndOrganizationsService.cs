@@ -54,6 +54,7 @@ namespace Stulio.Services
                 clubsAndOrganizations = new ClubsAndOrganizationsModel
                 {
                     StudentID = 1, // Default ID
+                    ClubId = 1,
                     ClubName = "",
                     ParticpatedYears = "",
                     Role = "",

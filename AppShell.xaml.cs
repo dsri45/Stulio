@@ -16,10 +16,14 @@ namespace Stulio
             Routing.RegisterRoute(nameof(ClubsAndOrganizationsView), typeof(ClubsAndOrganizationsView));
             Routing.RegisterRoute(nameof(AthleticParticipationView), typeof(AthleticParticipationView));
             Routing.RegisterRoute(nameof(CommunityServiceView), typeof(CommunityServiceView));
+            Routing.RegisterRoute(nameof(WorkExperienceView), typeof(WorkExperienceView));
+            Routing.RegisterRoute(nameof(AdditionalInvolvementsView), typeof(AdditionalInvolvementsView));
             Routing.RegisterRoute(nameof(AddUpdateAcademicAchievements), typeof(AddUpdateAcademicAchievements));
             Routing.RegisterRoute(nameof(AddUpdateClubsAndOrganizations), typeof(AddUpdateClubsAndOrganizations));
             Routing.RegisterRoute(nameof(AddUpdateAthleticParticipation), typeof(AddUpdateAthleticParticipation));
             Routing.RegisterRoute(nameof(AddUpdateCommunityService), typeof(AddUpdateCommunityService));
+            Routing.RegisterRoute(nameof(AddUpdateWorkExperience), typeof(AddUpdateWorkExperience));
+            Routing.RegisterRoute(nameof(AddUpdateAdditionalInvolvements), typeof(AddUpdateAdditionalInvolvements));
             Routing.RegisterRoute("settings", typeof(SettingsPage));
 
         }

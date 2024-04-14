@@ -30,6 +30,8 @@ namespace Stulio
             builder.Services.AddSingleton<IClubsAndOrganizationsService, ClubsAndOrganizationsService>();
             builder.Services.AddSingleton<IAthleticParticipationService, AthleticParticipationService>();
             builder.Services.AddSingleton<ICommunityServiceService, CommunityServiceService>();
+            builder.Services.AddSingleton< IWorkExperienceService, WorkExperienceService>();
+            builder.Services.AddSingleton<IAdditionalInvolvementsService, AdditionalInvolvementsService>();
             builder.Services.AddSingleton<IUserService, UserService>();
 
             builder.Services.AddSingleton<LoginPage>();
@@ -48,6 +50,10 @@ namespace Stulio
             builder.Services.AddSingleton<AddUpdateAthleticParticipation>();
             builder.Services.AddSingleton<CommunityServiceView>();
             builder.Services.AddSingleton<AddUpdateCommunityService>();
+            builder.Services.AddSingleton<WorkExperienceView>();
+            builder.Services.AddSingleton<AddUpdateWorkExperience>();
+            builder.Services.AddSingleton<AdditionalInvolvementsView>();
+            builder.Services.AddSingleton<AddUpdateAdditionalInvolvements>();
             builder.Services.AddSingleton<LoginPage>();
 
 
@@ -64,7 +70,11 @@ namespace Stulio
             builder.Services.AddSingleton<AthleticParticipationViewModel>();
             builder.Services.AddSingleton<AddUpdateAthleticParticipationViewModel>();
             builder.Services.AddSingleton<CommunityServiceViewModel>();
-            builder.Services.AddSingleton< AddUpdateCommunityServiceViewModel > ();
+            builder.Services.AddSingleton<AddUpdateCommunityServiceViewModel > ();
+            builder.Services.AddSingleton<WorkExperienceViewModel>();
+            builder.Services.AddSingleton<AddUpdateWorkExperienceViewModel>();
+            builder.Services.AddSingleton<AdditionalInvolvementsViewModel>();
+            builder.Services.AddSingleton<AddUpdateAdditionalInvolvementsViewModel>();
             builder.Services.AddSingleton<UserViewModel>();
             builder.Services.AddSingleton<LoginPageViewModel>();
 

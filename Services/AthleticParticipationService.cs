@@ -53,7 +53,8 @@ namespace Stulio.Services
 
                 athleticParticipation = new AthleticParticipationModel
                 {
-                    StudentID = 1, // Default ID
+                    StudentID = 1, // Default ID,
+                    AthleticId = 1,
                     Sport = "",
                     Role = "",
                     ParticpatedYears = "",

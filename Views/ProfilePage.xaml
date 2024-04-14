@@ -170,9 +170,9 @@
                                   Command= "{Binding EnterAthleticParticipationCommand}"
                                   Margin="4,0,5,10" />
 
-                        <!-- Projects -->
+                        <!-- Work Experience -->
                         <Button Grid.Row="2" Grid.Column="1"
-                                Text="Projects"
+                                Text="Work Experience"
                                 ImageSource="projects_icon.png"
                                 LineBreakMode="WordWrap"
                                 FontAttributes="Bold"
@@ -186,6 +186,7 @@
                                 BorderWidth="4"
                                 CornerRadius="5"
                                 HorizontalOptions="FillAndExpand" 
+                                 Command= "{Binding EnterWorkExperienceCommand}"
                                 Margin="4,0,5,10"/>
 
 
@@ -201,12 +202,13 @@
                                 FontFamily="regular"
                                 WidthRequest="165"
                                 HeightRequest="100"
-                                TextColor="#6C35FF"
-                                BorderColor="#6C35FF"
+                                TextColor="#c9554d"
+                                BorderColor="#c9554d"
                                 BorderWidth="4"
                                 CornerRadius="5"
                                 HorizontalOptions="FillAndExpand" 
                                 ContentLayout="Right,10"
+                                 Command= "{Binding EnterAdditionalInvolvementsCommand}"
                                 Margin="4,0,5,10"/>
                     </Grid>
                 </StackLayout>      

@@ -1,0 +1,111 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+          xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+          xmlns:models="clr-namespace:Stulio.Models"
+          xmlns:searchHandlers="clr-namespace:Stulio.SearchHandlers"
+          xmlns:viewModels="clr-namespace:Stulio.ViewModels"
+          x:DataType="viewModels:AdditionalInvolvementsViewModel"
+          x:Class="Stulio.Views.AdditionalInvolvementsView"
+          BackgroundColor="#c9554d">
+
+    <Grid RowDefinitions=".23*,.7*">
+        <VerticalStackLayout Spacing="10">
+            <Label Margin="0,20,0,0"
+                FontAttributes="Bold"
+                FontFamily="bold"
+                Text="ADDITIONAL INVOLVEMENTS"
+                FontSize="28"
+                HorizontalTextAlignment="Center"
+                VerticalTextAlignment="Center"
+                TextColor="White"/>
+            <Grid Margin="25,0,0,0" ColumnDefinitions="Auto,*">
+                <Label
+                 Margin="10,0,0,0"
+                 FontFamily="regular"
+                 Text= "Discover your passion by getting involved in clubs!"
+                 FontSize="16"
+                 TextColor="White"
+                 HorizontalTextAlignment="Center"
+                 VerticalTextAlignment="Center"/>
+                <Button Text="Add Involvement" 
+                     Command="{Binding AddUpdateAdditionalInvolvementsCommand}" 
+                     TextColor="#c9554d"
+                     BorderColor="#c9554d"
+                     BorderWidth="4" 
+                     BackgroundColor="White"
+                     FontSize="16"/>
+            </Grid>
+        </VerticalStackLayout>
+
+        <Grid Grid.Row="1">
+
+            <RoundRectangle BackgroundColor="White"  CornerRadius="25,25,0,0"/>
+
+            <CollectionView ItemsSource="{Binding AdditionalInvolvements}">
+                <CollectionView.ItemsLayout>
+                    <LinearItemsLayout ItemSpacing="15" Orientation="Vertical"/>
+                </CollectionView.ItemsLayout>
+                <CollectionView.ItemTemplate>
+                    <DataTemplate x:DataType="models:AdditionalInvolvementsModel">
+                        <SwipeView>
+                            <SwipeView.LeftItems>
+                                <SwipeItems>
+                                    <SwipeItem Text="Edit" IconImageSource="edit.png" BackgroundColor="LightBlue"  
+                                    CommandParameter="{Binding .}"
+                                    Command="{Binding Source={x:RelativeSource AncestorType={x:Type viewModels:AdditionalInvolvementsViewModel}},Path=EditAdditionalInvolvementsCommand}" />
+                                    <SwipeItem Text="Delete" IconImageSource="delete.png" BackgroundColor="Red"  CommandParameter="{Binding .}"
+                                    Command="{Binding Source={x:RelativeSource AncestorType={x:Type viewModels:AdditionalInvolvementsViewModel}},Path=DeleteAdditionalInvolvementsCommand}" />
+                                </SwipeItems>
+                            </SwipeView.LeftItems>
+                            <Grid Padding="20,20,20,0">
+
+                                <RoundRectangle  Grid.RowSpan="2"
+                                             Background="#c9554d"
+                                             Opacity="0.2"
+                                             CornerRadius="10">
+                                    <RoundRectangle.Shadow>
+                                        <Shadow Brush="#CFD0D4"
+                                             Opacity=" 0.8"
+                                             Offset="10,10"/>
+                                    </RoundRectangle.Shadow>
+                                </RoundRectangle>
+
+                                <StackLayout Margin="10,10,10,10" Padding="10" >
+                                    <Label TextColor="Black"
+                                     FontAttributes="Bold"
+                                     FontSize="18"
+                                     VerticalOptions="Start"
+                                     Margin="0,0,0,0"
+                                     Text="{Binding ActivityName}"/>
+                                    <Label TextColor="Black"
+                                     FontAttributes="Bold"
+                                     FontSize="13"
+                                     VerticalOptions="Start"
+                                     Margin="0,0,0,0"
+                                     Text="{Binding Role}"/> 
+                                    <Label TextColor="Black"
+                                     FontAttributes="Bold"
+                                     FontSize="13"
+                                     VerticalOptions="Start"
+                                     Margin="0,0,0,0"
+                                     Text="{Binding ParticpatedYears}"/>
+                                    <Label Text="{Binding Description}" TextColor="Black"  FontSize="12" LineBreakMode="WordWrap" Margin="0,6,0,0"/>
+                                    <Label Text="{Binding Achivements}" TextColor="Black"  FontSize="12" LineBreakMode="WordWrap" Margin="0,6,0,0"/>
+                                    
+                                </StackLayout>
+
+                            </Grid>
+
+                        </SwipeView>
+
+                    </DataTemplate>
+
+                </CollectionView.ItemTemplate>
+
+            </CollectionView>
+
+
+        </Grid>
+
+    </Grid>
+</ContentPage>

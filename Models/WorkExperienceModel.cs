@@ -6,13 +6,13 @@ using System.Threading.Tasks;
 
 namespace Stulio.Models
 {
-    public class OtherExtracurriculars
+    public class WorkExperienceModel
     {
-        public string ActivityName { get; set; }
-        public string ParticpatedYears { get; set; }
+        public int WorkId { get; set; }
+        public int StudentID { get; set; }
         public string Role { get; set; }
+        public string Establishment { get; set; }
+        public string ParticpatedYears { get; set; }
         public string Description { get; set; }
-        public string Achivements { get; set; }
-
     }
 }

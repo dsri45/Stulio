@@ -82,8 +82,14 @@
 	  <Compile Update="Views\AboutMe.xaml.cs">
 	    <DependentUpon>AboutMe.xaml</DependentUpon>
 	  </Compile>
+	  <Compile Update="Views\AddUpdateAdditionalInvolvements.xaml.cs">
+	    <DependentUpon>AddUpdateAdditionalInvolvements.xaml</DependentUpon>
+	  </Compile>
 	  <Compile Update="Views\AddUpdateAcademicAchievements.xaml.cs">
 	    <DependentUpon>AddUpdateAcademicAchievements.xaml</DependentUpon>
+	  </Compile>
+	  <Compile Update="Views\AddUpdateWorkExperience.xaml.cs">
+	    <DependentUpon>AddUpdateWorkExperience.xaml</DependentUpon>
 	  </Compile>
 	  <Compile Update="Views\AddUpdateAthleticParticipation.xaml.cs">
 	    <DependentUpon>AddUpdateAthleticParticipation.xaml</DependentUpon>
@@ -94,6 +100,9 @@
 	  <Compile Update="Views\AthleticParticipationView.xaml.cs">
 	    <DependentUpon>AthleticParticipationView.xaml</DependentUpon>
 	  </Compile>
+	  <Compile Update="Views\WorkExperienceView.xaml.cs">
+	    <DependentUpon>WorkExperienceView.xaml</DependentUpon>
+	  </Compile>
 	</ItemGroup>
 
 	<ItemGroup>
@@ -103,10 +112,16 @@
 	  <MauiXaml Update="Views\AcademicAchievements.xaml">
 	    <Generator>MSBuild:Compile</Generator>
 	  </MauiXaml>
-	  <MauiXaml Update="Views\AdditionalInformationView.xaml">
+	  <MauiXaml Update="Views\AdditionalInvolvementsView.xaml">
+	    <Generator>MSBuild:Compile</Generator>
+	  </MauiXaml>
+	  <MauiXaml Update="Views\AddUpdateAdditionalInvolvements.xaml">
 	    <Generator>MSBuild:Compile</Generator>
 	  </MauiXaml>
 	  <MauiXaml Update="Views\AddUpdateAcademicAchievements.xaml">
+	    <Generator>MSBuild:Compile</Generator>
+	  </MauiXaml>
+	  <MauiXaml Update="Views\AddUpdateWorkExperience.xaml">
 	    <Generator>MSBuild:Compile</Generator>
 	  </MauiXaml>
 	  <MauiXaml Update="Views\AddUpdateAthleticParticipation.xaml">
@@ -136,7 +151,7 @@
 	  <MauiXaml Update="Views\LoginPage.xaml">
 	    <Generator>MSBuild:Compile</Generator>
 	  </MauiXaml>
-	  <MauiXaml Update="Views\ProjectsView.xaml">
+	  <MauiXaml Update="Views\WorkExperienceView.xaml">
 	    <Generator>MSBuild:Compile</Generator>
 	  </MauiXaml>
 	  <MauiXaml Update="Views\SettingsPage.xaml">

@@ -23,7 +23,7 @@ namespace Stulio.Models
         public List<ClubsAndOrganizationsModel> ClubsOrganizations { get; set; }
         public List<AthleticParticipationModel> AthleticParticipation { get; set; }
         public List<CommunityServiceModel> CommunityService { get; set; }
-        public List<OtherExtracurriculars> OtherExtracurriculars { get; set; }
+        public List<AdditionalInvolvementsModel> OtherExtracurriculars { get; set; }
         public DateTime CreatedDateTime { get; set; }
         public DateTime UpdatedDateTime { get; set; }
 

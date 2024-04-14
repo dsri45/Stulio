@@ -5,7 +5,7 @@
              xmlns:viewModels="clr-namespace:Stulio.ViewModels"
              x:DataType="viewModels:AddUpdateAcademicAchievementsViewModel"
              xmlns:models="clr-namespace:Stulio.Models"
-             Title="Update Academic Achievements">
+             Title="Academic Achievements">
     <ContentPage.Resources> 
         <ResourceDictionary>
             <Style TargetType="Label">
