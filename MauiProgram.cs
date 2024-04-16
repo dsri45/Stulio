@@ -30,9 +30,11 @@ namespace Stulio
             builder.Services.AddSingleton<IClubsAndOrganizationsService, ClubsAndOrganizationsService>();
             builder.Services.AddSingleton<IAthleticParticipationService, AthleticParticipationService>();
             builder.Services.AddSingleton<ICommunityServiceService, CommunityServiceService>();
-            builder.Services.AddSingleton< IWorkExperienceService, WorkExperienceService>();
+            builder.Services.AddSingleton<IWorkExperienceService, WorkExperienceService>();
             builder.Services.AddSingleton<IAdditionalInvolvementsService, AdditionalInvolvementsService>();
             builder.Services.AddSingleton<IUserService, UserService>();
+            builder.Services.AddSingleton<IShowStudentProfileService, ShowStudentProfileService>();
+            
 
             builder.Services.AddSingleton<LoginPage>();
             builder.Services.AddSingleton<SignUpPage>();
@@ -40,7 +42,7 @@ namespace Stulio
             //Views Registration
             builder.Services.AddSingleton<ProfilePage>();
             builder.Services.AddSingleton<StudentListPage>();
-            builder.Services.AddSingleton<AddUpdateStudentDetail>();
+            builder.Services.AddSingleton<ShowStudentProfile>();
             builder.Services.AddSingleton<AboutMe>();
             builder.Services.AddSingleton<AcademicAchievements>();
             builder.Services.AddSingleton<AddUpdateAcademicAchievements>();
@@ -57,12 +59,11 @@ namespace Stulio
             builder.Services.AddSingleton<LoginPage>();
 
 
-
             //View Modles 
             builder.Services.AddSingleton<StudentListPageViewModel>();
             builder.Services.AddSingleton<AboutMeViewModel>();
             builder.Services.AddSingleton<ProfilePageViewModel>();
-            builder.Services.AddSingleton<AddUpdateStudentViewModel>();
+            builder.Services.AddSingleton<ShowStudentProfileViewModel>();
             builder.Services.AddSingleton<AcademicAchievementsViewModel>();
             builder.Services.AddSingleton<AddUpdateAcademicAchievementsViewModel>();
             builder.Services.AddSingleton<ClubsAndOrganizationsViewModel>();

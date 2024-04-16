@@ -1,0 +1,181 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:models="clr-namespace:Stulio.Models"
+             x:Class="Stulio.Views.ShowStudentProfile"
+             xmlns:viewModels="clr-namespace:Stulio.ViewModels"
+             x:DataType="viewModels:ShowStudentProfileViewModel"
+             Title="Student Profile">
+    <ScrollView>
+        <StackLayout Margin="10">
+        <Label Text="{Binding ShowStudent.FullName}" FontAttributes="Bold" TextColor="#383b67" HorizontalTextAlignment="Center" Margin="0,-3,0,0" FontSize="22" FontFamily="bold"/>
+        <Label Text="{Binding ShowStudent.Email}" TextColor="Black"  FontSize="13"  Margin="0,10,0,0"  FontFamily="bold"/>
+        <Label Text="{Binding ShowStudent.AboutMe}" TextColor="Black"  FontSize="13" LineBreakMode="WordWrap"/>
+      
+        <Label Text="ClubsAndOrganizations" TextColor="Black"  FontSize="13" LineBreakMode="WordWrap"/>
+        <Grid>
+                <Grid.RowDefinitions>
+                    <!-- Define row for the first CollectionView -->
+                    <RowDefinition Height="Auto" />
+                    <!-- Define row for the second CollectionView -->
+                    <RowDefinition Height="Auto" />
+                    <RowDefinition Height="Auto" />
+                    <RowDefinition Height="Auto" />
+                    <RowDefinition Height="Auto" />
+                    <RowDefinition Height="Auto" />
+                    
+                </Grid.RowDefinitions>
+
+                <!--<Button Grid.Column="2" ImageSource="academicachievements_icon.png" Margin="-120,-30,0,0" WidthRequest="20" HeightRequest="20" CornerRadius="9" HorizontalOptions="Center"  />-->
+                <Label Text="Academic Achievements" TextColor="Black"  FontSize="13" LineBreakMode="WordWrap" Grid.Row="0" Margin="0,30,0,0" HorizontalOptions="Center"/>
+                <!--<RoundRectangle BackgroundColor="White"  CornerRadius="25,25,0,0"/>-->
+                <CollectionView Grid.Row="1" ItemsSource="{Binding ShowAcademicAchievements}">
+                    <CollectionView.ItemsLayout>
+                        <LinearItemsLayout ItemSpacing="0" Orientation="Vertical"/>
+                    </CollectionView.ItemsLayout>
+                    <CollectionView.ItemTemplate>
+                        <DataTemplate x:DataType="models:AcademicAchievementsModel">
+                            <Grid Padding="20,10,20,0">
+                               
+                                <RoundRectangle  Grid.RowSpan="2"
+                                        Background="#7A5FA4"
+                                        Opacity="0.2"
+                                        CornerRadius="10">  
+                                    <RoundRectangle.Shadow>
+                                        <Shadow Brush="#CFD0D4"
+                                            Opacity=" 0.8"
+                                            Offset="10,10"/>    
+                                    </RoundRectangle.Shadow>
+                                </RoundRectangle>
+                               
+                                <StackLayout Margin="10,10,10,10" Padding="10" >
+                                    <Label TextColor="Black"
+                                    FontAttributes="Bold"
+                                    FontSize="18"
+                                    VerticalOptions="Start"
+                                    Margin="0,0,0,0"
+                                    Text="{Binding Award}"/>
+                                    <Label TextColor="Black"
+                                    FontAttributes="Bold"
+                                    FontSize="13"
+                                    VerticalOptions="Start"
+                                    Margin="0,0,0,0"
+                                    Text="{Binding DateAchived}"/>  
+                                    <Label Text="{Binding Description}" TextColor="Black"  FontSize="12" LineBreakMode="WordWrap"/>
+                                </StackLayout>
+                            </Grid>
+                        </DataTemplate>
+                    </CollectionView.ItemTemplate>
+                </CollectionView>
+
+
+                <Label Text="Clubs And Organizations" TextColor="Black"  FontSize="13" LineBreakMode="WordWrap" Grid.Row="2" Margin="0,30,0,0" HorizontalOptions="Center"/>
+                <CollectionView Grid.Row="3" ItemsSource="{Binding ShowClubsAndOrganizations}">
+                    <CollectionView.ItemsLayout>
+                        <LinearItemsLayout ItemSpacing="0" Orientation="Vertical"/>
+                    </CollectionView.ItemsLayout>
+                    <CollectionView.ItemTemplate>
+                        <DataTemplate x:DataType="models:ClubsAndOrganizationsModel">
+
+                            <Grid Padding="20,10,20,0">
+
+                                <RoundRectangle  Grid.RowSpan="2"
+                                         Background="#5DA55B"
+                                         Opacity="0.2"
+                                         CornerRadius="10">
+                                    <RoundRectangle.Shadow>
+                                        <Shadow Brush="#CFD0D4"
+                                         Opacity=" 0.8"
+                                         Offset="10,10"/>
+                                    </RoundRectangle.Shadow>
+                                </RoundRectangle>
+
+                                <StackLayout Margin="10,10,10,10" Padding="10" >
+                                    <Label TextColor="Black"
+                                 FontAttributes="Bold"
+                                 FontSize="18"
+                                 VerticalOptions="Start"
+                                 Margin="0,0,0,0"
+                                 Text="{Binding ClubName}"/>
+                                    <Label TextColor="Black"
+                                 FontAttributes="Bold"
+                                 FontSize="13"
+                                 VerticalOptions="Start"
+                                 Margin="0,0,0,0"
+                                 Text="{Binding ParticpatedYears}"/>
+                                    <Label TextColor="Black"
+                                 FontAttributes="Bold"
+                                 FontSize="13"
+                                 VerticalOptions="Start"
+                                 Margin="0,6,0,0"
+                                 Text="{Binding Role}"/>
+                                    <Label Text="{Binding Description}" TextColor="Black"  FontSize="12" LineBreakMode="WordWrap"/>
+                                    <Label Text="Achievements:" TextColor="Black"  FontSize="12" LineBreakMode="WordWrap" FontAttributes="Bold" Margin="0,6,0,0"/>
+                                    <Label Text="{Binding Achivements}" TextColor="Black"  FontSize="12" LineBreakMode="WordWrap"/>
+                                </StackLayout>
+                            </Grid>
+                        </DataTemplate>
+                    </CollectionView.ItemTemplate>
+                </CollectionView>
+
+
+                <Label Text="Community Service" TextColor="Black"  FontSize="13" LineBreakMode="WordWrap" Grid.Row="4" Margin="0,20,0,0" HorizontalOptions="Center"/>
+                <CollectionView Grid.Row="5" ItemsSource="{Binding ShowCommunityService}">
+                    <CollectionView.ItemsLayout>
+                        <LinearItemsLayout ItemSpacing="0" Orientation="Vertical"/>
+                    </CollectionView.ItemsLayout>
+                    <CollectionView.ItemTemplate>
+                        <DataTemplate x:DataType="models:CommunityServiceModel">
+                           
+                            <Grid Padding="20,10,20,0" >
+
+                                <RoundRectangle Grid.RowSpan="2"
+                                     Background="#489CC1"
+                                     Opacity="0.2"
+                                     CornerRadius="10">
+                                    <RoundRectangle.Shadow>
+                                        <Shadow Brush="#CFD0D4"
+                                     Opacity=" 0.8"
+                                     Offset="10,10"/>
+                                    </RoundRectangle.Shadow>
+                                </RoundRectangle>
+
+                                <StackLayout Margin="10,10,10,10" Padding="10" >
+
+
+                                    <Label TextColor="Black"
+                             FontAttributes="Bold"
+                             FontSize="18"
+                             VerticalOptions="Start"       
+                             Margin="0,0,0,0"
+                             Text="{Binding ServiceName}"/>
+                                    <Label TextColor="Black"
+                             FontAttributes="Bold"
+                             FontSize="13"
+                             VerticalOptions="Start"       
+                             Margin="0,0,0,0"
+                             Text="{Binding ParticpatedYears}"/>
+                                    <Label TextColor="Black"
+                             FontAttributes="Bold"
+                             FontSize="13"
+                             VerticalOptions="Start"       
+                             Margin="0,6,0,0"
+                             Text="{Binding VoulnteeredHours, StringFormat='Hours Volunteered: {0}'}"/>
+                             <Label Text="{Binding Description}" TextColor="Black"  FontSize="12" LineBreakMode="WordWrap"/>
+
+
+                                </StackLayout>
+
+                            </Grid>
+
+                        </DataTemplate>
+
+                    </CollectionView.ItemTemplate>
+
+                </CollectionView>
+
+
+            </Grid>
+    </StackLayout>
+    </ScrollView>
+</ContentPage>

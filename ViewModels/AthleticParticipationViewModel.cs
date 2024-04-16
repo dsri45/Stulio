@@ -66,25 +66,25 @@ namespace Stulio.ViewModels
         }
 
 
-        [RelayCommand]
-        public async void DisplayAction(AthleticParticipationModel athleticParticipationModel)
-        {
-            var response = await AppShell.Current.DisplayActionSheet("Select Option", "OK", null, "Edit", "Delete");
-            if (response == "Edit")
-            {
-                var navParam = new Dictionary<string, object>();
-                navParam.Add("StudentDetail", athleticParticipationModel);
-                await AppShell.Current.GoToAsync(nameof(AddUpdateStudentDetail), navParam);
-            }
-            else if (response == "Delete")
-            {
-                var delResponse = await _athleticParticipationService.DeleteAthleticParticipation(athleticParticipationModel);
-                if (delResponse > 0)
-                {
-                    GetAthleticParticipationList();
-                }
-            }
-        }
+        //[RelayCommand]
+        //public async void DisplayAction(AthleticParticipationModel athleticParticipationModel)
+        //{
+        //    var response = await AppShell.Current.DisplayActionSheet("Select Option", "OK", null, "Edit", "Delete");
+        //    if (response == "Edit")
+        //    {
+        //        var navParam = new Dictionary<string, object>();
+        //        navParam.Add("StudentDetail", athleticParticipationModel);
+        //        await AppShell.Current.GoToAsync(nameof(AddUpdateStudentDetail), navParam);
+        //    }
+        //    else if (response == "Delete")
+        //    {
+        //        var delResponse = await _athleticParticipationService.DeleteAthleticParticipation(athleticParticipationModel);
+        //        if (delResponse > 0)
+        //        {
+        //            GetAthleticParticipationList();
+        //        }
+        //    }
+        //}
 
         [RelayCommand]
         async Task GoBack()

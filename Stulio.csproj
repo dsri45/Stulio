@@ -88,6 +88,9 @@
 	  <Compile Update="Views\AddUpdateAcademicAchievements.xaml.cs">
 	    <DependentUpon>AddUpdateAcademicAchievements.xaml</DependentUpon>
 	  </Compile>
+	  <Compile Update="Views\ShowStudentProfile.xaml.cs">
+	    <DependentUpon>ShowStudentProfile.xaml</DependentUpon>
+	  </Compile>
 	  <Compile Update="Views\AddUpdateWorkExperience.xaml.cs">
 	    <DependentUpon>AddUpdateWorkExperience.xaml</DependentUpon>
 	  </Compile>
@@ -133,7 +136,7 @@
 	  <MauiXaml Update="Views\AddUpdateClubsAndOrganizations.xaml">
 	    <Generator>MSBuild:Compile</Generator>
 	  </MauiXaml>
-	  <MauiXaml Update="Views\AddUpdateStudentDetail.xaml">
+	  <MauiXaml Update="Views\ShowStudentProfile.xaml">
 	    <Generator>MSBuild:Compile</Generator>
 	  </MauiXaml>
 	  <MauiXaml Update="Views\AthleticParticipationView.xaml">

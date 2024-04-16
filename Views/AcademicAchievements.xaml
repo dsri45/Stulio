@@ -8,7 +8,7 @@
           x:Class="Stulio.Views.AcademicAchievements"
           BackgroundColor="#7A5FA4">
 
-    <Grid RowDefinitions=".23*,.7*">
+    <Grid RowDefinitions=".3*,.7*">
         <VerticalStackLayout Spacing="10">
             <Label Margin="0,20,0,0"
                 FontAttributes="Bold"
@@ -18,6 +18,10 @@
                 HorizontalTextAlignment="Center"
                 VerticalTextAlignment="Center"
                 TextColor="White"/>
+            <Image Source="academicachievements_icon.png" 
+                   WidthRequest="75" 
+                   HeightRequest="57"
+                   Aspect="AspectFit" />
             <Grid Margin="25,0,0,0" ColumnDefinitions="Auto,*">
                 <Label
                  Margin="10,0,0,0"
@@ -41,6 +45,8 @@
 
             <RoundRectangle BackgroundColor="White"  CornerRadius="25,25,0,0"/>
 
+
+
             <CollectionView ItemsSource="{Binding AcademicAchievements}">
                 <CollectionView.ItemsLayout>
                     <LinearItemsLayout ItemSpacing="15" Orientation="Vertical"/>
@@ -50,7 +56,7 @@
                         <SwipeView>
                             <SwipeView.LeftItems>
                                 <SwipeItems>
-                                    <SwipeItem Text="Edit" IconImageSource="edit.png" BackgroundColor="LightBlue"  
+                                    <SwipeItem Text="Edit" IconImageSource="edit.png" BackgroundColor="LightBlue"
                                     CommandParameter="{Binding .}"
                                     Command="{Binding Source={x:RelativeSource AncestorType={x:Type viewModels:AcademicAchievementsViewModel}},Path=EditAcademicAchievementsCommand}" />
                                     <SwipeItem Text="Delete" IconImageSource="delete.png" BackgroundColor="Red"  CommandParameter="{Binding .}"

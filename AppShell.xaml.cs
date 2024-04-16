@@ -10,7 +10,7 @@ namespace Stulio
             Routing.RegisterRoute("login", typeof(LoginPage));
             Routing.RegisterRoute(nameof(SignUpPage), typeof(SignUpPage));
             Routing.RegisterRoute("home", typeof(ProfilePage));
-            Routing.RegisterRoute(nameof(AddUpdateStudentDetail), typeof(AddUpdateStudentDetail));
+            Routing.RegisterRoute(nameof(ShowStudentProfile), typeof(ShowStudentProfile));
             Routing.RegisterRoute(nameof(AboutMe), typeof(AboutMe));
             Routing.RegisterRoute(nameof(AcademicAchievements), typeof(AcademicAchievements));
             Routing.RegisterRoute(nameof(ClubsAndOrganizationsView), typeof(ClubsAndOrganizationsView));

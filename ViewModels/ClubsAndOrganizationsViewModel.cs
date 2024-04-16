@@ -67,25 +67,25 @@ namespace Stulio.ViewModels
         }
 
 
-        [RelayCommand]
-        public async void DisplayAction(ClubsAndOrganizationsModel clubsAndOrganizationsModel)
-        {
-            var response = await AppShell.Current.DisplayActionSheet("Select Option", "OK", null, "Edit", "Delete");
-            if (response == "Edit")
-            {
-                var navParam = new Dictionary<string, object>();
-                navParam.Add("StudentDetail", clubsAndOrganizationsModel);
-                await AppShell.Current.GoToAsync(nameof(AddUpdateStudentDetail), navParam);
-            }
-            else if (response == "Delete")
-            {
-                var delResponse = await _clubsAndOrganizationsService.DeleteClubsAndOrganizations(clubsAndOrganizationsModel);
-                if (delResponse > 0)
-                {
-                    GetClubsAndOrganizationsList();
-                }
-            }
-        }
+        //[RelayCommand]
+        //public async void DisplayAction(ClubsAndOrganizationsModel clubsAndOrganizationsModel)
+        //{
+        //    var response = await AppShell.Current.DisplayActionSheet("Select Option", "OK", null, "Edit", "Delete");
+        //    if (response == "Edit")
+        //    {
+        //        var navParam = new Dictionary<string, object>();
+        //        navParam.Add("StudentDetail", clubsAndOrganizationsModel);
+        //        await AppShell.Current.GoToAsync(nameof(AddUpdateStudentDetail), navParam);
+        //    }
+        //    else if (response == "Delete")
+        //    {
+        //        var delResponse = await _clubsAndOrganizationsService.DeleteClubsAndOrganizations(clubsAndOrganizationsModel);
+        //        if (delResponse > 0)
+        //        {
+        //            GetClubsAndOrganizationsList();
+        //        }
+        //    }
+        //}
 
         [RelayCommand]
         async Task GoBack()

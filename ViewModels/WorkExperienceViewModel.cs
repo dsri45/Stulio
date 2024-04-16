@@ -70,25 +70,25 @@ namespace Stulio.ViewModels
         }
 
 
-        [RelayCommand]
-        public async void DisplayAction(WorkExperienceModel workExperienceModel)
-        {
-            var response = await AppShell.Current.DisplayActionSheet("Select Option", "OK", null, "Edit", "Delete");
-            if (response == "Edit")
-            {
-                var navParam = new Dictionary<string, object>();
-                navParam.Add("StudentDetail", workExperienceModel);
-                await AppShell.Current.GoToAsync(nameof(AddUpdateStudentDetail), navParam);
-            }
-            else if (response == "Delete")
-            {
-                var delResponse = await _workExperienceService.DeleteWorkExperience(workExperienceModel);
-                if (delResponse > 0)
-                {
-                    GetWorkExperienceList();
-                }
-            }
-        }
+        //[RelayCommand]
+        //public async void DisplayAction(WorkExperienceModel workExperienceModel)
+        //{
+        //    var response = await AppShell.Current.DisplayActionSheet("Select Option", "OK", null, "Edit", "Delete");
+        //    if (response == "Edit")
+        //    {
+        //        var navParam = new Dictionary<string, object>();
+        //        navParam.Add("StudentDetail", workExperienceModel);
+        //        await AppShell.Current.GoToAsync(nameof(AddUpdateStudentDetail), navParam);
+        //    }
+        //    else if (response == "Delete")
+        //    {
+        //        var delResponse = await _workExperienceService.DeleteWorkExperience(workExperienceModel);
+        //        if (delResponse > 0)
+        //        {
+        //            GetWorkExperienceList();
+        //        }
+        //    }
+        //}
 
         [RelayCommand]
         async Task GoBack()

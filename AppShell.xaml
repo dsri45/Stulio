@@ -21,9 +21,9 @@
         Route="login"/>-->
     <!--Main Page-->
 
-    
 
-    <FlyoutItem  Title="Dhanasri Prabhu" FlyoutDisplayOptions="AsMultipleItems" >
+
+    <FlyoutItem  Title="Dhanasri Prabhu"  >
 
        
 

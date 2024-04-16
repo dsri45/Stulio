@@ -70,25 +70,25 @@ namespace Stulio.ViewModels
         }
 
 
-        [RelayCommand]
-        public async void DisplayAction(CommunityServiceModel communityServiceModel)
-        {
-            var response = await AppShell.Current.DisplayActionSheet("Select Option", "OK", null, "Edit", "Delete");
-            if (response == "Edit")
-            {
-                var navParam = new Dictionary<string, object>();
-                navParam.Add("StudentDetail", communityServiceModel);
-                await AppShell.Current.GoToAsync(nameof(AddUpdateStudentDetail), navParam);
-            }
-            else if (response == "Delete")
-            {
-                var delResponse = await _communityServiceService.DeleteCommunityService(communityServiceModel);
-                if (delResponse > 0)
-                {
-                    GetCommunityServiceList();
-                }
-            }
-        }
+        //[RelayCommand]
+        //public async void DisplayAction(CommunityServiceModel communityServiceModel)
+        //{
+        //    var response = await AppShell.Current.DisplayActionSheet("Select Option", "OK", null, "Edit", "Delete");
+        //    if (response == "Edit")
+        //    {
+        //        var navParam = new Dictionary<string, object>();
+        //        navParam.Add("StudentDetail", communityServiceModel);
+        //        await AppShell.Current.GoToAsync(nameof(AddUpdateStudentDetail), navParam);
+        //    }
+        //    else if (response == "Delete")
+        //    {
+        //        var delResponse = await _communityServiceService.DeleteCommunityService(communityServiceModel);
+        //        if (delResponse > 0)
+        //        {
+        //            GetCommunityServiceList();
+        //        }
+        //    }
+        //}
 
         [RelayCommand]
         async Task GoBack()
