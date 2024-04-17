@@ -11,13 +11,13 @@
             </Style>
         </ResourceDictionary>
     </ContentPage.Resources>
-    
-    <StackLayout Margin="10" Spacing="15">
+    <ScrollView>
+        <StackLayout Margin="10" Spacing="15">
         <VerticalStackLayout>
             <Label Text="Let's get started!" FontSize="24" FontAttributes="Bold"  TextColor="Black" VerticalOptions="CenterAndExpand" HorizontalOptions="CenterAndExpand"/>
             <Image Source="signup4.png" 
-               WidthRequest="200" 
-               HeightRequest="200"
+               WidthRequest="150" 
+               HeightRequest="150"
                Aspect="AspectFit" />
         </VerticalStackLayout>
 
@@ -37,6 +37,11 @@
         </VerticalStackLayout>
 
         <VerticalStackLayout>
+            <Label Text="PhoneNumber" />
+            <Entry Text="{Binding UserDetail.PhoneNumber}" Placeholder="PhoneNumber" />
+        </VerticalStackLayout>
+
+        <VerticalStackLayout>
             <Label Text="School Name" />
             <Entry Text="{Binding UserDetail.SchoolName}" Placeholder="School Name" />
         </VerticalStackLayout>
@@ -53,6 +58,7 @@
 
         <Button Text="Sign Up" Command="{Binding AddUpdateUserCommand}"/>
     </StackLayout>
+        </ScrollView>
 </ContentPage>
 
 

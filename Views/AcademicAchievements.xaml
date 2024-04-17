@@ -49,7 +49,7 @@
 
             <CollectionView ItemsSource="{Binding AcademicAchievements}">
                 <CollectionView.ItemsLayout>
-                    <LinearItemsLayout ItemSpacing="15" Orientation="Vertical"/>
+                    <LinearItemsLayout ItemSpacing="0" Orientation="Vertical"/>
                 </CollectionView.ItemsLayout>
                 <CollectionView.ItemTemplate>
                     <DataTemplate x:DataType="models:AcademicAchievementsModel">
@@ -80,6 +80,12 @@
                                     <Label TextColor="Black"
                                      FontAttributes="Bold"
                                      FontSize="18"
+                                     VerticalOptions="Start"
+                                     Margin="0,0,0,0"
+                                     Text="{Binding Class}"/>   
+                                    <Label TextColor="Black"
+                                     FontAttributes="Bold"
+                                     FontSize="13"
                                      VerticalOptions="Start"
                                      Margin="0,0,0,0"
                                      Text="{Binding Award}"/>

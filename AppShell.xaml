@@ -40,7 +40,7 @@
 
         <Tab Title="Forums" Icon="lightbulb.png">
             <ShellContent Title="Forums"
-             ContentTemplate="{DataTemplate views:StudentListPage}" />
+             ContentTemplate="{DataTemplate views:FourmPage}" />
         
         </Tab>
         <Tab Title="Logout" Icon="lightbulb.png">

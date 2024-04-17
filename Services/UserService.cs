@@ -33,6 +33,17 @@ namespace Stulio.Services
             await _dbConnection.CreateTableAsync<UserModel>();
             await _dbConnection.InsertAsync(UserModel);
             Preferences.Set("UserID", UserModel.UserId);
+            
+            //Adding new studentmodel
+            StudentModel studentModel = new StudentModel {
+                FirstName = UserModel.FirstName,
+                LastName= UserModel.LastName,
+                SchoolName = UserModel.SchoolName,
+                Email = UserModel.Email,
+                PhoneNumber=UserModel.PhoneNumber
+            };
+            await _dbConnection.InsertAsync(studentModel);
+
             return UserModel.UserId;
         }
 
@@ -61,7 +72,8 @@ namespace Stulio.Services
                     Username = "Dhanasri",
                     Password = "Prabhu",
                     Email = "DhansriPrabhu03@gmail.com",
-                    SchoolName = "425 606 9993",
+                    PhoneNumber="123 456 345",
+                    SchoolName = "Ceadarcrest High School, Duvall",
                 };
 
    
@@ -90,7 +102,8 @@ namespace Stulio.Services
                         Username = "Dhanasri",
                         Password = "Prabhu",
                         Email = "DhansriPrabhu03@gmail.com",
-                        SchoolName = "425 606 9993",
+                        PhoneNumber = "123 456 345",
+                        SchoolName = "Ceadarcrest High School, Duvall",
                     };
 
 

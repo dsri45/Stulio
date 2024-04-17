@@ -42,7 +42,7 @@
 
             <CollectionView ItemsSource="{Binding AthleticParticipation}">
                 <CollectionView.ItemsLayout>
-                    <LinearItemsLayout ItemSpacing="15" Orientation="Vertical"/>
+                    <LinearItemsLayout ItemSpacing="0" Orientation="Vertical"/>
                 </CollectionView.ItemsLayout>
                 <CollectionView.ItemTemplate>
                     <DataTemplate x:DataType="models:AthleticParticipationModel">

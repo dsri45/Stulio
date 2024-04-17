@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:viewModels="clr-namespace:Stulio.ViewModels"
+             x:DataType="viewModels:ForumPageViewModel"
+             x:Class="Stulio.Views.FourmPage"
+             Title="FourmPage">
+    
+    <ScrollView>
+        <StackLayout Margin="10" Spacing="15">
+
+                <VerticalStackLayout>
+                    <Label Text="SAT QA" FontAttributes="Bold" TextColor="#383b67" HorizontalTextAlignment="Start" Margin="0,20,0,0" FontSize="16" />
+
+                    <Editor x:Name="editor"
+                    Placeholder="ChatGPT response"
+                    HeightRequest="750"
+                    Text="{Binding ForumDetail.PromptResponse}"/>
+                </VerticalStackLayout>
+                <!--<Button Text="Save" Command="{Binding UpdateAboutMeCommand}"/>-->
+
+            </StackLayout>
+    </ScrollView>
+</ContentPage>
+
+    

@@ -1,19 +1,19 @@
 <?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             x:Class="Stulio.Views.CommunityServiceView"
+             x:Class="Stulio.Views.PersonalEndeavorsView"
              xmlns:models="clr-namespace:Stulio.Models"
              xmlns:searchHandlers="clr-namespace:Stulio.SearchHandlers"
              xmlns:viewModels="clr-namespace:Stulio.ViewModels"
-             x:DataType="viewModels:CommunityServiceViewModel"
-             Background="#489CC1">
+             x:DataType="viewModels:PersonalEndeavorsViewModel"
+             Background="#8e00c2">
 
     <Grid RowDefinitions=".23*,.7*">
         <VerticalStackLayout Spacing="10">
             <Label Margin="0,20,15,0"
                    FontAttributes="Bold"
                    FontFamily="bold"
-                   Text="COMMUNITY SERVICE"
+                   Text="  PERSONAL ENDEAVORS"
                    FontSize="30"
                    HorizontalTextAlignment="Center"
                    VerticalTextAlignment="Center"
@@ -27,10 +27,10 @@
                     TextColor="White"
                     HorizontalTextAlignment="Center"
                     VerticalTextAlignment="Center"/>
-                <Button Text="Add Service" 
-                        Command="{Binding AddUpdateCommunityServiceCommand}" 
-                        TextColor="#489CC1"
-                        BorderColor="#489CC1"
+                <Button Text="Add Endeavor" 
+                        Command="{Binding AddUpdatePersonalEndeavorsCommand}" 
+                        TextColor="#8e00c2"
+                        BorderColor="#8e00c2"
                         BorderWidth="4" 
                         BackgroundColor="White"
                         FontSize="16"/>
@@ -40,26 +40,26 @@
         <Grid Grid.Row="1">
 
             <RoundRectangle BackgroundColor="White" CornerRadius="25,25,0,0"/>
-            <CollectionView ItemsSource="{Binding CommunityService}">
+            <CollectionView ItemsSource="{Binding PersonalEndeavors}">
                 <CollectionView.ItemsLayout>
-                    <LinearItemsLayout ItemSpacing="0" Orientation="Vertical"/>
+                    <LinearItemsLayout ItemSpacing="15" Orientation="Vertical"/>
                 </CollectionView.ItemsLayout>
                 <CollectionView.ItemTemplate>
-                    <DataTemplate x:DataType="models:CommunityServiceModel">
+                    <DataTemplate x:DataType="models:PersonalEndeavorsModel">
                         <SwipeView>
                             <SwipeView.LeftItems>
                                 <SwipeItems>
                                     <SwipeItem Text="Edit" IconImageSource="edit.png" BackgroundColor="LightBlue"
                                        CommandParameter="{Binding .}"
-                                       Command="{Binding Source={x:RelativeSource AncestorType={x:Type viewModels:CommunityServiceViewModel}},Path=EditCommunityServiceCommand}" />
+                                       Command="{Binding Source={x:RelativeSource AncestorType={x:Type viewModels:PersonalEndeavorsViewModel}},Path=EditPersonalEndeavorsCommand}" />
                                     <SwipeItem Text="Delete" IconImageSource="delete.png" BackgroundColor="Red"  CommandParameter="{Binding .}"
-                                       Command="{Binding Source={x:RelativeSource AncestorType={x:Type viewModels:CommunityServiceViewModel}},Path=DeleteCommunityServiceCommand}" />
+                                       Command="{Binding Source={x:RelativeSource AncestorType={x:Type viewModels:PersonalEndeavorsViewModel}},Path=DeletePersonalEndeavorsCommand}" />
                                 </SwipeItems>
                             </SwipeView.LeftItems>
                             <Grid Padding="20,20,20,0" >
 
                                 <RoundRectangle Grid.RowSpan="2"
-                                                Background="#489CC1"
+                                                Background="#8e00c2"
                                                 Opacity="0.2"
                                                 CornerRadius="10">
                                     <RoundRectangle.Shadow>
@@ -70,39 +70,28 @@
                                 </RoundRectangle>
 
                                 <StackLayout Margin="10,10,10,10" Padding="10" >
-                                   
-
                                     <Label TextColor="Black"
                                         FontAttributes="Bold"
                                         FontSize="18"
                                         VerticalOptions="Start"       
                                         Margin="0,0,0,0"
-                                        Text="{Binding ServiceName}"/>
-                                    <Label TextColor="Black"
-                                        FontAttributes="Bold"
+                                        Text="{Binding Title}"/>
+                                    <Label TextColor="Black"         
                                         FontSize="13"
                                         VerticalOptions="Start"       
                                         Margin="0,0,0,0"
-                                        Text="{Binding ParticpatedYears}"/>          
-                                    <Label TextColor="Black"
-                                        FontAttributes="Bold"
-                                        FontSize="13"
-                                        VerticalOptions="Start"       
-                                        Margin="0,6,0,0"
-                                        Text="{Binding VoulnteeredHours, StringFormat='Hours Volunteered: {0}'}"/>
-                                    <Label Text="{Binding Description}" TextColor="Black"  FontSize="12" LineBreakMode="WordWrap"/>
-                                    
-                                    
+                                        Text="{Binding Description}"/>
+
                                 </StackLayout>
-                               
+
                             </Grid>
-                           
-                         </SwipeView>
-                        
+
+                        </SwipeView>
+
                     </DataTemplate>
-                  
+
                 </CollectionView.ItemTemplate>
-                
+
             </CollectionView>
 
 

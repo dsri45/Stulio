@@ -110,6 +110,18 @@ namespace Stulio.ViewModels
         {
             await Shell.Current.GoToAsync(nameof(AdditionalInvolvementsView));
         }
+
+        [RelayCommand]
+        async Task EnterPersonalEndeavors(string s)
+        {
+            await Shell.Current.GoToAsync(nameof(PersonalEndeavorsView));
+        }
+
+        [RelayCommand]
+        async Task EnterClasses(string s)
+        {
+            await Shell.Current.GoToAsync(nameof(ClassesView));
+        }
     }
 
     }

@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="Stulio.Views.AddUpdateClasses"
+             Title="Classes">
+    <ContentPage.Resources>
+        <ResourceDictionary>
+            <Style TargetType="Label">
+                <Setter Property="FontSize" Value="14" />
+                <Setter Property="TextColor" Value="SlateGray" />
+            </Style>
+        </ResourceDictionary>
+    </ContentPage.Resources>
+    <StackLayout Margin="10" Spacing="15">
+        <VerticalStackLayout>
+            <Label Text="Class" />
+            <Entry  Text="{Binding Classes.Name}" Placeholder="Name" />
+        </VerticalStackLayout>
+        <VerticalStackLayout>
+            <Label Text="Year Taken"  />
+            <Entry Text="{Binding Classes.ClassYear}" Placeholder="Mon-Year" />
+        </VerticalStackLayout>
+        <VerticalStackLayout>
+            <Label Text="Grade Achieved"  />
+            <Entry Text="{Binding Classes.Grade}" Placeholder="Grade" />
+        </VerticalStackLayout>
+        
+
+
+        <Button Text="Save" Command="{Binding UpdateClassesCommand}"/>
+    </StackLayout>
+</ContentPage>
+
+

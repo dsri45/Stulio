@@ -20,13 +20,16 @@ namespace Stulio.ViewModels
 
         [ObservableProperty]
         public StudentModel showStudent;
-        
+
+        public ObservableCollection<ClassesModel> ShowClasses { get; set; } = new ObservableCollection<ClassesModel>();
         public ObservableCollection<AcademicAchievementsModel> ShowAcademicAchievements { get; set; } = new ObservableCollection<AcademicAchievementsModel>();
         public ObservableCollection<ClubsAndOrganizationsModel> ShowClubsAndOrganizations { get; set; } = new ObservableCollection<ClubsAndOrganizationsModel>();
         public ObservableCollection<CommunityServiceModel> ShowCommunityService { get; set; } = new ObservableCollection<CommunityServiceModel>();
         public ObservableCollection<AthleticParticipationModel> ShowAthleticParticipation { get; set; } = new ObservableCollection<AthleticParticipationModel>();
         public ObservableCollection<WorkExperienceModel> ShowWorkExperience { get; set; } = new ObservableCollection<WorkExperienceModel>();
         public ObservableCollection<AdditionalInvolvementsModel> ShowAdditionalInvolvements { get; set; } = new ObservableCollection<AdditionalInvolvementsModel>();
+        public ObservableCollection<PersonalEndeavorsModel> ShowPersonalEndeavors { get; set; } = new ObservableCollection<PersonalEndeavorsModel>();
+       
 
 
 
@@ -47,6 +50,11 @@ namespace Stulio.ViewModels
             LoadByStudentID();
             GetClubsAndOrganizationsList();
             GetCommunityServiceList();
+            GetAthleticParticipationList();
+            GetWorkExperienceList();
+            GetPersonalEndeavorsList();
+            GetClassesList();
+            GetAdditionalInvolvementsList();
            }
 
        [RelayCommand]
@@ -105,7 +113,87 @@ namespace Stulio.ViewModels
             }
         }
 
-       
+        [RelayCommand]
+        public async void GetAthleticParticipationList()
+        {
+            ShowAthleticParticipation.Clear();
+            var athleticParticipationList = await _dataService.GetAthleticParticipation();
+            if (athleticParticipationList?.Count > 0)
+            {
+                athleticParticipationList = athleticParticipationList.OrderBy(f => f.Sport).ToList();
+                foreach (var athleticParticipation in athleticParticipationList)
+                {
+                    ShowAthleticParticipation.Add(athleticParticipation);
+                }
+
+            }
+        }
+
+        [RelayCommand]
+        public async void GetWorkExperienceList()
+        {
+            ShowWorkExperience.Clear();
+            var workExperienceList = await _dataService.GetWorkExperience();
+            if (workExperienceList?.Count > 0)
+            {
+                workExperienceList = workExperienceList.OrderBy(f => f.Establishment).ToList();
+                foreach (var workExperience in workExperienceList)
+                {
+                    ShowWorkExperience.Add(workExperience);
+                }
+
+            }
+        }
+
+        [RelayCommand]
+        public async void GetClassesList()
+        {
+            ShowClasses.Clear();
+            var classesList = await _dataService.GetClasses();
+            if (classesList?.Count > 0)
+            {
+                classesList = classesList.OrderBy(f => f.Name).ToList();
+                foreach (var classes in classesList)
+                {
+                    ShowClasses.Add(classes);
+                }
+
+            }
+        }
+
+        [RelayCommand]
+        public async void GetPersonalEndeavorsList()
+        {
+            ShowPersonalEndeavors.Clear();
+            var personalEndeavorsList = await _dataService.GetPersonalEndeavors();
+            if (personalEndeavorsList?.Count > 0)
+            {
+                personalEndeavorsList = personalEndeavorsList.OrderBy(f => f.Title).ToList();
+                foreach (var personalEndeavors in personalEndeavorsList)
+                {
+                    ShowPersonalEndeavors.Add(personalEndeavors);
+                }
+
+            }
+        }
+
+        [RelayCommand]
+        public async void GetAdditionalInvolvementsList()
+        {
+            ShowAdditionalInvolvements.Clear();
+            var additionalInvolvementsList = await _dataService.GetAdditionalInvolvements();
+            if (additionalInvolvementsList?.Count > 0)
+            {
+                additionalInvolvementsList = additionalInvolvementsList.OrderBy(f => f.ActivityName).ToList();
+                foreach (var additionalInvolvements in additionalInvolvementsList)
+                {
+                    ShowAdditionalInvolvements.Add(additionalInvolvements);
+                }
+
+            }
+        }
+
+
     }
     }
 

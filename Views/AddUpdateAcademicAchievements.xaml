@@ -15,25 +15,25 @@
         </ResourceDictionary>
     </ContentPage.Resources>
     <StackLayout Margin="10" Spacing="15">
-        <VerticalStackLayout>
+        <!--<VerticalStackLayout>
             <Label Text="ID" />
             <Entry  Text="{Binding AcademicAchievements.AcademicId}" Placeholder="academicid" />
         </VerticalStackLayout>
         <VerticalStackLayout>
             <Label Text="SID" />
             <Entry  Text="{Binding AcademicAchievements.StudentID}" Placeholder="studentid" />
+        </VerticalStackLayout>-->
+        <VerticalStackLayout>
+            <Label Text="Class/Award" />
+            <Entry Text="{Binding AcademicAchievements.Class}" Placeholder="ex. AP CSP, National Merit Scholar" />
         </VerticalStackLayout>
         <VerticalStackLayout>
-            <Label Text="Award" />
-            <Entry  Text="{Binding AcademicAchievements.Award}" Placeholder="Award" />
+            <Label Text="Grade/Organization" />
+            <Entry  Text="{Binding AcademicAchievements.Award}" Placeholder="ex. NMSC" />
         </VerticalStackLayout>
         <VerticalStackLayout>
-            <Label Text="Date Achived"  />
+            <Label Text="Date Completed/Achieved"  />
             <Entry Text="{Binding AcademicAchievements.DateAchived}" Placeholder="Mon-Year" />
-        </VerticalStackLayout>
-        <VerticalStackLayout>
-            <Label Text="Class" />
-            <Entry Text="{Binding AcademicAchievements.Class}" Placeholder="Class" />
         </VerticalStackLayout>
         <VerticalStackLayout>
             <Label Text="Description" />
