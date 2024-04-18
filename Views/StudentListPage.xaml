@@ -52,7 +52,9 @@
                                            Command="{Binding Source={x:RelativeSource AncestorType={x:Type viewModels:StudentListPageViewModel}},Path=DeleteStudentCommand}" />-->
                             </SwipeItems>
                         </SwipeView.LeftItems>
-                        <Frame Margin="10" Padding="10" BackgroundColor="#badbca" >
+                        <Frame Margin="10" Padding="4" BackgroundColor="#478D68" >
+                            <Frame Margin="0" Padding="10" BackgroundColor="White">
+                               
                             <VerticalStackLayout>
                                 <HorizontalStackLayout Spacing="10">
                                     <Label Text="{Binding FirstName}" FontSize="18" FontAttributes="Bold" />
@@ -65,6 +67,8 @@
                                 <TapGestureRecognizer Command="{Binding Source={x:RelativeSource AncestorType={x:Type viewModels:StudentListPageViewModel}},Path=DisplayActionCommand}"
                                                   CommandParameter="{Binding .}" />
                             </Frame.GestureRecognizers>
+                                <!-- Your content here -->
+                            </Frame>
                         </Frame>
                     </SwipeView>
 

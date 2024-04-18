@@ -82,4 +82,11 @@ public partial class LoginPage : ContentPage
         //    File = new ShareFile(filePath)
         //});
     }
+
+    private async void SignUpButton_Clickedd(object sender, TappedEventArgs e)
+    {
+        UserService userservice = new UserService();
+        var userViewModel = new UserViewModel(userservice);
+        await Navigation.PushAsync(new SignUpPage(userViewModel));
+    }
 }
