@@ -15,7 +15,7 @@
                     <Editor x:Name="editor"
                     Placeholder="ChatGPT response"
                     HeightRequest="750"
-                    Text="{Binding ForumDetail.PromptResponse}"/>
+                    Text="{Binding GptReponse.PromptResponse}"/>
                 </VerticalStackLayout>
                 <!--<Button Text="Save" Command="{Binding UpdateAboutMeCommand}"/>-->
 
