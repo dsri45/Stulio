@@ -1,16 +1,17 @@
 <?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:toolkit="http://schemas.microsoft.com/dotnet/2022/maui/toolkit"
              x:Class="Stulio.Views.SignUpPage"
              Title=""
              BackgroundColor="{StaticResource Primary}">
     <ContentPage.Resources>
-        <ResourceDictionary>
-            <Style TargetType="Label">
-                <Setter Property="FontSize" Value="14" />
-                <Setter Property="TextColor" Value="SlateGray" />
-            </Style>
-        </ResourceDictionary>
+        <Style x:Key="InvalidEntryStyle" TargetType="Entry">
+            <Setter Property="TextColor" Value="Red" />
+        </Style>
+        <Style x:Key="ValidEntryStyle" TargetType="Entry">
+            <Setter Property="TextColor" Value="Green" />
+        </Style>
     </ContentPage.Resources>
     <ScrollView>
         <StackLayout Margin="10" Spacing="15">
@@ -24,18 +25,43 @@
 
         <VerticalStackLayout>
             <Label Text="First Name"  />
-            <Entry Text="{Binding UserDetail.FirstName}" Placeholder="First Name" />
-        </VerticalStackLayout>
+            <Entry Text="{Binding UserDetail.FirstName}" Placeholder="First Name" >
+                    <Entry.Behaviors>
+                        <toolkit:TextValidationBehavior 
+        InvalidStyle="{StaticResource InvalidEntryStyle}"
+        ValidStyle="{StaticResource ValidEntryStyle}"
+        Flags="ValidateOnValueChanged"
+        MinimumLength="1"
+        MaximumLength="10" />
+                    </Entry.Behaviors>
+                </Entry>
+            </VerticalStackLayout>
 
         <VerticalStackLayout>
             <Label Text="Last Name" />
-            <Entry  Text="{Binding UserDetail.LastName}" Placeholder="Last Name" />
-        </VerticalStackLayout>
+            <Entry  Text="{Binding UserDetail.LastName}" Placeholder="Last Name" >
+                    <Entry.Behaviors>
+                        <toolkit:TextValidationBehavior 
+        InvalidStyle="{StaticResource InvalidEntryStyle}"
+        ValidStyle="{StaticResource ValidEntryStyle}"
+        Flags="ValidateOnValueChanged"
+        MinimumLength="1"
+        MaximumLength="10" />
+                    </Entry.Behaviors>
+                </Entry>
+            </VerticalStackLayout>
 
         <VerticalStackLayout>
             <Label Text="Email" />
-            <Entry Text="{Binding UserDetail.Email}" Placeholder="Email" />
-        </VerticalStackLayout>
+                <Entry Text="{Binding UserDetail.Email}" Placeholder="Email" >
+                    <Entry.Behaviors>
+                        <toolkit:EmailValidationBehavior 
+                        InvalidStyle="{StaticResource InvalidEntryStyle}"
+                        ValidStyle="{StaticResource ValidEntryStyle}"
+                        Flags="ValidateOnValueChanged" />
+                    </Entry.Behaviors>
+                </Entry>
+            </VerticalStackLayout>
 
         <VerticalStackLayout>
             <Label Text="PhoneNumber" />
@@ -44,18 +70,72 @@
 
         <VerticalStackLayout>
             <Label Text="School Name" />
-            <Entry Text="{Binding UserDetail.SchoolName}" Placeholder="School Name" />
-        </VerticalStackLayout>
+            <Entry Text="{Binding UserDetail.SchoolName}" Placeholder="School Name" >
+                    <Entry.Behaviors>
+                        <toolkit:TextValidationBehavior 
+        InvalidStyle="{StaticResource InvalidEntryStyle}"
+        ValidStyle="{StaticResource ValidEntryStyle}"
+        Flags="ValidateOnValueChanged"
+        MinimumLength="1"
+        MaximumLength="10" />
+                    </Entry.Behaviors>
+                </Entry>
+            </VerticalStackLayout>
 
         <VerticalStackLayout>
             <Label Text="User Name"  />
-            <Entry Text="{Binding UserDetail.Username}" Placeholder="Username" />
-        </VerticalStackLayout>
+                <Entry Text="{Binding UserDetail.Username}" Placeholder="Username" >
+                    <Entry.Behaviors>
+                        <toolkit:MultiValidationBehavior 
+                InvalidStyle="{StaticResource InvalidEntryStyle}"  
+                ValidStyle="{StaticResource ValidEntryStyle}"
+                Flags="ValidateOnValueChanged">
+
+                            <toolkit:CharactersValidationBehavior 
+                    x:Name="DigitValidation" 
+                    CharacterType="Digit" 
+                    MinimumCharacterTypeCount="1" 
+                    toolkit:MultiValidationBehavior.Error="1 digit" 
+                    RegexPattern="" />
+
+                            <toolkit:CharactersValidationBehavior 
+                    x:Name="UpperValidation" 
+                    CharacterType="UppercaseLetter" 
+                    MinimumCharacterTypeCount="1" 
+                    toolkit:MultiValidationBehavior.Error="1 upper case" 
+                    RegexPattern="" />
+
+                            <toolkit:CharactersValidationBehavior 
+                    x:Name="SymbolValidation" 
+                    CharacterType="NonAlphanumericSymbol" 
+                    MinimumCharacterTypeCount="1" 
+                    toolkit:MultiValidationBehavior.Error="1 symbol" 
+                    RegexPattern=""  />
+
+                            <toolkit:CharactersValidationBehavior 
+                    x:Name="AnyValidation" 
+                    CharacterType="Any" 
+                    MinimumCharacterTypeCount="8" 
+                    toolkit:MultiValidationBehavior.Error="8 characters" 
+                    RegexPattern="" />
+                        </toolkit:MultiValidationBehavior>
+                    </Entry.Behaviors>
+                </Entry>
+            </VerticalStackLayout>
 
         <VerticalStackLayout>
             <Label Text="Password" />
-            <Entry  Text="{Binding UserDetail.Password,Mode=TwoWay}" Placeholder="Password" />
-        </VerticalStackLayout>
+            <Entry  Text="{Binding UserDetail.Password,Mode=TwoWay}" Placeholder="Password" >
+                    <Entry.Behaviors>
+                        <toolkit:TextValidationBehavior 
+              InvalidStyle="{StaticResource InvalidEntryStyle}"
+              ValidStyle="{StaticResource ValidEntryStyle}"
+              Flags="ValidateOnValueChanged"
+              MinimumLength="1"
+              MaximumLength="10" />
+                    </Entry.Behaviors>
+                </Entry>
+            </VerticalStackLayout>
 
         <Button Text="Sign Up" Command="{Binding AddUpdateUserCommand}"/>
     </StackLayout>

@@ -1,10 +1,20 @@
 <?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:toolkit="http://schemas.microsoft.com/dotnet/2022/maui/toolkit"
              x:Class="Stulio.Views.LoginPage"
              Title=""
              BackgroundColor="{StaticResource Primary}">
-    <Grid RowDefinitions="2*,*" Margin="0,170,0,0">
+    <ContentPage.Resources>
+        <Style x:Key="InvalidEntryStyle" TargetType="Entry">
+            <Setter Property="TextColor" Value="Red" />
+        </Style>
+        <Style x:Key="ValidEntryStyle" TargetType="Entry">
+            <Setter Property="TextColor" Value="Green" />
+        </Style>
+    </ContentPage.Resources>
+
+   <Grid RowDefinitions="2*,*" Margin="0,170,0,0">
         <VerticalStackLayout Padding="10" VerticalOptions="Center" HorizontalOptions="Center">
             <Frame BorderColor="Gray"
                CornerRadius="10"
@@ -53,6 +63,14 @@
                             <VerticalStackLayout>
 
                                 <Entry x:Name="Username" Text="{Binding LoginDetail.Username}" Margin="5,0,0,0" Placeholder="Username" FontSize="14">
+                                    <Entry.Behaviors>
+                                        <toolkit:TextValidationBehavior 
+                                        InvalidStyle="{StaticResource InvalidEntryStyle}"
+                                        ValidStyle="{StaticResource ValidEntryStyle}"
+                                        Flags="ValidateOnValueChanged"
+                                        MinimumLength="1"
+                                        MaximumLength="10" />           
+                                    </Entry.Behaviors>
                                 </Entry>
 
                             </VerticalStackLayout>
@@ -73,11 +91,11 @@
                         <Label FontFamily="Consolas" TextColor="Red" Text="{Binding LoginDetail.LoginStatus,Mode=TwoWay}"/>
           
 
-                        <!--<Button Margin="0,20,0,0"
+                        <Button Margin="0,20,0,0"
                               x:Name="SignUpButton"
                               Clicked="SignUpButton_Clicked"
                               Text="Sign Up" VerticalOptions="CenterAndExpand" 
-                              HorizontalOptions="FillAndExpand"/>-->     
+                              HorizontalOptions="FillAndExpand"/>     
 
                         <!--<BoxView Color="Black"
                                  Margin="0,20,0,0"

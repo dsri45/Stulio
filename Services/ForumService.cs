@@ -10,13 +10,10 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-
-
 namespace Stulio.Services
 {
     public class ForumService : IForumService
     {
-
         public async Task<ForumModel> CallChatGptAPI(string prompt)
         {
 
@@ -51,7 +48,6 @@ namespace Stulio.Services
                 };
 
                 var response = await client.PostAsync(apiUrl, new StringContent(JsonConvert.SerializeObject(requestBody), System.Text.Encoding.UTF8, "application/json"));
-
                
                 // Check if the call was successful
                 if (response.IsSuccessStatusCode)
