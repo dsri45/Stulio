@@ -11,7 +11,7 @@ namespace Stulio.Services
 {
     public interface IWorkExperienceService
     {
-        Task<List<WorkExperienceModel>> GetWorkExperienceList();
+        Task<List<WorkExperienceModel>> GetWorkExperienceList(int studentID);
         Task<int> AddWorkExperience(WorkExperienceModel workExperienceModel);
         Task<WorkExperienceModel> LoadWorkExperienceByID(int studentID, int workId);
         Task<int> DeleteWorkExperience(WorkExperienceModel workExperienceModel);

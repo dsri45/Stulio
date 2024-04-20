@@ -19,7 +19,7 @@ namespace Stulio.Views
             base.OnAppearing();
           
             // Retrieve UserID
-            var UserID = Preferences.Get("UserID", 1);
+            var UserID = Preferences.Get("UserID", 999);
 
             _viewMode.LoadByStudentIDCommand.Execute(UserID);
 

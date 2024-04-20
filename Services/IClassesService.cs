@@ -11,7 +11,7 @@ namespace Stulio.Services
 {
     public interface IClassesService
     {
-        Task<List<ClassesModel>> GetClassesList();
+        Task<List<ClassesModel>> GetClassesList(int studentID);
         Task<int> AddClasses(ClassesModel classesModel);
         Task<ClassesModel> LoadClassesByID(int studentID, int classesId);
         Task<int> DeleteClasses(ClassesModel classesModel);

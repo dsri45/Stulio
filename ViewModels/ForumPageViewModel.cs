@@ -27,7 +27,7 @@ namespace Stulio.ViewModels
         [RelayCommand]
         public async Task CallChatGPT()
         {
-            string prompt = "Give me only one random SAT problem question and answer in English or Math subject for High school student";
+            string prompt = "Give me one random high school, college application, or future endeavors tip. ";
 
             // Call the API
             GptReponse = await _forumService.CallChatGptAPI(prompt);

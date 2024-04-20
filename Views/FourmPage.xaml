@@ -4,18 +4,18 @@
              xmlns:viewModels="clr-namespace:Stulio.ViewModels"
              x:DataType="viewModels:ForumPageViewModel"
              x:Class="Stulio.Views.FourmPage"
-             Title="FourmPage">
+             Title="Tips And Tricks">
     
     <ScrollView>
-        <StackLayout Margin="10" Spacing="15">
+        <StackLayout Margin="10" Spacing="0">
 
                 <VerticalStackLayout>
-                    <Label Text="SAT QA" FontAttributes="Bold" TextColor="#383b67" HorizontalTextAlignment="Start" Margin="0,20,0,0" FontSize="16" />
+                    <Label Text="Powered by ChatGPT" FontAttributes="Italic" TextColor="#383b67" HorizontalTextAlignment="Start" Margin="0,20,0,0" FontSize="16" />
 
                     <Editor x:Name="editor"
-                    Placeholder="ChatGPT response"
-                    HeightRequest="750"
-                    Text="{Binding GptReponse.PromptResponse}"/>
+                    Placeholder="Preparing you a question..."
+                    HeightRequest="1000"
+                    Text="{Binding GptReponse.PromptResponse}" />
                 </VerticalStackLayout>
                 <!--<Button Text="Save" Command="{Binding UpdateAboutMeCommand}"/>-->
 

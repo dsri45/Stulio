@@ -37,7 +37,7 @@ namespace Stulio.ViewModels
             }
             else
             {
-                LoginDetail.LoginStatus = "Invalid User. SignUp to Stulio!";
+                LoginDetail.LoginStatus = "Invalid User. Sign Up for Stulio!";
                 //await Shell.Current.DisplayAlert("Heads Up!", "Something went wrong while adding record", "OK");
                 //await DisplayAlert("Login failed", "Uusername or password if invalid", "Try again");
             }

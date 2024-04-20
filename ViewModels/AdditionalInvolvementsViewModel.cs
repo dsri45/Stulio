@@ -31,7 +31,7 @@ namespace Stulio.ViewModels
         public async void GetAdditionalInvolvementsList()
         {
             AdditionalInvolvements.Clear();
-            var additionalInvolvementsList = await _additionalInvolvementsService.GetAdditionalInvolvementsList();
+            var additionalInvolvementsList = await _additionalInvolvementsService.GetAdditionalInvolvementsList(Preferences.Get("UserID", 999));
             if (additionalInvolvementsList?.Count > 0)
             {
                 additionalInvolvementsList = additionalInvolvementsList.OrderBy(f => f.ActivityName).ToList();

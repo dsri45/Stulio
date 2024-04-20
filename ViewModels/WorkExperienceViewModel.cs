@@ -31,7 +31,7 @@ namespace Stulio.ViewModels
         public async void GetWorkExperienceList()
         {
             WorkExperience.Clear();
-            var workExperienceList = await _workExperienceService.GetWorkExperienceList();
+            var workExperienceList = await _workExperienceService.GetWorkExperienceList(Preferences.Get("UserID", 999));
             if (workExperienceList?.Count > 0)
             {
                 workExperienceList = workExperienceList.OrderBy(f => f.Establishment).ToList();

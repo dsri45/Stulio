@@ -14,7 +14,7 @@
         </Style>
     </ContentPage.Resources>
 
-   <Grid RowDefinitions="2*,*" Margin="0,170,0,0">
+   <Grid RowDefinitions="2*,*" Margin="0,40,0,0">
         <VerticalStackLayout Padding="10" VerticalOptions="Center" HorizontalOptions="Center">
             <Frame BorderColor="Gray"
                CornerRadius="10"
@@ -44,19 +44,16 @@
                                 FontFamily="Consolas"
                                 Padding="5" Margin="10,25,0,0"/>
                             <Image Source="logoapp" Margin="30,0,-10,20" WidthRequest="120" HeightRequest="120" />
-                            
-                            
+
+
                         </StackLayout>
                         <Label Grid.Row="1" Grid.Column="0" Text="to continue!" TextColor="Black"
                             FontSize="17" Padding="5"
                             FontAttributes="Bold"  Margin="10,-70,0,0"/>
 
-                       
-                        
+
+
                     </VerticalStackLayout>
-                    <!--<BoxView Color="Gray"
-             HeightRequest="2"
-             HorizontalOptions="Fill" />-->
                     <VerticalStackLayout Padding="10">
                         <!--<Label FontFamily="Consolas" Text="Username" Margin="0,10,0,0"/>-->
                         <Frame CornerRadius="10" Padding="3" Margin="0,10,0,0" BorderColor="Transparent" >
@@ -87,15 +84,23 @@
                             </Frame>
                         </VerticalStackLayout>
 
-                        <Button Text="→" Command="{Binding LoginUserCommand}" Margin="0,-30,-20,-30" BackgroundColor="Transparent" TextColor="Black"   FontSize="70" HorizontalOptions="End"/>
-                        <Label FontFamily="Consolas" TextColor="Red" Text="{Binding LoginDetail.LoginStatus,Mode=TwoWay}"/>
-          
+                        <Button Text="→" Command="{Binding LoginUserCommand}" Margin="0,-40,-20,-30" BackgroundColor="Transparent" TextColor="Black"   FontSize="70" HorizontalOptions="End"/>
+                        <Label FontFamily="Consolas" TextColor="Red" Text="{Binding LoginDetail.LoginStatus,Mode=TwoWay}" FontSize="10" />
 
-                        <Button Margin="0,20,0,0"
+                        <BoxView Color="Black"
+                                 Margin="0,10,0,15"
+                                 HeightRequest="1"
+                                 HorizontalOptions="FillAndExpand" />
+
+
+                        <Label Text="           Dont Have An Account Yet?" FontSize="12"
+                              HorizontalOptions="FillAndExpand" VerticalOptions="CenterAndExpand" TextColor="Black"/>
+
+                        <Button Margin="0,-10,0,0"
                               x:Name="SignUpButton"
                               Clicked="SignUpButton_Clicked"
-                              Text="Sign Up" VerticalOptions="CenterAndExpand" 
-                              HorizontalOptions="FillAndExpand"/>     
+                              Text=" SIGN UP" VerticalOptions="CenterAndExpand" FontSize="12" FontAttributes="Bold"
+                              HorizontalOptions="FillAndExpand" BackgroundColor="Transparent" BorderColor="Transparent" TextColor="Black"/>     
 
                         <!--<BoxView Color="Black"
                                  Margin="0,20,0,0"
@@ -124,6 +129,7 @@
                     </VerticalStackLayout>
                 </StackLayout>
             </Frame>
+
         </VerticalStackLayout>
     </Grid>
 </ContentPage>

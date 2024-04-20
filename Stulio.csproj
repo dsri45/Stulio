@@ -149,6 +149,9 @@
 	  <MauiXaml Update="Views\FourmPage.xaml">
 	    <Generator>MSBuild:Compile</Generator>
 	  </MauiXaml>
+	  <MauiXaml Update="Views\NewPage1.xaml">
+	    <Generator>MSBuild:Compile</Generator>
+	  </MauiXaml>
 	  <MauiXaml Update="Views\PersonalEndeavorsView.xaml">
 	    <Generator>MSBuild:Compile</Generator>
 	  </MauiXaml>

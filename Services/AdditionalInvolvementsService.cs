@@ -37,10 +37,10 @@ namespace Stulio.Services
             return await _dbConnection.DeleteAsync(additionalInvolvementsModel);
         }
 
-        public async Task<List<AdditionalInvolvementsModel>> GetAdditionalInvolvementsList()
+        public async Task<List<AdditionalInvolvementsModel>> GetAdditionalInvolvementsList(int studentID)
         {
             await SetUpDb();
-            var additionalInvolvementsList = await _dbConnection.Table<AdditionalInvolvementsModel>().ToListAsync();
+            var additionalInvolvementsList = await _dbConnection.Table<AdditionalInvolvementsModel>().Where(s => s.StudentID == studentID).ToListAsync();
             return additionalInvolvementsList;
         }
 

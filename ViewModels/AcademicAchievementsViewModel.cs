@@ -31,7 +31,7 @@ namespace Stulio.ViewModels
         public async void GetAcademicAchievementsList()
         {
             AcademicAchievements.Clear();
-            var academicAchievementsList = await _academicAchievementsService.GetAcademicAchievementsList();
+            var academicAchievementsList = await _academicAchievementsService.GetAcademicAchievementsList(Preferences.Get("UserID", 999));
             if (academicAchievementsList?.Count > 0)
             {
                 academicAchievementsList = academicAchievementsList.OrderBy(f => f.Award).ToList();

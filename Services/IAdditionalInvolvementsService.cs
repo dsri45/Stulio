@@ -11,7 +11,7 @@ namespace Stulio.Services
 {
     public interface IAdditionalInvolvementsService
     {
-        Task<List<AdditionalInvolvementsModel>> GetAdditionalInvolvementsList();
+        Task<List<AdditionalInvolvementsModel>> GetAdditionalInvolvementsList(int studentID);
         Task<int> AddAdditionalInvolvements(AdditionalInvolvementsModel additionalInvolvementsModel);
         Task<AdditionalInvolvementsModel> LoadAdditionalInvolvementsByID(int studentID, int involvementId);
         Task<int> DeleteAdditionalInvolvements(AdditionalInvolvementsModel additionalInvolvementsModel);

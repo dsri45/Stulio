@@ -12,7 +12,7 @@ namespace Stulio.Services
 {
     public interface IAcademicAchievementsService
     {
-        Task<List<AcademicAchievementsModel>> GetAcademicAchievementsList();
+        Task<List<AcademicAchievementsModel>> GetAcademicAchievementsList(int studentID);
         Task<int> AddAcademicAchievements(AcademicAchievementsModel academicAchievementsModel);
         Task<AcademicAchievementsModel> LoadAcademicAchievementsByID(int studentID, int AcademicId);
         Task<int> DeleteAcademicAchievements(AcademicAchievementsModel academicAchievementsModel);

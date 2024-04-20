@@ -24,6 +24,7 @@ namespace Stulio.Services
                 //string dbPath = @"C:\Users\dhana\AppData\Local\Student.db3";
                  _dbConnection = new SQLiteAsyncConnection(dbPath);
                 await _dbConnection.CreateTableAsync<UserModel>();
+                await _dbConnection.CreateTableAsync<StudentModel>();
             }
         }
 
@@ -36,6 +37,7 @@ namespace Stulio.Services
             
             //Adding new studentmodel
             StudentModel studentModel = new StudentModel {
+                StudentID = UserModel.UserId,
                 FirstName = UserModel.FirstName,
                 LastName= UserModel.LastName,
                 SchoolName = UserModel.SchoolName,
@@ -68,7 +70,7 @@ namespace Stulio.Services
 
                 user = new UserModel
                 {
-                    UserId = 1, // Default ID
+                    UserId = 999, // Default ID
                     Username = "Dhanasri",
                     Password = "Prabhu",
                     Email = "DhansriPrabhu03@gmail.com",
@@ -98,7 +100,7 @@ namespace Stulio.Services
 
                     user = new UserModel
                     {
-                        UserId = 1, // Default ID
+                        UserId = 999, // Default ID
                         Username = "Dhanasri",
                         Password = "Prabhu",
                         Email = "DhansriPrabhu03@gmail.com",

@@ -11,7 +11,7 @@ namespace Stulio.Services
 {
     public interface IPersonalEndeavorsService
     {
-        Task<List<PersonalEndeavorsModel>> GetPersonalEndeavorsList();
+        Task<List<PersonalEndeavorsModel>> GetPersonalEndeavorsList(int studentID);
         Task<int> AddPersonalEndeavors(PersonalEndeavorsModel personalEndeavorsModel);
         Task<PersonalEndeavorsModel> LoadPersonalEndeavorsByID(int studentID, int endeavorId);
         Task<int> DeletePersonalEndeavors(PersonalEndeavorsModel personalEndeavorsModel);

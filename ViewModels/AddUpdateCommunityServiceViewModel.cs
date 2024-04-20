@@ -38,7 +38,7 @@ namespace Stulio.ViewModels
                 response = await _Service.AddCommunityService(new Models.CommunityServiceModel
                 {
                     CommunityId = CommunityService.CommunityId,
-                    StudentID = Preferences.Get("UserID", 1),
+                    StudentID = Preferences.Get("UserID", 999),
                     ServiceName = CommunityService.ServiceName,
                     ParticpatedYears = CommunityService.ParticpatedYears,
                     VoulnteeredHours = CommunityService.VoulnteeredHours,

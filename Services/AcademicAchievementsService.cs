@@ -38,10 +38,10 @@ namespace Stulio.Services
             return await _dbConnection.DeleteAsync(academicAchievementsModel);
         }
 
-        public async Task<List<AcademicAchievementsModel>> GetAcademicAchievementsList()
+        public async Task<List<AcademicAchievementsModel>> GetAcademicAchievementsList(int studentID)
         {
             await SetUpDb();
-            var academicAchievementsList = await _dbConnection.Table<AcademicAchievementsModel>().ToListAsync();
+            var academicAchievementsList = await _dbConnection.Table<AcademicAchievementsModel>().Where(s => s.StudentID == studentID ).ToListAsync();
             return academicAchievementsList;
         }
         public async Task<AcademicAchievementsModel> LoadAcademicAchievementsByID(int studentID, int AcademicId)

@@ -37,7 +37,7 @@ namespace Stulio.ViewModels
                 response = await _Service.AddAdditionalInvolvements(new Models.AdditionalInvolvementsModel
                 {
                     InvolvementId = AdditionalInvolvements.InvolvementId,
-                    StudentID = Preferences.Get("UserID", 1),
+                    StudentID = Preferences.Get("UserID", 999),
                     ActivityName = AdditionalInvolvements.ActivityName,
                     ParticpatedYears = AdditionalInvolvements.ParticpatedYears,
                     Role = AdditionalInvolvements.Role,

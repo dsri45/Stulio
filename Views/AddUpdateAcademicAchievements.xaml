@@ -25,22 +25,22 @@
         </VerticalStackLayout>-->
         <VerticalStackLayout>
             <Label Text="Class/Award" />
-            <Entry Text="{Binding AcademicAchievements.Class}" Placeholder="ex. AP CSP, National Merit Scholar" />
+            <Entry Text="{Binding AcademicAchievements.Class, Mode=TwoWay}" Placeholder="ex. AP CSP, National Merit Scholar" />
         </VerticalStackLayout>
         <VerticalStackLayout>
             <Label Text="Grade/Organization" />
-            <Entry  Text="{Binding AcademicAchievements.Award}" Placeholder="ex. NMSC" />
+            <Entry  Text="{Binding AcademicAchievements.Award, Mode=TwoWay}" Placeholder="ex. NMSC" />
         </VerticalStackLayout>
         <VerticalStackLayout>
             <Label Text="Date Completed/Achieved"  />
-            <Entry Text="{Binding AcademicAchievements.DateAchived}" Placeholder="Mon-Year" />
+            <Entry Text="{Binding AcademicAchievements.DateAchived, Mode=TwoWay}" Placeholder="Mon-Year" />
         </VerticalStackLayout>
         <VerticalStackLayout>
             <Label Text="Description" />
-            <Editor x:Name="editor" Placeholder="Description"   HeightRequest="150"  Text="{Binding AcademicAchievements.Description}"/>
+            <Editor x:Name="editor" Placeholder="Description"   HeightRequest="150"  Text="{Binding AcademicAchievements.Description, Mode=TwoWay}"/>
         </VerticalStackLayout>
-        
 
-        <Button Text="Save" Command="{Binding UpdateAcademicAchievementsCommand}"/>
+
+        <Button Text="Save" Command="{Binding UpdateAcademicAchievementsCommand}" CommandParameter="{Binding AcademicAchievements}"/>
     </StackLayout>
 </ContentPage>

@@ -41,7 +41,7 @@ namespace Stulio.ViewModels
 
             public async Task LoadRecords()
             {
-       
+           
             // Retrieve data from DataService
             //var studentModels = await _dataService.GetStudent(); // Assuming GetStudentModels returns a list of StudentModel
             //var academicAchievements = await _dataService.GetAcademicAchievement(); // Assuming GetAcademicAchievements returns a list of AcademicAchievement
@@ -76,7 +76,7 @@ namespace Stulio.ViewModels
        [RelayCommand]
         public async void LoadByStudentID()
         {
-            int UserID = Preferences.Get("UserID", 1);
+            int UserID = Preferences.Get("UserID", 999);
             ShowStudent = await _dataService.GetStudent();
 
         }

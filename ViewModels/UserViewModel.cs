@@ -44,21 +44,23 @@ namespace Stulio.ViewModels
                     Email = UserDetail.Email,
                     SchoolName = UserDetail.SchoolName,
                     Username = UserDetail.Username,
-                    Password = UserDetail.Password
+                    Password = UserDetail.Password,
+                    PhoneNumber= UserDetail.PhoneNumber
                 });
             }
-            if (response > 0)
+            if (response > -1)
             {
-                var studentID = Preferences.Get("UserID", 1);
-                studentService.AddStudent(new Models.StudentModel
-                {
-                     
-                    StudentID = studentID,
-                    FirstName = UserDetail.FirstName,
-                    LastName = UserDetail.LastName,
-                    Email = UserDetail.Email,
+                var studentID = Preferences.Get("UserID", 999);
+                //await studentService.AddStudent(new Models.StudentModel
+                //{
+                //    StudentID = studentID,
+                //    FirstName = UserDetail.FirstName,
+                //    LastName = UserDetail.LastName,
+                //    Email = UserDetail.Email,
+                //    SchoolName = UserDetail.SchoolName,
+                //    PhoneNumber = UserDetail.PhoneNumber
 
-                });
+                //});
 
                 App.Current.MainPage = new AppShell();
             }

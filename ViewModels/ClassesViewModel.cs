@@ -31,7 +31,7 @@ namespace Stulio.ViewModels
         public async void GetClassesList()
         {
             Classes.Clear();
-            var classesList = await _classesService.GetClassesList();
+            var classesList = await _classesService.GetClassesList(Preferences.Get("UserID", 999));
             if (classesList?.Count > 0)
             {
                 classesList = classesList.OrderBy(f => f.Name).ToList();

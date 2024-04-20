@@ -37,7 +37,7 @@ namespace Stulio.ViewModels
                 response = await _Service.AddClasses(new Models.ClassesModel
                 {
                     ClassId = Classes.ClassId,
-                    StudentID = Preferences.Get("UserID", 1),
+                    StudentID = Preferences.Get("UserID", 999),
                     Name = Classes.Name,
                     ClassYear = Classes.ClassYear,
                     Grade = Classes.Grade

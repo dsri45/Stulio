@@ -38,10 +38,10 @@ namespace Stulio.Services
             return await _dbConnection.DeleteAsync(classesModel);
         }
 
-        public async Task<List<ClassesModel>> GetClassesList()
+        public async Task<List<ClassesModel>> GetClassesList(int studentID)
         {
             await SetUpDb();
-            var classesList = await _dbConnection.Table<ClassesModel>().ToListAsync();
+            var classesList = await _dbConnection.Table<ClassesModel>().Where(s => s.StudentID == studentID).ToListAsync();
             return classesList;
         }
         public async Task<ClassesModel> LoadClassesByID(int studentID, int ClassId)

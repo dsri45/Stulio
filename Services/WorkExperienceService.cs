@@ -37,10 +37,10 @@ namespace Stulio.Services
             return await _dbConnection.DeleteAsync(workExperienceModel);
         }
 
-        public async Task<List<WorkExperienceModel>> GetWorkExperienceList()
+        public async Task<List<WorkExperienceModel>> GetWorkExperienceList(int studentID)
         {
             await SetUpDb();
-            var workExperienceList = await _dbConnection.Table<WorkExperienceModel>().ToListAsync();
+            var workExperienceList = await _dbConnection.Table<WorkExperienceModel>().Where(s => s.StudentID == studentID).ToListAsync();
             return workExperienceList;
         }
 

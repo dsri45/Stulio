@@ -31,25 +31,30 @@ namespace Stulio.ViewModels
             if (AcademicAchievements.AcademicId > 0)
             {
                 response = await _Service.UpdateAcademicAchievements(AcademicAchievements);
+                
             }
             else
             {
                 response = await _Service.AddAcademicAchievements(new Models.AcademicAchievementsModel
                 {
                     AcademicId = AcademicAchievements.AcademicId,
-                    StudentID = Preferences.Get("UserID", 1),
+                    StudentID = Preferences.Get("UserID", 999),
                     DateAchived = AcademicAchievements.DateAchived,
                     Award = AcademicAchievements.Award,
                     Class = AcademicAchievements.Class,
                     Description = AcademicAchievements.Description
-                });
+
+                 });
+
+               
+
             }
-
-
-
             if (response > 0)
             {
                 //await Shell.Current.DisplayAlert("Academic Achievements Info Saved", "Record Saved", "OK");
+                
+                
+
                 await Shell.Current.GoToAsync("..");
             }
             else

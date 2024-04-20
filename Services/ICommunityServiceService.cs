@@ -11,7 +11,7 @@ namespace Stulio.Services
 {
     public interface ICommunityServiceService
     {
-        Task<List<CommunityServiceModel>> GetCommunityServiceList();
+        Task<List<CommunityServiceModel>> GetCommunityServiceList(int studentID);
         Task<int> AddCommunityService(CommunityServiceModel communityServiceModel);
         Task<CommunityServiceModel> LoadCommunityServiceByID(int studentID, int communityId);
         Task<int> DeleteCommunityService(CommunityServiceModel communityServiceModel);

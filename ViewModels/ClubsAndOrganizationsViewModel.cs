@@ -28,7 +28,7 @@ namespace Stulio.ViewModels
         public async void GetClubsAndOrganizationsList()
         {
             ClubsAndOrganizations.Clear();
-            var clubsAndOrganizationsList = await _clubsAndOrganizationsService.GetClubsAndOrganizationsList();
+            var clubsAndOrganizationsList = await _clubsAndOrganizationsService.GetClubsAndOrganizationsList(Preferences.Get("UserID", 999));
             if (clubsAndOrganizationsList?.Count > 0)
             {
                 clubsAndOrganizationsList = clubsAndOrganizationsList.OrderBy(f => f.ClubName).ToList();

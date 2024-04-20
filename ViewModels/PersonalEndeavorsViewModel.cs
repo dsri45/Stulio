@@ -31,7 +31,7 @@ namespace Stulio.ViewModels
         public async void GetPersonalEndeavorsList()
         {
             PersonalEndeavors.Clear();
-            var personalEndeavorsList = await _personalEndeavorsService.GetPersonalEndeavorsList();
+            var personalEndeavorsList = await _personalEndeavorsService.GetPersonalEndeavorsList(Preferences.Get("UserID", 999));
             if (personalEndeavorsList?.Count > 0)
             {
                 personalEndeavorsList = personalEndeavorsList.OrderBy(f => f.Description).ToList();

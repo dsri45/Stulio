@@ -11,7 +11,7 @@ namespace Stulio.Services
 {
     public interface IAthleticParticipationService
     {
-        Task<List<AthleticParticipationModel>> GetAthleticParticipationList();
+        Task<List<AthleticParticipationModel>> GetAthleticParticipationList(int studentID);
         Task<int> AddAthleticParticipation(AthleticParticipationModel athleticParticipationModel);
         Task<AthleticParticipationModel> LoadAthleticParticipationByID(int studentID, int atheleticId);
         Task<int> DeleteAthleticParticipation(AthleticParticipationModel athleticParticipationModel);

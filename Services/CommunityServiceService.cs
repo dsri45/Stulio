@@ -37,10 +37,10 @@ namespace Stulio.Services
             return await _dbConnection.DeleteAsync(communityServiceModel);
         }
 
-        public async Task<List<CommunityServiceModel>> GetCommunityServiceList()
+        public async Task<List<CommunityServiceModel>> GetCommunityServiceList(int studentID)
         {
             await SetUpDb();
-            var communityServiceList = await _dbConnection.Table<CommunityServiceModel>().ToListAsync();
+            var communityServiceList = await _dbConnection.Table<CommunityServiceModel>().Where(s => s.StudentID == studentID).ToListAsync();
             return communityServiceList;
         }
 

@@ -57,7 +57,8 @@
                                
                             <VerticalStackLayout>
                                 <HorizontalStackLayout Spacing="10">
-                                    <Label Text="{Binding FirstName}" FontSize="18" FontAttributes="Bold" />
+                                        <!--<Label Text="{Binding StudentID}" FontSize="18" FontAttributes="Bold" />-->
+                                        <Label Text="{Binding FirstName}" FontSize="18" FontAttributes="Bold" />
                                     <Label Text="{Binding LastName}" FontSize="18" FontAttributes="Bold" />
                                 </HorizontalStackLayout>
                                 <Label Text="{Binding Email}" />

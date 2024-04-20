@@ -31,7 +31,7 @@ namespace Stulio.ViewModels
         public async void GetCommunityServiceList()
         {
             CommunityService.Clear();
-            var communityServiceList = await _communityServiceService.GetCommunityServiceList();
+            var communityServiceList = await _communityServiceService.GetCommunityServiceList(Preferences.Get("UserID", 999));
             if (communityServiceList?.Count > 0)
             {
                 communityServiceList = communityServiceList.OrderBy(f => f.ServiceName).ToList();

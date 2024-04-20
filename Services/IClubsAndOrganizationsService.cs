@@ -11,7 +11,7 @@ namespace Stulio.Services
 {
     public interface IClubsAndOrganizationsService
     {
-        Task<List<ClubsAndOrganizationsModel>> GetClubsAndOrganizationsList();
+        Task<List<ClubsAndOrganizationsModel>> GetClubsAndOrganizationsList(int studentID);
         Task<int> AddClubsAndOrganizations(ClubsAndOrganizationsModel clubsAndOrganizationsModel);
         Task<ClubsAndOrganizationsModel> LoadClubsAndOrganizationsByID(int studentID, int clubId);
         Task<int> DeleteClubsAndOrganizations(ClubsAndOrganizationsModel clubsAndOrganizationsModel);

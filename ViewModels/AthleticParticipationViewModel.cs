@@ -27,7 +27,7 @@ namespace Stulio.ViewModels
         public async void GetAthleticParticipationList()
         {
             AthleticParticipation.Clear();
-            var athleticParticipationList = await _athleticParticipationService.GetAthleticParticipationList();
+            var athleticParticipationList = await _athleticParticipationService.GetAthleticParticipationList(Preferences.Get("UserID", 999));
             if (athleticParticipationList?.Count > 0)
             {
                 athleticParticipationList = athleticParticipationList.OrderBy(f => f.Sport).ToList();

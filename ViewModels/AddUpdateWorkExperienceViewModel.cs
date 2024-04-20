@@ -37,7 +37,7 @@ namespace Stulio.ViewModels
                 response = await _Service.AddWorkExperience(new Models.WorkExperienceModel
                 {
                     WorkId = WorkExperience.WorkId,
-                    StudentID = Preferences.Get("UserID", 1),
+                    StudentID = Preferences.Get("UserID", 999),
                     Role = WorkExperience.Role,
                     Establishment = WorkExperience.Establishment,
                     ParticpatedYears = WorkExperience.ParticpatedYears,

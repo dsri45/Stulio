@@ -41,7 +41,7 @@ namespace Stulio.Services
         public async Task<StudentModel> GetStudent()
         {
             // Simulated data retrieval from Model 1
-            int userID = Preferences.Get("UserID", 1);
+            int userID = Preferences.Get("ShowUserID", 999);
             StudentModel studentDetail = await _studentService.LoadStudentByID(userID);
             return studentDetail;
         }
@@ -49,64 +49,64 @@ namespace Stulio.Services
         public async Task<List<AcademicAchievementsModel>> GetAcademicAchievement()
         {
             // Simulated data retrieval from Model 1
-            int userID = Preferences.Get("UserID", 1);
-            List<AcademicAchievementsModel> academicAchievements = await _academicAchievementservice.GetAcademicAchievementsList();
+            int userID = Preferences.Get("ShowUserID", 999);
+            List<AcademicAchievementsModel> academicAchievements = await _academicAchievementservice.GetAcademicAchievementsList(userID);
             return academicAchievements;
         }
 
         public async Task<List<ClubsAndOrganizationsModel>> GetClubsAndOrganizations()
         {
             // Simulated data retrieval from Model 1
-            int userID = Preferences.Get("UserID", 1);
-            List<ClubsAndOrganizationsModel> clubsAndOrganizations = await _clubsAndOrganizationsService.GetClubsAndOrganizationsList();
+            int userID = Preferences.Get("ShowUserID", 999);
+            List<ClubsAndOrganizationsModel> clubsAndOrganizations = await _clubsAndOrganizationsService.GetClubsAndOrganizationsList(userID);
             return clubsAndOrganizations;
         }
 
         public async Task<List<CommunityServiceModel>> GetCommunityService()
         {
             // Simulated data retrieval from Model 1
-            int userID = Preferences.Get("UserID", 1);
-            List<CommunityServiceModel> communityService = await _communityServiceService.GetCommunityServiceList();
+            int userID = Preferences.Get("ShowUserID", 999);
+            List<CommunityServiceModel> communityService = await _communityServiceService.GetCommunityServiceList(userID);
             return communityService;
         }
 
         public async Task<List<AthleticParticipationModel>> GetAthleticParticipation()
         {
             // Simulated data retrieval from Model 1
-            int userID = Preferences.Get("UserID", 1);
-            List<AthleticParticipationModel> athleticParticipation = await _athleticParticipationService.GetAthleticParticipationList();
+            int userID = Preferences.Get("ShowUserID", 999);
+            List<AthleticParticipationModel> athleticParticipation = await _athleticParticipationService.GetAthleticParticipationList(userID);
             return athleticParticipation;
         }
 
         public async Task<List<WorkExperienceModel>> GetWorkExperience()
         {
             // Simulated data retrieval from Model 1
-            int userID = Preferences.Get("UserID", 1);
-            List<WorkExperienceModel> workExperience = await _workExperienceService.GetWorkExperienceList();
+            int userID = Preferences.Get("ShowUserID", 999);
+            List<WorkExperienceModel> workExperience = await _workExperienceService.GetWorkExperienceList(userID);
             return workExperience;
         }
 
         public async Task<List<ClassesModel>> GetClasses()
         {
             // Simulated data retrieval from Model 1
-            int userID = Preferences.Get("UserID", 1);
-            List<ClassesModel> classes = await _classesService.GetClassesList();
+            int userID = Preferences.Get("ShowUserID", 999);
+            List<ClassesModel> classes = await _classesService.GetClassesList(userID);
             return classes;
         }
 
         public async Task<List<AdditionalInvolvementsModel>> GetAdditionalInvolvements()
         {
             // Simulated data retrieval from Model 1
-            int userID = Preferences.Get("UserID", 1);
-            List<AdditionalInvolvementsModel> additionalInvolvements = await _additionalInvolvementsService.GetAdditionalInvolvementsList();
+            int userID = Preferences.Get("ShowUserID", 999);
+            List<AdditionalInvolvementsModel> additionalInvolvements = await _additionalInvolvementsService.GetAdditionalInvolvementsList(userID);
             return additionalInvolvements;
         }
 
         public async Task<List<PersonalEndeavorsModel>> GetPersonalEndeavors()
         {
             // Simulated data retrieval from Model 1
-            int userID = Preferences.Get("UserID", 1);
-            List<PersonalEndeavorsModel> personalEndeavors = await _personalEndeavorsService.GetPersonalEndeavorsList();
+            int userID = Preferences.Get("ShowUserID", 999);
+            List<PersonalEndeavorsModel> personalEndeavors = await _personalEndeavorsService.GetPersonalEndeavorsList(userID);
             return personalEndeavors;
         }
     }
