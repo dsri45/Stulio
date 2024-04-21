@@ -37,8 +37,8 @@ namespace Stulio
             builder.Services.AddSingleton<IUserService, UserService>();
             builder.Services.AddSingleton<IForumService, ForumService>();
             builder.Services.AddSingleton<IShowStudentProfileService, ShowStudentProfileService>();
-            
 
+            builder.Services.AddSingleton<Help>();
             builder.Services.AddSingleton<LoginPage>();
             builder.Services.AddSingleton<SignUpPage>();
 
@@ -64,7 +64,7 @@ namespace Stulio
             builder.Services.AddSingleton<ClassesView>();
             builder.Services.AddSingleton<AddUpdateClasses>();
             builder.Services.AddSingleton<FourmPage>();
-            builder.Services.AddSingleton<LoginPage>();
+            
 
 
             //View Modles 

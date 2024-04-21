@@ -54,16 +54,20 @@
                         </SwipeView.LeftItems>
                         <Frame Margin="10" Padding="4" BackgroundColor="#478D68" >
                             <Frame Margin="0" Padding="10" BackgroundColor="White">
-                               
-                            <VerticalStackLayout>
+
+
+                                <Grid ColumnDefinitions="Auto,*,*">
+                                    <VerticalStackLayout>
                                 <HorizontalStackLayout Spacing="10">
                                         <!--<Label Text="{Binding StudentID}" FontSize="18" FontAttributes="Bold" />-->
-                                        <Label Text="{Binding FirstName}" FontSize="18" FontAttributes="Bold" />
-                                    <Label Text="{Binding LastName}" FontSize="18" FontAttributes="Bold" />
+                                            <Image Grid.Column="0" Source="user"  WidthRequest="30" HeightRequest="30" HorizontalOptions="Center"/>
+                                            <Label Grid.Column="1" Text="{Binding FirstName}" FontSize="18" FontAttributes="Bold" Margin="0,2,0,0" />
+                                            <Label  Grid.Column="1" Text="{Binding LastName}" FontSize="18" FontAttributes="Bold" Margin="-5,2,0,0" />
                                 </HorizontalStackLayout>
-                                <Label Text="{Binding Email}" />
-                                <Label Text="{Binding PhoneNumber}" />
-                            </VerticalStackLayout>
+
+                                        <Label Text="{Binding SchoolName}" Margin="41,0,0,0"/>
+                                </VerticalStackLayout>
+                                </Grid>
                             <Frame.GestureRecognizers>
                                 <TapGestureRecognizer Command="{Binding Source={x:RelativeSource AncestorType={x:Type viewModels:StudentListPageViewModel}},Path=DisplayActionCommand}"
                                                   CommandParameter="{Binding .}" />

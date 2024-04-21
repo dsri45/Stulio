@@ -93,7 +93,7 @@
                                  HorizontalOptions="FillAndExpand" />
 
 
-                        <Label Text="           Dont Have An Account Yet?" FontSize="12"
+                        <Label Text="           Don't Have An Account Yet?" FontSize="12"
                               HorizontalOptions="FillAndExpand" VerticalOptions="CenterAndExpand" TextColor="Black"/>
 
                         <Button Margin="0,-10,0,0"

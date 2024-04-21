@@ -73,7 +73,7 @@
 
         <VerticalStackLayout>
             <!--<Label Text="PhoneNumber" />-->
-                        <Entry Text="{Binding UserDetail.PhoneNumber}" Placeholder="PhoneNumber"  Margin="0,0,0,5"/>
+                        <Entry Text="{Binding UserDetail.PhoneNumber}" Placeholder="Phone Number"  Margin="0,0,0,5"/>
         </VerticalStackLayout>
 
         <VerticalStackLayout>
@@ -145,7 +145,8 @@ Flags="ValidateOnValueChanged">
                             </Entry.Behaviors>
                            
                 </Entry>
-            </VerticalStackLayout>
+                        <Label Text="*Password must start with a capital letter and contain a number and special character (!,*,%,$, etc.)"  Margin="0,-6,0,-10" BackgroundColor="Transparent" TextColor="Black"   FontSize="10" HorizontalOptions="End"/>
+                    </VerticalStackLayout>
                     <Button Text="→" Command="{Binding AddUpdateUserCommand}" Margin="0,-30,-20,-30" BackgroundColor="Transparent" TextColor="Black"   FontSize="70" HorizontalOptions="End"/>
                     
                 </VerticalStackLayout>

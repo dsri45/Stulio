@@ -5,9 +5,11 @@ using Stulio.Services;
 using Stulio.Views;
 using System;
 using System.Collections.Generic;
+using System.Globalization;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using Xamarin.Essentials;
 
 
 namespace Stulio.ViewModels
@@ -29,7 +31,7 @@ namespace Stulio.ViewModels
         [RelayCommand]
         public async void LoadByStudentID()
         {
-            int UserID = Preferences.Get("UserID",1);
+            int UserID = Microsoft.Maui.Storage.Preferences.Get("UserID",1);
             StudentDetail = await _studentService.LoadStudentByID(UserID);
 
         }
@@ -122,6 +124,37 @@ namespace Stulio.ViewModels
         {
             await Shell.Current.GoToAsync(nameof(ClassesView));
         }
+
+        [RelayCommand]
+        async Task CaptureScreenshot()
+        {
+
+            var screenshot = await Xamarin.Essentials.Screenshot.CaptureAsync();
+            var stream = await screenshot.OpenReadAsync();
+            var filename = "screenshot" + DateTime.Now.ToString("yyyyMMddHHmmss", CultureInfo.InvariantCulture) + ".png";
+            var file = Path.Combine(Xamarin.Essentials.FileSystem.CacheDirectory, filename);
+            using (FileStream fs = File.Open(file, FileMode.CreateNew))
+            {
+                await stream.CopyToAsync(fs);
+                await fs.FlushAsync();
+            }
+
+            ShareFile(filename, file);
+            //return file;
+        }
+
+
+      
+        async Task ShareFile(string filename, string filepath)
+        {
+            await Xamarin.Essentials.Share.RequestAsync(new Xamarin.Essentials.ShareFileRequest()
+            {
+                Title = filename,
+                File = new Xamarin.Essentials.ShareFile(filepath)
+            });
+        }
+
+        
     }
 
     }

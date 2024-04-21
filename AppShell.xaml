@@ -15,15 +15,12 @@
         Route="loading" />-->
 
     <!--Login Page-->
-    <!--<ShellContent 
-        Title="Login" 
-        ContentTemplate="{DataTemplate views:LoginPage}"
-        Route="login"/>-->
+    
     <!--Main Page-->
 
 
 
-    <FlyoutItem  Title="Dhanasri Prabhu"  >
+    <FlyoutItem   Title="Stulio"  FlyoutIcon="logoflyout.png" >
 
        
 
@@ -43,16 +40,24 @@
              ContentTemplate="{DataTemplate views:FourmPage}" />
         
         </Tab>
-        <Tab Title="Logout" Icon="lightbulb.png">
+        <!--<Tab Title="Logout" Icon="lightbulb.png">
             <ShellContent Title="Logout"
             ContentTemplate="{DataTemplate views:LoginPage}" />
 
-        </Tab>
+        </Tab>-->
 
 
     </FlyoutItem>
 
-   
+    <ShellContent 
+    Title="Help" 
+    ContentTemplate="{DataTemplate views:Help}"/>
+    <ShellContent 
+    Title="Logout" 
+    ContentTemplate="{DataTemplate views:LoginPage}"
+    Route="login"/>
+
+
     <!--<FlyoutItem Title=" Dashboard" FlyoutDisplayOptions="AsMultipleItems"  >
 
      <ShellContent

@@ -27,7 +27,7 @@ namespace Stulio.ViewModels
         [RelayCommand]
         public async Task CallChatGPT()
         {
-            string prompt = "Give me one random high school, college application, or future endeavors tip. ";
+            string prompt = "Give me one random high school, college application, or future endeavors tip. Your answer must be over 200 words long.";
 
             // Call the API
             GptReponse = await _forumService.CallChatGptAPI(prompt);

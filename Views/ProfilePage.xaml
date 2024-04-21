@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:d="http://xamarin.com/schemas/2014/forms/design"
              xmlns:viewModels="clr-namespace:Stulio.ViewModels"
              x:DataType="viewModels:ProfilePageViewModel"
              x:Class="Stulio.Views.ProfilePage"
@@ -47,6 +48,9 @@
                 <Frame Grid.Row="2" BorderColor="White" VerticalOptions="Start" HeightRequest="200" HasShadow="False" CornerRadius="20" Margin="0,-150,0,0" Padding="0,0,0,0" IsClippedToBounds="True">
                     <Image Source="timeline3" Aspect="AspectFill" />
                 </Frame>
+                <Button Grid.Row="3" Grid.Column="1" ImageSource="socialmedia.png" Text="Share Profile"  WidthRequest="30" HeightRequest="30" CornerRadius="9" 
+HorizontalOptions="Center" BackgroundColor="Transparent" Margin="300,-40,0,0" 
+Command="{Binding CaptureScreenshotCommand}"/>
                 <!-- Image Profile-->
                 <Frame Grid.Row="1"  Margin="0,15,0,10" BorderColor="White" HorizontalOptions="Center" WidthRequest="200" HeightRequest="{OnPlatform iOS='200', Android='200'}" HasShadow="False" CornerRadius="100" Padding="0" IsClippedToBounds="True" ZIndex="3">
                     <Image Source="dhanasriprofile" Aspect="AspectFill"/>
@@ -61,7 +65,7 @@
                     <Label Grid.Column="3" Text=" Age, 16" FontSize="15" TextColor="#9192b7"/>
                 </Grid>-->
             </Grid>
-
+            
 
             <Frame x:Name="aboutMeFrame"
            BackgroundColor="White"
@@ -84,6 +88,13 @@
 
                 </StackLayout>
             </Frame>
+
+            <!--<Grid  RowDefinitions ="Auto,Auto"   ColumnDefinitions="Auto,Auto"  VerticalOptions="Center" HorizontalOptions="Center" Margin="0,10,0,0">
+                <Button Grid.Row="1" Grid.Column="1" ImageSource="socialmedia.png" Text="Share Profile"  WidthRequest="30" HeightRequest="30" CornerRadius="9" 
+HorizontalOptions="Center" BackgroundColor="White" Margin="0,-10,0,0" 
+Command="{Binding CaptureScreenshotCommand}"/>
+                --><!--<Button Grid.Row="1" Grid.Column="2" ImageSource="instagram.png"  WidthRequest="20" HeightRequest="20" CornerRadius="9" HorizontalOptions="Center" BackgroundColor="#9192b7"  />--><!--
+            </Grid>-->
 
             <Frame x:Name="ButtonsFrame"
                    BackgroundColor="#F7F7F7"
@@ -261,9 +272,6 @@
                 </StackLayout>
             </Frame>
            
-                
-        
-
             <Frame x:Name="ContactFrame"
                      BackgroundColor="White"
                      CornerRadius="15"
@@ -284,10 +292,7 @@
                          LineBreakMode="WordWrap"/>
                 </StackLayout>
             </Frame>
-            <Grid  RowDefinitions ="Auto,Auto"  ColumnDefinitions="Auto,Auto" VerticalOptions="Center" HorizontalOptions="Center" Margin="0,10,0,0">
-            <Button Grid.Row="1" Grid.Column="1" ImageSource="facebook.png"  WidthRequest="20" HeightRequest="20" CornerRadius="9" HorizontalOptions="Center" BackgroundColor="#9192b7"  />
-            <Button Grid.Row="1" Grid.Column="2" ImageSource="instagram.png"  WidthRequest="20" HeightRequest="20" CornerRadius="9" HorizontalOptions="Center" BackgroundColor="#9192b7"  />
-              </Grid>
+            
 
             <!-- About Me Section -->
             <!--

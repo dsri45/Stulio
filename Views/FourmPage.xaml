@@ -4,22 +4,39 @@
              xmlns:viewModels="clr-namespace:Stulio.ViewModels"
              x:DataType="viewModels:ForumPageViewModel"
              x:Class="Stulio.Views.FourmPage"
-             Title="Tips And Tricks">
+             Title=""
+             BackgroundColor="{StaticResource Primary}">
     
     <ScrollView>
-        <StackLayout Margin="10" Spacing="0">
+
+        <Frame x:Name="TipFrame"
+  BackgroundColor="White"
+  CornerRadius="15"
+  Padding="15"
+  Margin="20,30,20,10" >
+            <StackLayout Margin="10" Spacing="0">
 
                 <VerticalStackLayout>
-                    <Label Text="Powered by ChatGPT" FontAttributes="Italic" TextColor="#383b67" HorizontalTextAlignment="Start" Margin="0,20,0,0" FontSize="16" />
+                    <Image Source="logoapp" Margin="0,-20,0,-25" WidthRequest="120" HeightRequest="120" HorizontalOptions="Center"/>
+                    <Label Margin="0,10,0,0"
+                    FontAttributes="Bold"
+                    FontFamily="bold"
+                    Text="Tips and Tricks"
+                    FontSize="30"
+                    HorizontalTextAlignment="Center"
+                    VerticalTextAlignment="Center"
+                    TextColor="Black"/>
+                    <Label Text="Powered by ChatGPT" FontAttributes="Italic" TextColor="{StaticResource Primary}" HorizontalTextAlignment="Center" Margin="0,10,0,10" FontSize="16" />
 
                     <Editor x:Name="editor"
-                    Placeholder="Preparing you a question..."
-                    HeightRequest="1000"
+                    Placeholder="Preparing a tip for you..."
+                    HeightRequest="1000" 
                     Text="{Binding GptReponse.PromptResponse}" />
                 </VerticalStackLayout>
                 <!--<Button Text="Save" Command="{Binding UpdateAboutMeCommand}"/>-->
 
             </StackLayout>
+        </Frame>
     </ScrollView>
 </ContentPage>
 
