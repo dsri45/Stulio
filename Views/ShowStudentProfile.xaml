@@ -20,7 +20,7 @@
         </Grid.RowDefinitions>
           <Grid RowDefinitions="Auto,Auto,Auto,Auto" Padding="8,0">
                     <Frame Grid.Row="0"  Margin="0,0,0,10" BorderColor="White" HorizontalOptions="Center" WidthRequest="180" HeightRequest="{OnPlatform iOS='180', Android='180'}" HasShadow="False" CornerRadius="100" Padding="0" IsClippedToBounds="True" ZIndex="3">
-                        <Image Source="dhanasriprofile" Aspect="AspectFill"/>
+                        <Image Source="{Binding ShowStudent.Profilepicture}" Aspect="AspectFill"/>
                     </Frame>
 
                     <!-- Profile name & general description-->

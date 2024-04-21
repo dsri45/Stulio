@@ -34,15 +34,16 @@ namespace Stulio.Services
             await _dbConnection.CreateTableAsync<UserModel>();
             await _dbConnection.InsertAsync(UserModel);
             Preferences.Set("UserID", UserModel.UserId);
-            
+
             //Adding new studentmodel
             StudentModel studentModel = new StudentModel {
                 StudentID = UserModel.UserId,
                 FirstName = UserModel.FirstName,
-                LastName= UserModel.LastName,
+                LastName = UserModel.LastName,
                 SchoolName = UserModel.SchoolName,
                 Email = UserModel.Email,
-                PhoneNumber=UserModel.PhoneNumber
+                PhoneNumber = UserModel.PhoneNumber,
+                Profilepicture = UserModel.FirstName.ToLower()
             };
             await _dbConnection.InsertAsync(studentModel);
 

@@ -53,7 +53,7 @@ HorizontalOptions="Center" BackgroundColor="Transparent" Margin="300,-40,0,0"
 Command="{Binding CaptureScreenshotCommand}"/>
                 <!-- Image Profile-->
                 <Frame Grid.Row="1"  Margin="0,15,0,10" BorderColor="White" HorizontalOptions="Center" WidthRequest="200" HeightRequest="{OnPlatform iOS='200', Android='200'}" HasShadow="False" CornerRadius="100" Padding="0" IsClippedToBounds="True" ZIndex="3">
-                    <Image Source="dhanasriprofile" Aspect="AspectFill"/>
+                    <Image Source="{Binding StudentDetail.Profilepicture}" Aspect="AspectFill"/>
                 </Frame>
                 <!-- Profile name & general description-->
                 <Label Grid.Row="2" Text="{Binding StudentDetail.FullName}" FontAttributes="Bold" TextColor="#383b67" HorizontalTextAlignment="Center" Margin="0,-3,0,0" FontSize="22" FontFamily="bold"/>
@@ -128,7 +128,7 @@ Command="{Binding CaptureScreenshotCommand}"/>
 
                         <Button  Grid.Row="0" Grid.Column="2"
                                  Text="Academic Achivements"
-                                 ImageSource="academicachievements_icon.png"
+                                 ImageSource="trophy.png"
                                  LineBreakMode="WordWrap"
                                  FontAttributes="Bold"
                                  BackgroundColor="White"
@@ -209,7 +209,7 @@ Command="{Binding CaptureScreenshotCommand}"/>
                         <!-- Work Experience -->
                         <Button Grid.Row="2" Grid.Column="2"
                                 Text="Work Experience"
-                                ImageSource="projects_icon.png"
+                                ImageSource="work.png"
                                 LineBreakMode="WordWrap"
                                 FontAttributes="Bold"
                                 BackgroundColor="White"
@@ -229,7 +229,7 @@ Command="{Binding CaptureScreenshotCommand}"/>
 
                         <Button Grid.Row="3" Grid.Column="1"
                         Text="Personal Endeavors"
-                        ImageSource="additionalinvolvments_icon.png"
+                        ImageSource="projects_icon.png"
                         LineBreakMode="WordWrap"
                         FontAttributes="Bold"
                         BackgroundColor="White"
