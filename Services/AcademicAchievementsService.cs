@@ -54,7 +54,7 @@ namespace Stulio.Services
                 academicAchievements = new AcademicAchievementsModel
                 {
                     StudentID = 1, // Default ID
-                    AcademicId = 1,
+                    AcademicId = -1,
                     DateAchived= "",
                     Award = "",
                     Class = ""

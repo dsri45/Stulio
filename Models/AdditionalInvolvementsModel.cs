@@ -1,4 +1,5 @@
-﻿using System;
+﻿using SQLite;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -8,6 +9,7 @@ namespace Stulio.Models
 {
     public class AdditionalInvolvementsModel
     {
+        [PrimaryKey, AutoIncrement]
         public int InvolvementId { get; set; }
         public int StudentID { get; set; }
         public string ActivityName { get; set; }

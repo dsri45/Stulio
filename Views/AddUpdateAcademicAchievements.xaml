@@ -25,6 +25,7 @@
         </VerticalStackLayout>-->
         <VerticalStackLayout>
             <Label Text="Class/Award" />
+            <!--<Entry Text="{Binding AcademicAchievements.AcademicId, Mode=TwoWay}" Placeholder="ex. 1"  IsVisible="True"/>-->
             <Entry Text="{Binding AcademicAchievements.Class, Mode=TwoWay}" Placeholder="ex. AP CSP, National Merit Scholar" />
         </VerticalStackLayout>
         <VerticalStackLayout>

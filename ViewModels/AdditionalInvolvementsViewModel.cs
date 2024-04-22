@@ -48,6 +48,7 @@ namespace Stulio.ViewModels
         [RelayCommand]
         public async void AddUpdateAdditionalInvolvements()
         {
+            Preferences.Set("InvolvementId", -1);
             await AppShell.Current.GoToAsync(nameof(AddUpdateAdditionalInvolvements));
         }
 
@@ -56,6 +57,7 @@ namespace Stulio.ViewModels
         {
             var navParam = new Dictionary<string, object>();
             navParam.Add("AdditionalInvolvementsDetail", additionalInvolvementsModel);
+            Preferences.Set("InvolvementId", additionalInvolvementsModel.InvolvementId);
             await AppShell.Current.GoToAsync(nameof(AddUpdateAdditionalInvolvements), navParam);
         }
 

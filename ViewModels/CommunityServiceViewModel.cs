@@ -48,6 +48,7 @@ namespace Stulio.ViewModels
         [RelayCommand]
         public async void AddUpdateCommunityService()
         {
+            Preferences.Set("CommunityId", -1);
             await AppShell.Current.GoToAsync(nameof(AddUpdateCommunityService));
         }
 
@@ -56,6 +57,7 @@ namespace Stulio.ViewModels
         {
             var navParam = new Dictionary<string, object>();
             navParam.Add("CommunityServiceDetail", communityServiceModel);
+            Preferences.Set("CommunityId", communityServiceModel.CommunityId);
             await AppShell.Current.GoToAsync(nameof(AddUpdateCommunityService), navParam);
         }
 

@@ -28,7 +28,7 @@ namespace Stulio.ViewModels
         public async void UpdateClubsAndOrganizations()
         {
             int response = -1;
-            if (ClubsAndOrganizations.ClubId > 0)
+            if (ClubsAndOrganizations.ClubId > -1)
             {
                 response = await _Service.UpdateClubsAndOrganizations(ClubsAndOrganizations);
             }
@@ -36,8 +36,8 @@ namespace Stulio.ViewModels
             {
                 response = await _Service.AddClubsAndOrganizations(new Models.ClubsAndOrganizationsModel
                 {
-                    ClubId = ClubsAndOrganizations.ClubId,
-                    StudentID = ClubsAndOrganizations.StudentID,
+                    //ClubId = ClubsAndOrganizations.ClubId,
+                    StudentID = Preferences.Get("UserID", 999),
                     ClubName = ClubsAndOrganizations.ClubName,
                     ParticpatedYears = ClubsAndOrganizations.ParticpatedYears,
                     Role = ClubsAndOrganizations.Role,
@@ -70,5 +70,14 @@ namespace Stulio.ViewModels
             }
         }
 
+
+        [RelayCommand]
+        public async void LoadClubsAndOrganizationsByID()
+        {
+            int UserID = Microsoft.Maui.Storage.Preferences.Get("UserID", 1);
+            int ClubId = Microsoft.Maui.Storage.Preferences.Get("ClubId", 1);
+            ClubsAndOrganizations = await _Service.LoadClubsAndOrganizationsByID(UserID, ClubId);
+
+        }
     }
 }

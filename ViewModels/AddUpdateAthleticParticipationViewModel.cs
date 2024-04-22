@@ -28,7 +28,7 @@ namespace Stulio.ViewModels
         public async void UpdateAthleticParticipation()
         {
             int response = -1;
-            if (AthleticParticipation.AthleticId > 0)
+            if (AthleticParticipation.AthleticId > -1)
             {
                 response = await _Service.UpdateAthleticParticipation(AthleticParticipation);
             }
@@ -36,8 +36,8 @@ namespace Stulio.ViewModels
             {
                 response = await _Service.AddAthleticParticipation(new Models.AthleticParticipationModel
                 {
-                    AthleticId = AthleticParticipation.AthleticId,
-                    StudentID = AthleticParticipation.StudentID,
+                    //AthleticId = AthleticParticipation.AthleticId,
+                    StudentID = Preferences.Get("UserID", 999),
                     Sport = AthleticParticipation.Sport,
                     Role = AthleticParticipation.Role,
                     ParticpatedYears = AthleticParticipation.ParticpatedYears,
@@ -68,6 +68,13 @@ namespace Stulio.ViewModels
                 await Shell.Current.GoToAsync("..");
             }
         }
+        [RelayCommand]
+        public async void LoadAthleticParticipationByID()
+        {
+            int UserID = Microsoft.Maui.Storage.Preferences.Get("UserID", 1);
+            int AthleticId = Microsoft.Maui.Storage.Preferences.Get("AthleticId", 1);
+            AthleticParticipation = await _Service.LoadAthleticParticipationByID(UserID, AthleticId);
 
+        }
     }
 }

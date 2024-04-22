@@ -48,6 +48,7 @@ namespace Stulio.ViewModels
         [RelayCommand]
         public async void AddUpdateClasses()
         {
+            Preferences.Set("ClassId", -1);
             await AppShell.Current.GoToAsync(nameof(AddUpdateClasses));
         }
 
@@ -56,6 +57,7 @@ namespace Stulio.ViewModels
         {
             var navParam = new Dictionary<string, object>();
             navParam.Add("ClassesDetail", classesModel);
+            Preferences.Set("ClassId", classesModel.ClassId);
             await AppShell.Current.GoToAsync(nameof(AddUpdateClasses), navParam);
         }
 

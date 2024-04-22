@@ -18,6 +18,17 @@ public partial class LoginPage : ContentPage
         this.BindingContext = viewModel;
     }
 
+    //protected override void OnAppearing()
+    //{
+    //    base.OnAppearing();
+
+    //    var userid = Preferences.Get("UserID", 999);
+    //    if (userid == 999)
+    //        _viewMode.LoginDetail.LoginStatus = "Invalid User/Passwod. Please try again";
+    //    else
+    //        _viewMode.LoginDetail.LoginStatus = "";
+    //}
+
     //public LoginPage()
     //{
     //    InitializeComponent();
@@ -49,7 +60,7 @@ public partial class LoginPage : ContentPage
     //    return user.Username.Equals(username);
     //    //return Username.Text == "admin" && Password.Text == "1234";
 
-        
+
     //}
 
     private async void SignUpButton_Clicked(object sender, EventArgs e)

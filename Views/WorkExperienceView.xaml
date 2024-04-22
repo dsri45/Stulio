@@ -89,7 +89,7 @@
                              VerticalOptions="Start"
                              Margin="0,0,0,0"
                              Text="{Binding ParticpatedYears}"/>
-                                    <Label Text="{Binding Description}" TextColor="Black" HeightRequest="150" FontSize="12" LineBreakMode="WordWrap"  Margin="0,6,0,0"/>
+                                    <Label Text="{Binding Description}" TextColor="Black"  FontSize="12" LineBreakMode="WordWrap"  Margin="0,6,0,0"/>
 
 
                                 </StackLayout>

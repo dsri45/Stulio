@@ -54,7 +54,7 @@ namespace Stulio.Services
                 additionalInvolvements = new AdditionalInvolvementsModel
                 {
                     StudentID = 1, // Default ID
-                    InvolvementId = 1,
+                    InvolvementId = -1,
                     ActivityName = "",
                     ParticpatedYears = "",
                     Role = "",

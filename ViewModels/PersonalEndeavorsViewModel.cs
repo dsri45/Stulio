@@ -48,6 +48,7 @@ namespace Stulio.ViewModels
         [RelayCommand]
         public async void AddUpdatePersonalEndeavors()
         {
+            Preferences.Set("EndeavorId", -1);
             await AppShell.Current.GoToAsync(nameof(AddUpdatePersonalEndeavors));
         }
 
@@ -56,6 +57,7 @@ namespace Stulio.ViewModels
         {
             var navParam = new Dictionary<string, object>();
             navParam.Add("PersonalEndeavorsDetail", personalEndeavorsModel);
+            Preferences.Set("EndeavorId", personalEndeavorsModel.EndeavorId);
             await AppShell.Current.GoToAsync(nameof(AddUpdatePersonalEndeavors), navParam);
         }
 

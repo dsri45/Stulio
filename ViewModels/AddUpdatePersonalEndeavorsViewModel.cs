@@ -28,7 +28,7 @@ namespace Stulio.ViewModels
         public async void UpdatePersonalEndeavors()
         {
             int response = -1;
-            if (PersonalEndeavors.EndeavorId > 0)
+            if (PersonalEndeavors.EndeavorId > -1)
             {
                 response = await _Service.UpdatePersonalEndeavors(PersonalEndeavors);
             }
@@ -36,8 +36,8 @@ namespace Stulio.ViewModels
             {
                 response = await _Service.AddPersonalEndeavors(new Models.PersonalEndeavorsModel
                 {
-                    EndeavorId = PersonalEndeavors.EndeavorId,
-                    StudentID = PersonalEndeavors.StudentID,
+                    // EndeavorId = PersonalEndeavors.EndeavorId,
+                    StudentID = Preferences.Get("UserID", 999),
                     Title = PersonalEndeavors.Title,
                     Description = PersonalEndeavors.Description
                 });
@@ -65,5 +65,14 @@ namespace Stulio.ViewModels
             }
         }
 
+
+        [RelayCommand]
+        public async void LoadPersonalEndeavorsByID()
+        {
+            int UserID = Microsoft.Maui.Storage.Preferences.Get("UserID", 1);
+            int EndeavorId = Microsoft.Maui.Storage.Preferences.Get("EndeavorId", 1);
+            PersonalEndeavors = await _Service.LoadPersonalEndeavorsByID(UserID, EndeavorId);
+
+        }
     }
 }

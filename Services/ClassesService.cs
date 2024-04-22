@@ -54,7 +54,7 @@ namespace Stulio.Services
                 classes = new ClassesModel
                 {
                     StudentID = 1, // Default ID
-                    ClassId = 1,
+                    ClassId = -1,
                     Name= "",
                     ClassYear = "",
                     Grade = ""

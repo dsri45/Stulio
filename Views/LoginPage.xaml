@@ -2,6 +2,8 @@
 <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              xmlns:toolkit="http://schemas.microsoft.com/dotnet/2022/maui/toolkit"
+             xmlns:viewModels="clr-namespace:Stulio.ViewModels"
+             x:DataType="viewModels:LoginPageViewModel"
              x:Class="Stulio.Views.LoginPage"
              Title=""
              BackgroundColor="{StaticResource Primary}">
@@ -86,7 +88,6 @@
 
                         <Button Text="→" Command="{Binding LoginUserCommand}" Margin="0,-40,-20,-30" BackgroundColor="Transparent" TextColor="Black"   FontSize="70" HorizontalOptions="End"/>
                         <Label FontFamily="Consolas" TextColor="Red" Text="{Binding LoginDetail.LoginStatus,Mode=TwoWay}" FontSize="10" />
-
                         <BoxView Color="Black"
                                  Margin="0,10,0,15"
                                  HeightRequest="1"

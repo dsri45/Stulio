@@ -54,7 +54,7 @@ namespace Stulio.Services
                 personalEndeavors = new PersonalEndeavorsModel
                 {
                     StudentID = 1, // Default ID
-                    EndeavorId = 1,
+                    EndeavorId = -1,
                     Title= "",
                     Description = ""
 

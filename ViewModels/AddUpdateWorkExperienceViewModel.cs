@@ -28,7 +28,7 @@ namespace Stulio.ViewModels
         public async void UpdateWorkExperience()
         {
             int response = -1;
-            if (WorkExperience.WorkId > 0)
+            if (WorkExperience.WorkId > -1)
             {
                 response = await _Service.UpdateWorkExperience(WorkExperience);
             }
@@ -36,7 +36,7 @@ namespace Stulio.ViewModels
             {
                 response = await _Service.AddWorkExperience(new Models.WorkExperienceModel
                 {
-                    WorkId = WorkExperience.WorkId,
+                    //WorkId = WorkExperience.WorkId,
                     StudentID = Preferences.Get("UserID", 999),
                     Role = WorkExperience.Role,
                     Establishment = WorkExperience.Establishment,
@@ -67,6 +67,15 @@ namespace Stulio.ViewModels
             {
                 await Shell.Current.GoToAsync("..");
             }
+        }
+
+        [RelayCommand]
+        public async void LoadWorkExperienceByID()
+        {
+            int UserID = Microsoft.Maui.Storage.Preferences.Get("UserID", 1);
+            int WorkId = Microsoft.Maui.Storage.Preferences.Get("WorkId", 1);
+            WorkExperience = await _Service.LoadWorkExperienceByID(UserID, WorkId);
+
         }
 
     }

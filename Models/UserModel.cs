@@ -18,6 +18,7 @@ namespace Stulio.Models
         public string SchoolName { get; set; }
         public string Username { get; set; }
         public string Password { get; set; }
-    
+       
+
     }
 }

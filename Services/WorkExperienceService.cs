@@ -54,7 +54,7 @@ namespace Stulio.Services
                 workExperience = new WorkExperienceModel
                 {
                     StudentID = 1, // Default ID
-                    WorkId = 1,
+                    WorkId = -1,
                     Establishment = "",
                     ParticpatedYears = "",
                     Role = "",

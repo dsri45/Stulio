@@ -54,7 +54,7 @@ namespace Stulio.Services
                 communityService = new CommunityServiceModel
                 {
                     StudentID = 1, // Default ID
-                    CommunityId = 1,
+                    CommunityId = -1,
                     ServiceName = "",
                     ParticpatedYears = "",
                     VoulnteeredHours = "",

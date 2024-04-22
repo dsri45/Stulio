@@ -45,6 +45,7 @@ namespace Stulio.ViewModels
         [RelayCommand]
         public async void AddUpdateClubsAndOrganizations()
         {
+            Preferences.Set("ClubId", -1);
             await AppShell.Current.GoToAsync(nameof(AddUpdateClubsAndOrganizations));
         }
 
@@ -53,6 +54,7 @@ namespace Stulio.ViewModels
         {
             var navParam = new Dictionary<string, object>();
             navParam.Add("ClubsAndOrganizationsDetail", clubsAndOrganizationsModel);
+            Preferences.Set("ClubId", clubsAndOrganizationsModel.ClubId);
             await AppShell.Current.GoToAsync(nameof(AddUpdateClubsAndOrganizations), navParam);
         }
 

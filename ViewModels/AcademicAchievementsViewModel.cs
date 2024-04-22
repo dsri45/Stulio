@@ -48,7 +48,9 @@ namespace Stulio.ViewModels
         [RelayCommand]
         public async void AddUpdateAcademicAchievements()
         {
+            Preferences.Set("AcademicId", -1);
             await AppShell.Current.GoToAsync(nameof(AddUpdateAcademicAchievements));
+          
         }
 
         [RelayCommand]
@@ -56,6 +58,7 @@ namespace Stulio.ViewModels
         {
             var navParam = new Dictionary<string, object>();
             navParam.Add("AcademicAchievementsDetail", academicAchievementsModel);
+            Preferences.Set("AcademicId", academicAchievementsModel.AcademicId);
             await AppShell.Current.GoToAsync(nameof(AddUpdateAcademicAchievements), navParam);
         }
 
@@ -70,26 +73,7 @@ namespace Stulio.ViewModels
         }
 
 
-        //[RelayCommand]
-        //public async void DisplayAction(AcademicAchievementsModel academicAchievementsModel)
-        //{
-        //    var response = await AppShell.Current.DisplayActionSheet("Select Option", "OK", null, "Edit", "Delete");
-        //    if (response == "Edit")
-        //    {
-        //        var navParam = new Dictionary<string, object>();
-        //        navParam.Add("StudentDetail", academicAchievementsModel);
-        //        await AppShell.Current.GoToAsync(nameof(AddUpdateStudentDetail), navParam);
-        //    }
-        //    else if (response == "Delete")
-        //    {
-        //        var delResponse = await _academicAchievementsService.DeleteAcademicAchievements(academicAchievementsModel);
-        //        if (delResponse > 0)
-        //        {
-        //            GetAcademicAchievementsList();
-        //        }
-        //    }
-        //}
-
+        
         [RelayCommand]
         async Task GoBack()
         {

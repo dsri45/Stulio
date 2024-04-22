@@ -29,7 +29,7 @@ namespace Stulio.ViewModels
         {
             int response = -1;
            
-            if (CommunityService.CommunityId > 0)
+            if (CommunityService.CommunityId > -1)
             {
                 response = await _Service.UpdateCommunityService(CommunityService);
             }
@@ -37,7 +37,7 @@ namespace Stulio.ViewModels
             {
                 response = await _Service.AddCommunityService(new Models.CommunityServiceModel
                 {
-                    CommunityId = CommunityService.CommunityId,
+                    //CommunityId = CommunityService.CommunityId,
                     StudentID = Preferences.Get("UserID", 999),
                     ServiceName = CommunityService.ServiceName,
                     ParticpatedYears = CommunityService.ParticpatedYears,
@@ -68,6 +68,15 @@ namespace Stulio.ViewModels
             {
                 await Shell.Current.GoToAsync("..");
             }
+        }
+
+        [RelayCommand]
+        public async void LoadCommunityServiceByID()
+        {
+            int UserID = Microsoft.Maui.Storage.Preferences.Get("UserID", 1);
+            int CommunityId = Microsoft.Maui.Storage.Preferences.Get("CommunityId", 1);
+            CommunityService = await _Service.LoadCommunityServiceByID(UserID, CommunityId);
+
         }
 
     }

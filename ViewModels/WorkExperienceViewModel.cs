@@ -48,6 +48,7 @@ namespace Stulio.ViewModels
         [RelayCommand]
         public async void AddUpdateWorkExperience()
         {
+            Preferences.Set("WorkId", -1);
             await AppShell.Current.GoToAsync(nameof(AddUpdateWorkExperience));
         }
 
@@ -56,6 +57,7 @@ namespace Stulio.ViewModels
         {
             var navParam = new Dictionary<string, object>();
             navParam.Add("WorkExperienceDetail", workExperienceModel);
+            Preferences.Set("WorkId", workExperienceModel.WorkId);
             await AppShell.Current.GoToAsync(nameof(AddUpdateWorkExperience), navParam);
         }
 

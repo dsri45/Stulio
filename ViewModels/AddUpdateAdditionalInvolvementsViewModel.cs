@@ -28,7 +28,7 @@ namespace Stulio.ViewModels
         public async void UpdateAdditionalInvolvements()
         {
             int response = -1;
-            if (AdditionalInvolvements.InvolvementId > 0)
+            if (AdditionalInvolvements.InvolvementId > -1)
             {
                 response = await _Service.UpdateAdditionalInvolvements(AdditionalInvolvements);
             }
@@ -36,7 +36,7 @@ namespace Stulio.ViewModels
             {
                 response = await _Service.AddAdditionalInvolvements(new Models.AdditionalInvolvementsModel
                 {
-                    InvolvementId = AdditionalInvolvements.InvolvementId,
+                   // InvolvementId = AdditionalInvolvements.InvolvementId,
                     StudentID = Preferences.Get("UserID", 999),
                     ActivityName = AdditionalInvolvements.ActivityName,
                     ParticpatedYears = AdditionalInvolvements.ParticpatedYears,
@@ -69,6 +69,16 @@ namespace Stulio.ViewModels
                 await Shell.Current.GoToAsync("..");
             }
         }
+
+        [RelayCommand]
+        public async void LoadAdditionalInvolvementsByID()
+        {
+            int UserID = Microsoft.Maui.Storage.Preferences.Get("UserID", 1);
+            int InvolvementId = Microsoft.Maui.Storage.Preferences.Get("InvolvementId", 1);
+            AdditionalInvolvements = await _Service.LoadAdditionalInvolvementsByID(UserID, InvolvementId);
+
+        }
+
 
     }
 }

@@ -35,6 +35,10 @@ namespace Stulio.Services
             await _dbConnection.InsertAsync(UserModel);
             Preferences.Set("UserID", UserModel.UserId);
 
+            string profilepicture = "user";
+            if (UserModel.FirstName.ToLower() == "dhanasri" || UserModel.FirstName.ToLower() == "aisha")
+                profilepicture = UserModel.FirstName.ToLower();
+
             //Adding new studentmodel
             StudentModel studentModel = new StudentModel {
                 StudentID = UserModel.UserId,
@@ -43,7 +47,7 @@ namespace Stulio.Services
                 SchoolName = UserModel.SchoolName,
                 Email = UserModel.Email,
                 PhoneNumber = UserModel.PhoneNumber,
-                Profilepicture = UserModel.FirstName.ToLower()
+                Profilepicture = profilepicture
             };
             await _dbConnection.InsertAsync(studentModel);
 
@@ -107,6 +111,7 @@ namespace Stulio.Services
                         Email = "DhansriPrabhu03@gmail.com",
                         PhoneNumber = "123 456 345",
                         SchoolName = "Ceadarcrest High School, Duvall",
+                    
                     };
 
 

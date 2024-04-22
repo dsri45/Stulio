@@ -28,7 +28,7 @@ namespace Stulio.ViewModels
         public async void UpdateClasses()
         {
             int response = -1;
-            if (Classes.ClassId > 0)
+            if (Classes.ClassId > -1)
             {
                 response = await _Service.UpdateClasses(Classes);
             }
@@ -36,7 +36,7 @@ namespace Stulio.ViewModels
             {
                 response = await _Service.AddClasses(new Models.ClassesModel
                 {
-                    ClassId = Classes.ClassId,
+                   // ClassId = Classes.ClassId,
                     StudentID = Preferences.Get("UserID", 999),
                     Name = Classes.Name,
                     ClassYear = Classes.ClassYear,
@@ -65,6 +65,15 @@ namespace Stulio.ViewModels
             {
                 await Shell.Current.GoToAsync("..");
             }
+        }
+
+        [RelayCommand]
+        public async void LoadClassesByID()
+        {
+            int UserID = Microsoft.Maui.Storage.Preferences.Get("UserID", 1);
+            int ClassId = Microsoft.Maui.Storage.Preferences.Get("ClassId", 1);
+            Classes = await _Service.LoadClassesByID(UserID, ClassId);
+
         }
 
     }

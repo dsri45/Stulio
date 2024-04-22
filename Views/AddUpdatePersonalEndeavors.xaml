@@ -18,7 +18,7 @@
         </VerticalStackLayout>
         <VerticalStackLayout>
             <Label Text="Description"  />
-            <Entry Text="{Binding PersonalEndeavors.Description}" HeightRequest="150" Placeholder="Description" />
+            <Editor x:Name="editor" Placeholder="Description"  HeightRequest="150"  Text="{Binding PersonalEndeavors.Description}"/>
         </VerticalStackLayout>
         
 
