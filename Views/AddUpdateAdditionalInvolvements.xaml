@@ -24,17 +24,10 @@
             <Entry Text="{Binding AdditionalInvolvements.ParticpatedYears}" Placeholder="Mon-Year" />
         </VerticalStackLayout>
         <VerticalStackLayout>
-            <Label Text="Class" />
-            <Entry Text="{Binding AdditionalInvolvements.Role}" Placeholder="ex. Founder" />
-        </VerticalStackLayout>
-        <VerticalStackLayout>
             <Label Text="Description" />
             <Editor x:Name="editor" Placeholder="Description"   HeightRequest="150"  Text="{Binding AdditionalInvolvements.Description}"/>
         </VerticalStackLayout>
-        <VerticalStackLayout>
-            <Label Text="Achivements" />
-            <Editor x:Name="editors" Placeholder="Achievements"   HeightRequest="150"  Text="{Binding AdditionalInvolvements.Achivements}"/>
-        </VerticalStackLayout>
+
 
 
         <Button Text="Save" Command="{Binding UpdateAdditionalInvolvementsCommand}"/>

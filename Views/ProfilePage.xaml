@@ -7,50 +7,22 @@
              x:Class="Stulio.Views.ProfilePage"
              Title="Dashboard">
 
-
+    <!-- Main Dashboard-->
     <ScrollView VerticalScrollBarVisibility="Always" >
         <!-- Main layout-->
 
 
         <StackLayout>
-            <!--<Grid RowDefinitions="Auto,Auto,Auto,Auto,Auto,Auto,Auto,Auto,Auto,Auto,Auto, Auto " Padding="10,0">
-                -->
-            <!-- Image Profile-->
-            <!--
-                <Frame Grid.Row="0"  Margin="0,0,0,10" BorderColor="White" HorizontalOptions="Center" WidthRequest="200" HeightRequest="{OnPlatform iOS='200', Android='200'}" HasShadow="False" CornerRadius="100" Padding="0" IsClippedToBounds="True" ZIndex="3">
-                    <Image Source="dhanasriprofile" Aspect="AspectFill"/>
-                </Frame>
-                -->
-            <!--Timeline -->
-            <!--
-                <Frame Grid.Row="1" BorderColor="White" VerticalOptions="Start" HeightRequest="200" HasShadow="False" CornerRadius="20" Margin="0,-150,0,0" Padding="0" IsClippedToBounds="True">
-                    <Image Source="timeline3" Aspect="AspectFill" />
-                </Frame>
-                -->
-            <!-- Profile name & general description-->
-            <!--
-                <Label Grid.Row="1" Text="{Binding StudentDetail.FullName}" FontAttributes="Bold" TextColor="#383b67" HorizontalTextAlignment="Center" Margin="0,20,0,0" FontSize="22"/>
 
-                <Grid Grid.Row="3" ColumnDefinitions="Auto,Auto,Auto,Auto,Auto" VerticalOptions="Center" HorizontalOptions="Center" Margin="0,10,0,0">
-                    <Button Grid.Column="0" ImageSource="location" WidthRequest="18" HeightRequest="18" CornerRadius="9" HorizontalOptions="Center" BackgroundColor="#9192b7"/>
-                    <Label Grid.Column="1" Text=" Duvall, Washington" FontSize="15" TextColor="#9192b7"/>
-                    <Button Grid.Column="2" ImageSource="age" Margin="10,0,0,0" WidthRequest="18" HeightRequest="18" CornerRadius="9" HorizontalOptions="Center" BackgroundColor="#9192b7"/>
-                    <Label Grid.Column="3" Text=" Age, 16" FontSize="15" TextColor="#9192b7"/>
-                    -->
-            <!--<Button Grid.Column="4" Text="Regular" TextColor="#e29389" FontAttributes="Bold" Margin="5,0,0,0" CornerRadius="10" FontSize="9" WidthRequest="{OnPlatform iOS='50', Android='59'}" HeightRequest="{OnPlatform iOS='21', Android='30'}" BackgroundColor="#fae6e4"/>-->
-            <!--
-                </Grid>
-
-            </Grid>-->
-
+            <!-- Profile Picture Frame-->
             <Grid RowDefinitions="Auto,Auto,Auto,Auto,Auto,Auto,Auto,Auto,Auto,Auto" Padding="8,0">
 
                 <Frame Grid.Row="2" BorderColor="White" VerticalOptions="Start" HeightRequest="200" HasShadow="False" CornerRadius="20" Margin="0,-150,0,0" Padding="0,0,0,0" IsClippedToBounds="True">
                     <Image Source="timeline3" Aspect="AspectFill" />
                 </Frame>
                 <Button Grid.Row="3" Grid.Column="1" ImageSource="socialmedia.png" Text="Share Profile"  WidthRequest="30" HeightRequest="30" CornerRadius="9" 
-HorizontalOptions="Center" BackgroundColor="Transparent" Margin="300,-40,0,0" 
-Command="{Binding CaptureScreenshotCommand}"/>
+                        HorizontalOptions="Center" BackgroundColor="Transparent" Margin="300,-40,0,0" 
+                        Command="{Binding CaptureScreenshotCommand}"/>
                 <!-- Image Profile-->
                 <Frame Grid.Row="1"  Margin="0,15,0,10" BorderColor="White" HorizontalOptions="Center" WidthRequest="200" HeightRequest="{OnPlatform iOS='200', Android='200'}" HasShadow="False" CornerRadius="100" Padding="0" IsClippedToBounds="True" ZIndex="3">
                     <Image Source="{Binding StudentDetail.Profilepicture}" Aspect="AspectFill"/>
@@ -58,20 +30,17 @@ Command="{Binding CaptureScreenshotCommand}"/>
                 <!-- Profile name & general description-->
                 <Label Grid.Row="2" Text="{Binding StudentDetail.FullName}" FontAttributes="Bold" TextColor="#383b67" HorizontalTextAlignment="Center" Margin="0,-3,0,0" FontSize="22" FontFamily="bold"/>
                 <Label Grid.Row="2" Text="{Binding StudentDetail.SchoolName}" FontAttributes="Bold"  FontSize="13" TextColor="#383b67" HorizontalTextAlignment="Center" Margin="0,26,0,0"/>
-                <!--<Grid Grid.Row="4" ColumnDefinitions="Auto,Auto,Auto,Auto,Auto" VerticalOptions="Center" HorizontalOptions="Center" Margin="0,10,0,0">
-                    <Button Grid.Column="0" ImageSource="location" WidthRequest="18" HeightRequest="18" CornerRadius="9" HorizontalOptions="Center" BackgroundColor="#9192b7"/>
-                    <Label Grid.Column="1" Text=" Duvall, Washington" FontSize="15" TextColor="#9192b7"/>
-                    <Button Grid.Column="2" ImageSource="age" Margin="10,0,0,0" WidthRequest="18" HeightRequest="18" CornerRadius="9" HorizontalOptions="Center" BackgroundColor="#9192b7"/>
-                    <Label Grid.Column="3" Text=" Age, 16" FontSize="15" TextColor="#9192b7"/>
-                </Grid>-->
+                
             </Grid>
-            
 
+            <!-- About Me-->
             <Frame x:Name="aboutMeFrame"
            BackgroundColor="White"
            CornerRadius="15"
            Padding="15"
            Margin="20,20,20,0" >
+
+                <!-- Framing Done-->
 
                 <StackLayout>
 

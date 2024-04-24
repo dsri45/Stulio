@@ -14,6 +14,25 @@
 
             <StackLayout>
 
+                <Label Text="About Stulio"
+TextColor="Black"
+FontAttributes="Bold"
+FontSize="18"
+     
+Margin="0,0,0,8"/>
+                <Label Text="Stulio is a high school student portfolio app that allows students to showcase their academic and extracurricular achievements, skills, and interests. The app is designed to help students prepare for college applications, scholarships, internships, and future careers."  TextColor="Black"  FontSize="13" LineBreakMode="WordWrap" Margin="0,0,0,30"/>
+
+                <Label Text="Features"
+TextColor="Black"
+FontAttributes="Bold"
+FontSize="18"
+     
+Margin="0,0,0,8"/>
+                <Label Text="Stulio allows students to compile all their high school experiences in one place, splitting them across 8 different categories.  "  TextColor="Black"  FontSize="13" LineBreakMode="WordWrap" Margin="0,0,0,30"/>
+                <Label Text="The app also includes a search feature, where students can explore what activities others are involved in. "  TextColor="Black"  FontSize="13" LineBreakMode="WordWrap" Margin="0,0,0,30"/>
+                <Label Text="Stulio has been integrated with social media, meaning that students can share their profiles to other platforms"  TextColor="Black"  FontSize="13" LineBreakMode="WordWrap" Margin="0,0,0,30"/>
+                <Label Text="Stulio has been integrated with ChatGPT's API for daily college and carrer tips."  TextColor="Black"  FontSize="13" LineBreakMode="WordWrap" Margin="0,0,0,30"/>
+
                 <Label Text="Love Stulio?"
 TextColor="Black"
 FontAttributes="Bold"

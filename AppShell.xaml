@@ -36,7 +36,7 @@
         </Tab>
 
         <Tab Title="Forums" Icon="lightbulb.png">
-            <ShellContent Title="Forums"
+            <ShellContent Title="Tips"
              ContentTemplate="{DataTemplate views:FourmPage}" />
         
         </Tab>

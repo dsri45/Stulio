@@ -24,16 +24,16 @@
             <Entry  Text="{Binding AcademicAchievements.StudentID}" Placeholder="studentid" />
         </VerticalStackLayout>-->
         <VerticalStackLayout>
-            <Label Text="Class/Award" />
+            <Label Text="Award" />
             <!--<Entry Text="{Binding AcademicAchievements.AcademicId, Mode=TwoWay}" Placeholder="ex. 1"  IsVisible="True"/>-->
-            <Entry Text="{Binding AcademicAchievements.Class, Mode=TwoWay}" Placeholder="ex. AP CSP, National Merit Scholar" />
+            <Entry Text="{Binding AcademicAchievements.Class, Mode=TwoWay}" Placeholder="ex.  National Merit Scholar" />
         </VerticalStackLayout>
         <VerticalStackLayout>
-            <Label Text="Grade/Organization" />
+            <Label Text="Organization" />
             <Entry  Text="{Binding AcademicAchievements.Award, Mode=TwoWay}" Placeholder="ex. NMSC" />
         </VerticalStackLayout>
         <VerticalStackLayout>
-            <Label Text="Date Completed/Achieved"  />
+            <Label Text="Date Achieved"  />
             <Entry Text="{Binding AcademicAchievements.DateAchived, Mode=TwoWay}" Placeholder="Mon-Year" />
         </VerticalStackLayout>
         <VerticalStackLayout>

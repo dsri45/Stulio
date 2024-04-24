@@ -14,20 +14,24 @@ using Xamarin.Essentials;
 
 namespace Stulio.ViewModels
 {
-    //[QueryProperty(nameof(StudentDetail), "StudentDetail")]
+    // ViewModel for the Profile Page
     public partial class ProfilePageViewModel : ObservableObject
     {
+        // Uses an observable property to track changes to studentDetail
         [ObservableProperty]
         private StudentModel studentDetail;
 
+        // Dependency injection of IStudentService to handle student data management
         private readonly IStudentService _studentService;
+
+        // Constructor that initializes the student service
         public ProfilePageViewModel(IStudentService studentService)
         {
             _studentService = studentService;
 
         }
 
-
+        // Command to load student details by ID
         [RelayCommand]
         public async void LoadByStudentID()
         {
@@ -36,6 +40,7 @@ namespace Stulio.ViewModels
 
         }
 
+        // Retrieve the UserID from preferences and use it to load student details
         [RelayCommand]
         public async void UpdateAboutMe()
         {
