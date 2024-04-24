@@ -36,7 +36,7 @@ namespace Stulio.Services
             Preferences.Set("UserID", UserModel.UserId);
 
             string profilepicture = "user";
-            if (UserModel.FirstName.ToLower() == "dhanasri" || UserModel.FirstName.ToLower() == "aisha" || UserModel.FirstName.ToLower() == "rohana" || UserModel.FirstName.ToLower() == "julian" || UserModel.FirstName.ToLower() == "evie" || UserModel.FirstName.ToLower() == "sabrina")
+            if (UserModel.FirstName.ToLower() == "dhanasri" || UserModel.FirstName.ToLower() == "aisha" || UserModel.FirstName.ToLower() == "rohana" || UserModel.FirstName.ToLower() == "julian" || UserModel.FirstName.ToLower() == "evie" || UserModel.FirstName.ToLower() == "adam" || UserModel.FirstName.ToLower() == "sophia")
                 profilepicture = UserModel.FirstName.ToLower();
 
             //Adding new studentmodel

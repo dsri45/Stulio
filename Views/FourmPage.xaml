@@ -19,14 +19,14 @@
                 <VerticalStackLayout>
                     <Image Source="logoapp" Margin="0,-20,0,-25" WidthRequest="120" HeightRequest="120" HorizontalOptions="Center"/>
                     <Label Margin="0,10,0,0"
-                    FontAttributes="Bold"
+                    
                     FontFamily="bold"
                     Text="Tips and Tricks"
                     FontSize="30"
                     HorizontalTextAlignment="Center"
                     VerticalTextAlignment="Center"
                     TextColor="Black"/>
-                    <Label Text="Powered by ChatGPT" FontAttributes="Italic" TextColor="{StaticResource Primary}" HorizontalTextAlignment="Center" Margin="0,10,0,10" FontSize="16" />
+                    <Label Text="Powered by ChatGPT" FontAttributes="Italic" TextColor="{StaticResource Primary}" HorizontalTextAlignment="Center" Margin="0,0,0,10" FontSize="16" />
 
                     <Editor x:Name="editor"
                     Placeholder="Preparing a tip for you..."

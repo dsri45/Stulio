@@ -17,7 +17,7 @@ namespace Stulio
             {
                 fonts.AddFont("OpenSans-Regular.ttf", "OpenSansRegular");
                 fonts.AddFont("OpenSans-Semibold.ttf", "OpenSansSemibold");
-                fonts.AddFont("LeagueSpartan-Bold.ttf", "bold");
+                fonts.AddFont("Lalezar-Regular.ttf", "bold");
                 fonts.AddFont("LeagueSpartan-Regular.ttf", "regular");
             });
 

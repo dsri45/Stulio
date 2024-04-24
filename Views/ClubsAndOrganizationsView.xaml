@@ -13,7 +13,7 @@
             <Label Margin="0,20,15,0"
                    FontAttributes="Bold"
                    FontFamily="bold"
-                   Text="CLUBS AND ORGANIZATIONS"
+                   Text="    CLUBS AND ORGANIZATIONS"
                    FontSize="30"
                    HorizontalTextAlignment="Center"
                    VerticalTextAlignment="Center"
