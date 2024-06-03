@@ -48,7 +48,7 @@ namespace Stulio.ViewModels
         [RelayCommand]
         public async void AddUpdateStudent()
         {
-            await AppShell.Current.GoToAsync(nameof(AddUpdateStudentDetail));
+            await AppShell.Current.GoToAsync(nameof(ShowStudentProfile));
         }
 
         [RelayCommand]
@@ -56,7 +56,7 @@ namespace Stulio.ViewModels
         {
             var navParam = new Dictionary<string, object>();
             navParam.Add("StudentDetail", studentModel);
-            await AppShell.Current.GoToAsync(nameof(AddUpdateStudentDetail), navParam);
+            await AppShell.Current.GoToAsync(nameof(ShowStudentProfile), navParam);
         }
 
         [RelayCommand]
@@ -73,21 +73,9 @@ namespace Stulio.ViewModels
         [RelayCommand]
         public async void DisplayAction(StudentModel studentModel)
         {
-            var response = await AppShell.Current.DisplayActionSheet("Select Option", "OK", null, "Edit", "Delete");
-            if (response == "Edit")
-            {
-                var navParam = new Dictionary<string, object>();
-                navParam.Add("StudentDetail", studentModel);
-                await AppShell.Current.GoToAsync(nameof(AddUpdateStudentDetail), navParam);
-            }
-            else if (response == "Delete")
-            {
-                var delResponse = await _studentService.DeleteStudent(studentModel);
-                if (delResponse > 0)
-                {
-                    GetStudentList();
-                }
-            }
+            Preferences.Set("ShowUserID", studentModel.StudentID);
+            await AppShell.Current.GoToAsync(nameof(ShowStudentProfile));
+            
         }
     }
 }

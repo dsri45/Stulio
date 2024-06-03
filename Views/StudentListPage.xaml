@@ -6,7 +6,7 @@
              xmlns:viewModels="clr-namespace:Stulio.ViewModels"
              x:DataType="viewModels:StudentListPageViewModel"
              x:Class="Stulio.Views.StudentListPage"
-             Title="Student List">
+             Title="Student Search">
         <Shell.SearchHandler>
         <searchHandlers:StudentSearchHandler
             Placeholder="Search Name"
@@ -26,9 +26,7 @@
         </searchHandlers:StudentSearchHandler>
     </Shell.SearchHandler>
     <StackLayout Margin="10">
-        <Label  Text="Student List" FontSize="28"/>
-        <Button Text="Add Student" Command="{Binding AddUpdateStudentCommand}" HorizontalOptions="EndAndExpand" />
-
+        
         <CollectionView ItemsSource="{Binding Students}">
             <CollectionView.ItemTemplate>
                 <DataTemplate x:DataType="models:StudentModel">
@@ -54,19 +52,31 @@
                                            Command="{Binding Source={x:RelativeSource AncestorType={x:Type viewModels:StudentListPageViewModel}},Path=DeleteStudentCommand}" />-->
                             </SwipeItems>
                         </SwipeView.LeftItems>
-                        <Frame Margin="10" Padding="10">
-                            <VerticalStackLayout>
+                        <Frame Margin="10" Padding="3" BackgroundColor="#478D68" >
+                            <Frame Margin="0" Padding="10" BackgroundColor="White">
+
+
+                                <Grid ColumnDefinitions="Auto,*,*">
+                                    <VerticalStackLayout>
                                 <HorizontalStackLayout Spacing="10">
-                                    <Label Text="{Binding FirstName}" FontSize="18" FontAttributes="Bold" />
-                                    <Label Text="{Binding LastName}" FontSize="18" FontAttributes="Bold" />
+                                        <!--<Label Text="{Binding StudentID}" FontSize="18" FontAttributes="Bold" />-->
+                                            <!--<Image Grid.Column="0" Source="{Binding Profilepicture}"  WidthRequest="30" HeightRequest="30" HorizontalOptions="Center"  />-->
+                                            <Frame Grid.Row="1"  BorderColor="White" HorizontalOptions="Center" WidthRequest="50" HeightRequest="{OnPlatform iOS='50', Android='50'}" HasShadow="False" CornerRadius="100" Padding="0" IsClippedToBounds="True" ZIndex="3">
+                                                <Image Source="{Binding Profilepicture}" Aspect="AspectFill"/>
+                                            </Frame>
+                                            <Label Grid.Column="1" Text="{Binding FirstName}" FontSize="18" FontAttributes="Bold" Margin="0,2,0,0" />
+                                            <Label  Grid.Column="1" Text="{Binding LastName}" FontSize="18" FontAttributes="Bold" Margin="-5,2,0,0" />
                                 </HorizontalStackLayout>
-                                <Label Text="{Binding Email}" />
-                                <Label Text="{Binding PhoneNumber}" />
-                            </VerticalStackLayout>
+
+                                        <Label Text="{Binding SchoolName}" Margin="60,-18,0,0"/>
+                                </VerticalStackLayout>
+                                </Grid>
                             <Frame.GestureRecognizers>
                                 <TapGestureRecognizer Command="{Binding Source={x:RelativeSource AncestorType={x:Type viewModels:StudentListPageViewModel}},Path=DisplayActionCommand}"
                                                   CommandParameter="{Binding .}" />
                             </Frame.GestureRecognizers>
+                                <!-- Your content here -->
+                            </Frame>
                         </Frame>
                     </SwipeView>
 

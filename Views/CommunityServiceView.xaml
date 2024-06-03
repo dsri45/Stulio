@@ -2,11 +2,113 @@
 <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="Stulio.Views.CommunityServiceView"
-             Title="CommunityServiceView">
-    <VerticalStackLayout>
-        <Label 
-            Text="Welcome to .NET MAUI!"
-            VerticalOptions="Center" 
-            HorizontalOptions="Center" />
-    </VerticalStackLayout>
+             xmlns:models="clr-namespace:Stulio.Models"
+             xmlns:searchHandlers="clr-namespace:Stulio.SearchHandlers"
+             xmlns:viewModels="clr-namespace:Stulio.ViewModels"
+             x:DataType="viewModels:CommunityServiceViewModel"
+             Background="#489CC1">
+
+    <Grid RowDefinitions=".23*,.7*">
+        <VerticalStackLayout Spacing="10">
+            <Label Margin="0,20,15,0"
+                   FontAttributes="Bold"
+                   FontFamily="bold"
+                   Text="COMMUNITY SERVICE"
+                   FontSize="30"
+                   HorizontalTextAlignment="Center"
+                   VerticalTextAlignment="Center"
+                   TextColor="White"/>
+            <Grid Margin="25,0,0,0" ColumnDefinitions="Auto,*">
+                <Label
+                    Margin="10,0,0,0"
+                    FontFamily="regular"
+                    Text= "Discover your passion by getting involved in clubs!"
+                    FontSize="16"
+                    TextColor="White"
+                    HorizontalTextAlignment="Center"
+                    VerticalTextAlignment="Center"/>
+                <Button Text="Add Service" 
+                        Command="{Binding AddUpdateCommunityServiceCommand}" 
+                        TextColor="#489CC1"
+                        BorderColor="#489CC1"
+                        BorderWidth="4" 
+                        BackgroundColor="White"
+                        FontSize="16"/>
+            </Grid>
+        </VerticalStackLayout>
+
+        <Grid Grid.Row="1">
+
+            <RoundRectangle BackgroundColor="White" CornerRadius="25,25,0,0"/>
+            <CollectionView ItemsSource="{Binding CommunityService}">
+                <CollectionView.ItemsLayout>
+                    <LinearItemsLayout ItemSpacing="0" Orientation="Vertical"/>
+                </CollectionView.ItemsLayout>
+                <CollectionView.ItemTemplate>
+                    <DataTemplate x:DataType="models:CommunityServiceModel">
+                        <SwipeView>
+                            <SwipeView.LeftItems>
+                                <SwipeItems>
+                                    <SwipeItem Text="Edit" IconImageSource="edit.png" BackgroundColor="LightBlue"
+                                       CommandParameter="{Binding .}"
+                                       Command="{Binding Source={x:RelativeSource AncestorType={x:Type viewModels:CommunityServiceViewModel}},Path=EditCommunityServiceCommand}" />
+                                    <SwipeItem Text="Delete" IconImageSource="delete.png" BackgroundColor="Red"  CommandParameter="{Binding .}"
+                                       Command="{Binding Source={x:RelativeSource AncestorType={x:Type viewModels:CommunityServiceViewModel}},Path=DeleteCommunityServiceCommand}" />
+                                </SwipeItems>
+                            </SwipeView.LeftItems>
+                            <Grid Padding="20,20,20,0" >
+
+                                <RoundRectangle Grid.RowSpan="2"
+                                                Background="#489CC1"
+                                                Opacity="0.2"
+                                                CornerRadius="10">
+                                    <RoundRectangle.Shadow>
+                                        <Shadow Brush="#CFD0D4"
+                                                Opacity=" 0.8"
+                                                Offset="10,10"/>
+                                    </RoundRectangle.Shadow>
+                                </RoundRectangle>
+
+                                <StackLayout Margin="10,10,10,10" Padding="10" >
+                                   
+
+                                    <Label TextColor="Black"
+                                        FontAttributes="Bold"
+                                        FontSize="18"
+                                        VerticalOptions="Start"       
+                                        Margin="0,0,0,0"
+                                        Text="{Binding ServiceName}"/>
+                                    <Label TextColor="Black"
+                                        FontAttributes="Bold"
+                                        FontSize="13"
+                                        VerticalOptions="Start"       
+                                        Margin="0,0,0,0"
+                                        Text="{Binding ParticpatedYears}"/>          
+                                    <Label TextColor="Black"
+                                        FontAttributes="Bold"
+                                        FontSize="13"
+                                        VerticalOptions="Start"       
+                                        Margin="0,6,0,0"
+                                        Text="{Binding VoulnteeredHours, StringFormat='Hours Volunteered: {0}'}"/>
+                                    <Label Text="{Binding Description}" TextColor="Black"  FontSize="12" LineBreakMode="WordWrap"/>
+                                    
+                                    
+                                </StackLayout>
+                               
+                            </Grid>
+                           
+                         </SwipeView>
+                        
+                    </DataTemplate>
+                  
+                </CollectionView.ItemTemplate>
+                
+            </CollectionView>
+
+
+        </Grid>
+
+    </Grid>
+
+
 </ContentPage>

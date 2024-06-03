@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="Stulio.Views.AddUpdateWorkExperience"
+             Title="Work Experience">
+    <ContentPage.Resources>
+        <ResourceDictionary>
+            <Style TargetType="Label">
+                <Setter Property="FontSize" Value="14" />
+                <Setter Property="TextColor" Value="SlateGray" />
+            </Style>
+        </ResourceDictionary>
+    </ContentPage.Resources>
+    <StackLayout Margin="10" Spacing="15">
+        <VerticalStackLayout>
+            <Label Text="Role" />
+            <Entry  Text="{Binding WorkExperience.Role}" Placeholder="ex. Barista" />
+        </VerticalStackLayout>
+        <VerticalStackLayout>
+            <Label Text="Establishment"  />
+            <Entry Text="{Binding WorkExperience.Establishment}" Placeholder="ex. Mercury's Coffee" />
+        </VerticalStackLayout>
+        <VerticalStackLayout>
+            <Label Text="Participated Years"  />
+            <Entry Text="{Binding WorkExperience.ParticpatedYears}" Placeholder="Mon-Year" />
+        </VerticalStackLayout>
+        <VerticalStackLayout>
+            <Label Text="Description" />
+            <Editor x:Name="editor" Placeholder="Description"   HeightRequest="150"  Text="{Binding WorkExperience.Description}"/>
+        </VerticalStackLayout>
+
+
+        <Button Text="Save" Command="{Binding UpdateWorkExperienceCommand}"/>
+    </StackLayout>
+</ContentPage>

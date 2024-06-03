@@ -1,0 +1,111 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="Stulio.Views.WorkExperienceView"
+             xmlns:models="clr-namespace:Stulio.Models"
+             xmlns:searchHandlers="clr-namespace:Stulio.SearchHandlers"
+             xmlns:viewModels="clr-namespace:Stulio.ViewModels"
+             x:DataType="viewModels:WorkExperienceViewModel"
+             Background="#FF9F09">
+    <Grid RowDefinitions=".23*,.7*">
+        <VerticalStackLayout Spacing="10">
+            <Label Margin="0,20,0,0"
+                FontAttributes="Bold"
+                FontFamily="bold"
+                Text="WORK EXPERIENCE"
+                FontSize="30"
+                HorizontalTextAlignment="Center"
+                VerticalTextAlignment="Center"
+                TextColor="White"/>
+            <Grid Margin="25,0,0,0" ColumnDefinitions="Auto,*">
+                <Label
+                 Margin="10,0,0,0"
+                 FontFamily="regular"
+                 Text= "                   d                                                              !"
+                 FontSize="16"
+                 TextColor="White"
+                 HorizontalTextAlignment="Center"
+                 VerticalTextAlignment="Center"/>
+                <Button Text="Add Work" 
+                     Command="{Binding AddUpdateWorkExperienceCommand}" 
+                     TextColor="#FF9F09"
+                     BorderColor="#FF9F09"
+                     BorderWidth="4" 
+                     BackgroundColor="White"
+                     FontSize="16"/>
+            </Grid>
+        </VerticalStackLayout>
+
+        <Grid Grid.Row="1">
+
+            <RoundRectangle BackgroundColor="White"  CornerRadius="25,25,0,0"/>
+
+            <CollectionView ItemsSource="{Binding WorkExperience}">
+                <CollectionView.ItemsLayout>
+                    <LinearItemsLayout ItemSpacing="0" Orientation="Vertical"/>
+                </CollectionView.ItemsLayout>
+                <CollectionView.ItemTemplate>
+                    <DataTemplate x:DataType="models:WorkExperienceModel">
+                        <SwipeView>
+                            <SwipeView.LeftItems>
+                                <SwipeItems>
+                                    <SwipeItem Text="Edit" IconImageSource="edit.png" BackgroundColor="LightBlue"  
+                            CommandParameter="{Binding .}"
+                            Command="{Binding Source={x:RelativeSource AncestorType={x:Type viewModels:WorkExperienceViewModel}},Path=EditWorkExperienceCommand}" />
+                                    <SwipeItem Text="Delete" IconImageSource="delete.png" BackgroundColor="Red"  CommandParameter="{Binding .}"
+                            Command="{Binding Source={x:RelativeSource AncestorType={x:Type viewModels:WorkExperienceViewModel}},Path=DeleteWorkExperienceCommand}" />
+                                </SwipeItems>
+                            </SwipeView.LeftItems>
+                            <Grid Padding="20,20,20,0">
+
+                                <RoundRectangle  Grid.RowSpan="2"
+                                     Background="#FF9F09"
+                                     Opacity="0.2"
+                                     CornerRadius="10">
+                                    <RoundRectangle.Shadow>
+                                        <Shadow Brush="#CFD0D4"
+                                     Opacity=" 0.8"
+                                     Offset="10,10"/>
+                                    </RoundRectangle.Shadow>
+                                </RoundRectangle>
+
+
+                                <StackLayout Margin="10,10,10,10" Padding="10" >
+                                    <Label TextColor="Black"
+                             FontAttributes="Bold"
+                             FontSize="18"
+                             VerticalOptions="Start"
+                             Margin="0,0,0,0"
+                             Text="{Binding Role}"/>
+                                    <Label TextColor="Black"
+                             FontAttributes="Bold"
+                             FontSize="13"
+                             VerticalOptions="Start"
+                             Margin="0,0,0,0"
+                             Text="{Binding Establishment}"/>
+                                    <Label TextColor="Black"
+                             FontAttributes="Bold"
+                             FontSize="13"
+                             VerticalOptions="Start"
+                             Margin="0,0,0,0"
+                             Text="{Binding ParticpatedYears}"/>
+                                    <Label Text="{Binding Description}" TextColor="Black"  FontSize="12" LineBreakMode="WordWrap"  Margin="0,6,0,0"/>
+
+
+                                </StackLayout>
+
+                            </Grid>
+
+                        </SwipeView>
+
+                    </DataTemplate>
+
+                </CollectionView.ItemTemplate>
+
+            </CollectionView>
+
+
+        </Grid>
+
+    </Grid>
+</ContentPage>

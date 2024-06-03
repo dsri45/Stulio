@@ -1,0 +1,161 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:toolkit="http://schemas.microsoft.com/dotnet/2022/maui/toolkit"
+             x:Class="Stulio.Views.SignUpPage"
+             Title=""
+             BackgroundColor="{StaticResource Primary}">
+    <ContentPage.Resources>
+        <Style x:Key="InvalidEntryStyle" TargetType="Entry">
+            <Setter Property="TextColor" Value="Red" />
+        </Style>
+        <Style x:Key="ValidEntryStyle" TargetType="Entry">
+            <Setter Property="TextColor" Value="Green" />
+        </Style>
+    </ContentPage.Resources>
+    <ScrollView Margin="0,20,0,0">
+        <StackLayout Margin="15" Spacing="20">
+            <Frame CornerRadius="10" BackgroundColor="White" Padding="40">
+                <VerticalStackLayout>
+                    <VerticalStackLayout>
+
+                        <Image Source="logoapp.png" 
+                               Margin="0,-20,0,0"
+                            WidthRequest="150" 
+                            HeightRequest="150"
+                            Aspect="AspectFit" />       
+                        <Label Text="Let's get started!" FontSize="24" FontAttributes="Bold"  TextColor="Black" VerticalOptions="CenterAndExpand" HorizontalOptions="CenterAndExpand" Margin="0,-10,0,10"/>
+                        <Label Text="Kickstart your academic journey with Stulio" FontSize="14"  TextColor="Black" VerticalOptions="CenterAndExpand" HorizontalOptions="CenterAndExpand" Margin="0,0,0,10"/>
+                       
+                        
+
+                    </VerticalStackLayout>
+
+        <VerticalStackLayout>
+            <!--<Label Text="First Name"  />-->
+                        <Entry Text="{Binding UserDetail.FirstName}" Placeholder="First Name" Margin="0,0,0,5" >
+                    <Entry.Behaviors>
+                                <toolkit:TextValidationBehavior 
+                                InvalidStyle="{StaticResource InvalidEntryStyle}"
+                                ValidStyle="{StaticResource ValidEntryStyle}"
+                                Flags="ValidateOnValueChanged"
+                                MinimumLength="1"
+                                MaximumLength="30" />
+                            </Entry.Behaviors>
+                </Entry>
+            </VerticalStackLayout>
+
+        <VerticalStackLayout>
+            <!--<Label Text="Last Name" />-->
+                        <Entry  Text="{Binding UserDetail.LastName}" Placeholder="Last Name" Margin="0,0,0,5" >
+                    <Entry.Behaviors>
+                        <toolkit:TextValidationBehavior 
+        InvalidStyle="{StaticResource InvalidEntryStyle}"
+        ValidStyle="{StaticResource ValidEntryStyle}"
+        Flags="ValidateOnValueChanged"
+        MinimumLength="1"
+        MaximumLength="30" />
+                    </Entry.Behaviors>
+                </Entry>
+            </VerticalStackLayout>
+
+        <VerticalStackLayout>
+            <!--<Label Text="Email" />-->
+                <Entry Text="{Binding UserDetail.Email}" Placeholder="Email" >
+                    <Entry.Behaviors>
+                        <toolkit:EmailValidationBehavior 
+                        InvalidStyle="{StaticResource InvalidEntryStyle}"
+                        ValidStyle="{StaticResource ValidEntryStyle}"
+                        Flags="ValidateOnValueChanged" />
+                    </Entry.Behaviors>
+                </Entry>
+            </VerticalStackLayout>
+
+        <VerticalStackLayout>
+            <!--<Label Text="PhoneNumber" />-->
+                        <Entry Text="{Binding UserDetail.PhoneNumber}" Placeholder="Phone Number"  Margin="0,0,0,5" TextColor="Green"/>
+        </VerticalStackLayout>
+
+        <VerticalStackLayout>
+            <!--<Label Text="School Name" />-->
+                        <Entry Text="{Binding UserDetail.SchoolName}" Placeholder="School Name" Margin="0,0,0,5" >
+                    <Entry.Behaviors>
+                        <toolkit:TextValidationBehavior 
+        InvalidStyle="{StaticResource InvalidEntryStyle}"
+        ValidStyle="{StaticResource ValidEntryStyle}"
+        Flags="ValidateOnValueChanged"
+        MinimumLength="1"
+        MaximumLength="30" />
+                    </Entry.Behaviors>
+                </Entry>
+            </VerticalStackLayout>
+
+        <VerticalStackLayout>
+            <!--<Label Text="User Name"  />-->
+                        <Entry Text="{Binding UserDetail.Username}" Placeholder="Username" Margin="0,0,0,5" >
+                            <Entry.Behaviors>
+                                <toolkit:TextValidationBehavior 
+InvalidStyle="{StaticResource InvalidEntryStyle}"
+ValidStyle="{StaticResource ValidEntryStyle}"
+Flags="ValidateOnValueChanged"
+MinimumLength="1"
+MaximumLength="30" />
+                            </Entry.Behaviors>
+
+                        </Entry>
+            </VerticalStackLayout>
+
+        <VerticalStackLayout>
+            <!--<Label Text="Password" />-->
+                        <Entry  Text="{Binding UserDetail.Password,Mode=TwoWay}" Placeholder="Password" Margin="0,0,0,5" IsPassword="True">
+                            <Entry.Behaviors>
+                                <toolkit:MultiValidationBehavior 
+InvalidStyle="{StaticResource InvalidEntryStyle}"  
+ValidStyle="{StaticResource ValidEntryStyle}"
+Flags="ValidateOnValueChanged">
+
+                                    <toolkit:CharactersValidationBehavior 
+                x:Name="DigitValidation" 
+                CharacterType="Digit" 
+                MinimumCharacterTypeCount="1" 
+                toolkit:MultiValidationBehavior.Error="1 digit" 
+                RegexPattern="" />
+
+                                    <toolkit:CharactersValidationBehavior 
+    x:Name="UpperValidation" 
+    CharacterType="UppercaseLetter" 
+    MinimumCharacterTypeCount="1" 
+    toolkit:MultiValidationBehavior.Error="1 upper case" 
+    RegexPattern="" />
+
+                                    <toolkit:CharactersValidationBehavior 
+    x:Name="SymbolValidation" 
+    CharacterType="NonAlphanumericSymbol" 
+    MinimumCharacterTypeCount="1" 
+    toolkit:MultiValidationBehavior.Error="1 symbol" 
+    RegexPattern=""  />
+
+                                    <toolkit:CharactersValidationBehavior 
+    x:Name="AnyValidation" 
+    CharacterType="Any" 
+    MinimumCharacterTypeCount="8" 
+    toolkit:MultiValidationBehavior.Error="8 characters" 
+    RegexPattern="" />
+                                </toolkit:MultiValidationBehavior>
+                            </Entry.Behaviors>
+                           
+                </Entry>
+                        <Label Text="*Password must start with a capital letter and contain a number and special character (!,*,%,$, etc.)"  Margin="0,-6,0,-10" BackgroundColor="Transparent" TextColor="Black"   FontSize="10" HorizontalOptions="End"/>
+                    </VerticalStackLayout>
+                    <Button Text="→" Command="{Binding AddUpdateUserCommand}" Margin="0,-30,-20,-30" BackgroundColor="Transparent" TextColor="Black"   FontSize="70" HorizontalOptions="End"/>
+                    
+                </VerticalStackLayout>
+            </Frame>
+    </StackLayout>
+        
+        </ScrollView>
+</ContentPage>
+
+
+    
+    

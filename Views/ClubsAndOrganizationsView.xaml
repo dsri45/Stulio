@@ -2,11 +2,114 @@
 <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="Stulio.Views.ClubsAndOrganizationsView"
-             Title="ClubsAndOrganizationsView">
-    <VerticalStackLayout>
-        <Label 
-            Text="Welcome to .NET MAUI!"
-            VerticalOptions="Center" 
-            HorizontalOptions="Center" />
-    </VerticalStackLayout>
+             xmlns:models="clr-namespace:Stulio.Models"
+             xmlns:searchHandlers="clr-namespace:Stulio.SearchHandlers"
+             xmlns:viewModels="clr-namespace:Stulio.ViewModels"
+             x:DataType="viewModels:ClubsAndOrganizationsViewModel"
+             Background="#5DA55B">
+
+    <Grid RowDefinitions=".23*,.7*">
+        <VerticalStackLayout Spacing="10">
+            <Label Margin="0,20,15,0"
+                   FontAttributes="Bold"
+                   FontFamily="bold"
+                   Text="    CLUBS AND ORGANIZATIONS"
+                   FontSize="30"
+                   HorizontalTextAlignment="Center"
+                   VerticalTextAlignment="Center"
+                   TextColor="White"/>
+            <Grid Margin="25,0,0,0" ColumnDefinitions="Auto,*">
+                <Label
+                    Margin="10,0,0,0"
+                    FontFamily="regular"
+                    Text= "Discover your passion by getting involved in clubs!"
+                    FontSize="16"
+                    TextColor="White"
+                    HorizontalTextAlignment="Center"
+                    VerticalTextAlignment="Center"/>
+                <Button Text="Add Club/Organization" 
+                        Command="{Binding AddUpdateClubsAndOrganizationsCommand}" 
+                        TextColor="#5DA55B"
+                        BorderColor="#5DA55B"
+                        BorderWidth="4" 
+                        BackgroundColor="White"
+                        FontSize="16"/>
+            </Grid>
+        </VerticalStackLayout>
+
+        <Grid Grid.Row="1">
+            
+            <RoundRectangle BackgroundColor="White"  CornerRadius="25,25,0,0"/>
+
+			<CollectionView ItemsSource="{Binding ClubsAndOrganizations}">
+				<CollectionView.ItemsLayout>
+					<LinearItemsLayout ItemSpacing="0" Orientation="Vertical"/>
+				</CollectionView.ItemsLayout>
+				<CollectionView.ItemTemplate>
+					<DataTemplate x:DataType="models:ClubsAndOrganizationsModel">
+						<SwipeView>
+							<SwipeView.LeftItems>
+								<SwipeItems>
+									<SwipeItem Text="Edit" IconImageSource="edit.png" BackgroundColor="LightBlue"  
+                                       CommandParameter="{Binding .}"
+                                       Command="{Binding Source={x:RelativeSource AncestorType={x:Type viewModels:ClubsAndOrganizationsViewModel}},Path=EditClubsAndOrganizationsCommand}" />
+									<SwipeItem Text="Delete" IconImageSource="delete.png" BackgroundColor="Red"  CommandParameter="{Binding .}"
+                                       Command="{Binding Source={x:RelativeSource AncestorType={x:Type viewModels:ClubsAndOrganizationsViewModel}},Path=DeleteClubsAndOrganizationsCommand}" />
+								</SwipeItems>
+							</SwipeView.LeftItems>
+							<Grid Padding="20,20,20,0">
+							
+								<RoundRectangle  Grid.RowSpan="2"
+                                                Background="#5DA55B"
+                                                Opacity="0.2"
+                                                CornerRadius="10">
+									<RoundRectangle.Shadow>
+										<Shadow Brush="#CFD0D4"
+                                                Opacity=" 0.8"
+                                                Offset="10,10"/>
+									</RoundRectangle.Shadow>
+								</RoundRectangle>
+
+								<StackLayout Margin="10,10,10,10" Padding="10" >
+									<Label TextColor="Black"
+                                        FontAttributes="Bold"
+                                        FontSize="18"
+                                        VerticalOptions="Start"
+                                        Margin="0,0,0,0"
+                                        Text="{Binding ClubName}"/>
+									<Label TextColor="Black"
+                                        FontAttributes="Bold"
+                                        FontSize="13"
+                                        VerticalOptions="Start"
+                                        Margin="0,0,0,0"
+                                        Text="{Binding ParticpatedYears}"/>
+									<Label TextColor="Black"
+                                        FontAttributes="Bold"
+                                        FontSize="13"
+                                        VerticalOptions="Start"
+                                        Margin="0,6,0,0"
+                                        Text="{Binding Role}"/>
+									<Label Text="{Binding Description}" TextColor="Black"  FontSize="12" LineBreakMode="WordWrap"/>
+									<Label Text="Achievements:" TextColor="Black"  FontSize="12" LineBreakMode="WordWrap" FontAttributes="Bold" Margin="0,6,0,0"/>
+									<Label Text="{Binding Achivements}" TextColor="Black"  FontSize="12" LineBreakMode="WordWrap"/>
+
+
+								</StackLayout>
+								
+							</Grid>
+
+						</SwipeView>
+
+					</DataTemplate>
+
+				</CollectionView.ItemTemplate>
+
+			</CollectionView>
+
+            
+        </Grid>
+
+    </Grid>
+    
+    
 </ContentPage>

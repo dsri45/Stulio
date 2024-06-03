@@ -12,20 +12,17 @@
     <!--<ShellContent
         Title="Home"
         ContentTemplate="{DataTemplate views:LoadingPage}"
-        Route="loading" />
+        Route="loading" />-->
 
-    --><!--Login Page--><!--
-    <ShellContent 
-        Title="Login" 
-        ContentTemplate="{DataTemplate views:LoginPage}"
-        Route="login"/>
-    --><!--Main Page-->
-
+    <!--Login Page-->
     
+    <!--Main Page-->
 
-    <FlyoutItem  Title="Dhanasri Prabhu" FlyoutDisplayOptions="AsMultipleItems" >
 
-        
+
+    <FlyoutItem   Title="Home"  FlyoutIcon="home.png" StyleClass="FlyoutItemLayoutStyle">
+
+       
 
         <Tab Title="Profile" Icon="home.png">
             <ShellContent Title="Profile"
@@ -35,20 +32,32 @@
 
         <Tab Title="Network" Icon="search.png">
             <ShellContent Title="Network"
-             ContentTemplate="{DataTemplate views:AddUpdateStudentDetail}" />
+             ContentTemplate="{DataTemplate views:StudentListPage}" />
         </Tab>
 
         <Tab Title="Forums" Icon="lightbulb.png">
-            <ShellContent Title="Forums"
-             ContentTemplate="{DataTemplate views:StudentListPage}" />
+            <ShellContent Title="Tips"
+             ContentTemplate="{DataTemplate views:FourmPage}" />
         
         </Tab>
-       
+        <!--<Tab Title="Logout" Icon="lightbulb.png">
+            <ShellContent Title="Logout"
+            ContentTemplate="{DataTemplate views:LoginPage}" />
+
+        </Tab>-->
 
 
     </FlyoutItem>
 
-   
+    <ShellContent 
+    Title="Help" Icon="help.png"
+    ContentTemplate="{DataTemplate views:Help}"/>
+    <ShellContent 
+    Title="Logout"  Icon="logout.png"
+    ContentTemplate="{DataTemplate views:LoginPage}"
+    Route="login"/>
+
+
     <!--<FlyoutItem Title=" Dashboard" FlyoutDisplayOptions="AsMultipleItems"  >
 
      <ShellContent

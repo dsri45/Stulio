@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="Stulio.Views.AddUpdateCommunityService"
+             Title="Community Service">
+    <ContentPage.Resources>
+        <ResourceDictionary>
+            <Style TargetType="Label">
+                <Setter Property="FontSize" Value="14" />
+                <Setter Property="TextColor" Value="SlateGray" />
+            </Style>
+        </ResourceDictionary>
+    </ContentPage.Resources>
+    <StackLayout Margin="10" Spacing="15">
+        <VerticalStackLayout>
+            <Label Text="Service Name" />
+            <Entry  Text="{Binding CommunityService.ServiceName}" Placeholder="Name" />
+        </VerticalStackLayout>
+        <VerticalStackLayout>
+            <Label Text="Particpated Years"  />
+            <Entry Text="{Binding CommunityService.ParticpatedYears}" Placeholder="Mon Year - Mon Year" />
+        </VerticalStackLayout>
+        <VerticalStackLayout>
+            <Label Text="Volunteered Hours" />
+            <Entry Text="{Binding CommunityService.VoulnteeredHours}" Placeholder="Hours" />
+        </VerticalStackLayout>
+        <VerticalStackLayout>
+            <Label Text="Description" />
+            <Editor x:Name="editors" Placeholder="Description"   HeightRequest="150"  Text="{Binding CommunityService.Description}"/>
+        </VerticalStackLayout>
+    
+
+        <Button Text="Save" Command="{Binding UpdateCommunityServiceCommand}"/>
+    </StackLayout>
+</ContentPage>

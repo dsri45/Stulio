@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:viewModels="clr-namespace:Stulio.ViewModels"
+             x:DataType="viewModels:ForumPageViewModel"
+             x:Class="Stulio.Views.FourmPage"
+             Title=""
+             BackgroundColor="{StaticResource Primary}">
+    
+    <ScrollView>
+
+        <Frame x:Name="TipFrame"
+  BackgroundColor="White"
+  CornerRadius="15"
+  Padding="15"
+  Margin="20,30,20,10" >
+            <StackLayout Margin="10" Spacing="0">
+
+                <VerticalStackLayout>
+                    <Image Source="logoapp" Margin="0,-20,0,-25" WidthRequest="120" HeightRequest="120" HorizontalOptions="Center"/>
+                    <Label Margin="0,10,0,0"
+                    
+                    FontFamily="bold"
+                    Text="Tips and Tricks"
+                    FontSize="30"
+                    HorizontalTextAlignment="Center"
+                    VerticalTextAlignment="Center"
+                    TextColor="Black"/>
+                    <Label Text="Powered by ChatGPT" FontAttributes="Italic" TextColor="{StaticResource Primary}" HorizontalTextAlignment="Center" Margin="0,0,0,10" FontSize="16" />
+
+                    <Editor x:Name="editor"
+                    Placeholder="Preparing a tip for you..."
+                    HeightRequest="1000" 
+                    Text="{Binding GptReponse.PromptResponse}" />
+                </VerticalStackLayout>
+                <!--<Button Text="Save" Command="{Binding UpdateAboutMeCommand}"/>-->
+
+            </StackLayout>
+        </Frame>
+    </ScrollView>
+</ContentPage>
+
+    

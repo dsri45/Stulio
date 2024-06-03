@@ -1,69 +1,50 @@
 <?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:d="http://xamarin.com/schemas/2014/forms/design"
              xmlns:viewModels="clr-namespace:Stulio.ViewModels"
              x:DataType="viewModels:ProfilePageViewModel"
              x:Class="Stulio.Views.ProfilePage"
              Title="Dashboard">
 
-
-<ScrollView VerticalScrollBarVisibility="Always" >
+    <!-- Main Dashboard-->
+    <ScrollView VerticalScrollBarVisibility="Always" >
         <!-- Main layout-->
-    
+
 
         <StackLayout>
-            <!--<Grid RowDefinitions="Auto,Auto,Auto,Auto,Auto,Auto,Auto,Auto,Auto,Auto,Auto, Auto " Padding="10,0">
-                --><!-- Image Profile--><!--
-                <Frame Grid.Row="0"  Margin="0,0,0,10" BorderColor="White" HorizontalOptions="Center" WidthRequest="200" HeightRequest="{OnPlatform iOS='200', Android='200'}" HasShadow="False" CornerRadius="100" Padding="0" IsClippedToBounds="True" ZIndex="3">
-                    <Image Source="dhanasriprofile" Aspect="AspectFill"/>
-                </Frame>
-                --><!--Timeline --><!--
-                <Frame Grid.Row="1" BorderColor="White" VerticalOptions="Start" HeightRequest="200" HasShadow="False" CornerRadius="20" Margin="0,-150,0,0" Padding="0" IsClippedToBounds="True">
-                    <Image Source="timeline3" Aspect="AspectFill" />
-                </Frame>
-                --><!-- Profile name & general description--><!--
-                <Label Grid.Row="1" Text="{Binding StudentDetail.FullName}" FontAttributes="Bold" TextColor="#383b67" HorizontalTextAlignment="Center" Margin="0,20,0,0" FontSize="22"/>
 
-                <Grid Grid.Row="3" ColumnDefinitions="Auto,Auto,Auto,Auto,Auto" VerticalOptions="Center" HorizontalOptions="Center" Margin="0,10,0,0">
-                    <Button Grid.Column="0" ImageSource="location" WidthRequest="18" HeightRequest="18" CornerRadius="9" HorizontalOptions="Center" BackgroundColor="#9192b7"/>
-                    <Label Grid.Column="1" Text=" Duvall, Washington" FontSize="15" TextColor="#9192b7"/>
-                    <Button Grid.Column="2" ImageSource="age" Margin="10,0,0,0" WidthRequest="18" HeightRequest="18" CornerRadius="9" HorizontalOptions="Center" BackgroundColor="#9192b7"/>
-                    <Label Grid.Column="3" Text=" Age, 16" FontSize="15" TextColor="#9192b7"/>
-                    --><!--<Button Grid.Column="4" Text="Regular" TextColor="#e29389" FontAttributes="Bold" Margin="5,0,0,0" CornerRadius="10" FontSize="9" WidthRequest="{OnPlatform iOS='50', Android='59'}" HeightRequest="{OnPlatform iOS='21', Android='30'}" BackgroundColor="#fae6e4"/>--><!--
-                </Grid>
-
-            </Grid>-->
-
+            <!-- Profile Picture Frame-->
             <Grid RowDefinitions="Auto,Auto,Auto,Auto,Auto,Auto,Auto,Auto,Auto,Auto" Padding="8,0">
 
                 <Frame Grid.Row="2" BorderColor="White" VerticalOptions="Start" HeightRequest="200" HasShadow="False" CornerRadius="20" Margin="0,-150,0,0" Padding="0,0,0,0" IsClippedToBounds="True">
                     <Image Source="timeline3" Aspect="AspectFill" />
                 </Frame>
+                <Button Grid.Row="3" Grid.Column="1" ImageSource="socialmedia.png" Text="Share Profile"  WidthRequest="30" HeightRequest="30" CornerRadius="9" 
+                        HorizontalOptions="Center" BackgroundColor="Transparent" Margin="300,-40,0,0" 
+                        Command="{Binding CaptureScreenshotCommand}"/>
                 <!-- Image Profile-->
                 <Frame Grid.Row="1"  Margin="0,15,0,10" BorderColor="White" HorizontalOptions="Center" WidthRequest="200" HeightRequest="{OnPlatform iOS='200', Android='200'}" HasShadow="False" CornerRadius="100" Padding="0" IsClippedToBounds="True" ZIndex="3">
-                    <Image Source="dhanasriprofile" Aspect="AspectFill"/>
+                    <Image Source="{Binding StudentDetail.Profilepicture}" Aspect="AspectFill"/>
                 </Frame>
                 <!-- Profile name & general description-->
-                <Label Grid.Row="2" Text="{Binding StudentDetail.FullName}" FontAttributes="Bold" TextColor="#383b67" HorizontalTextAlignment="Center" Margin="0,-3,0,0" FontSize="22"/>
-                <Label Grid.Row="2" Text="Cedarcrest High School" FontAttributes="Bold"  FontSize="13" TextColor="#383b67" HorizontalTextAlignment="Center" Margin="0,26,0,0"/>
-                <!--<Grid Grid.Row="4" ColumnDefinitions="Auto,Auto,Auto,Auto,Auto" VerticalOptions="Center" HorizontalOptions="Center" Margin="0,10,0,0">
-                    <Button Grid.Column="0" ImageSource="location" WidthRequest="18" HeightRequest="18" CornerRadius="9" HorizontalOptions="Center" BackgroundColor="#9192b7"/>
-                    <Label Grid.Column="1" Text=" Duvall, Washington" FontSize="15" TextColor="#9192b7"/>
-                    <Button Grid.Column="2" ImageSource="age" Margin="10,0,0,0" WidthRequest="18" HeightRequest="18" CornerRadius="9" HorizontalOptions="Center" BackgroundColor="#9192b7"/>
-                    <Label Grid.Column="3" Text=" Age, 16" FontSize="15" TextColor="#9192b7"/>
-                </Grid>-->
+                <Label Grid.Row="2" Text="{Binding StudentDetail.FullName}"  TextColor="Black" HorizontalTextAlignment="Center" Margin="0,-3,0,0" FontSize="24" FontFamily="bold"/>
+                <Label Grid.Row="2" Text="{Binding StudentDetail.SchoolName}" FontAttributes="Bold"  FontSize="13" TextColor="#383b67" HorizontalTextAlignment="Center" Margin="0,27,0,0"/>
+                
             </Grid>
 
-
-          <Frame x:Name="aboutMeFrame"
+            <!-- About Me-->
+            <Frame x:Name="aboutMeFrame"
            BackgroundColor="White"
            CornerRadius="15"
            Padding="15"
            Margin="20,20,20,0" >
 
+                <!-- Framing Done-->
+
                 <StackLayout>
 
-                   <Label Text="About Me"
+                    <Label Text="About Me"
                           
                    TextColor="Black"
                    FontAttributes="Bold"
@@ -71,11 +52,18 @@
                    VerticalOptions="CenterAndExpand"       
                    Margin="0,0,0,0"/>
                     <Button Grid.Column="2" ImageSource="pen.png" Margin="-120,-30,0,0" WidthRequest="20" HeightRequest="20" CornerRadius="9" HorizontalOptions="Center" BackgroundColor="#9192b7" Command="{Binding UpdateAboutMeCommand}" />
-                    <Label Text="{Binding StudentDetail.AboutMe}" TextColor="Black"  FontSize="13"
+                    <Label Text="{Binding StudentDetail.AboutMe}" TextColor="Black"  FontSize="13" 
                    LineBreakMode="WordWrap"/>
-                    
+
                 </StackLayout>
             </Frame>
+
+            <!--<Grid  RowDefinitions ="Auto,Auto"   ColumnDefinitions="Auto,Auto"  VerticalOptions="Center" HorizontalOptions="Center" Margin="0,10,0,0">
+                <Button Grid.Row="1" Grid.Column="1" ImageSource="socialmedia.png" Text="Share Profile"  WidthRequest="30" HeightRequest="30" CornerRadius="9" 
+HorizontalOptions="Center" BackgroundColor="White" Margin="0,-10,0,0" 
+Command="{Binding CaptureScreenshotCommand}"/>
+                --><!--<Button Grid.Row="1" Grid.Column="2" ImageSource="instagram.png"  WidthRequest="20" HeightRequest="20" CornerRadius="9" HorizontalOptions="Center" BackgroundColor="#9192b7"  />--><!--
+            </Grid>-->
 
             <Frame x:Name="ButtonsFrame"
                    BackgroundColor="#F7F7F7"
@@ -85,35 +73,56 @@
                    HasShadow="True"
                    BorderColor="Transparent">
 
-                   <StackLayout >
+                <StackLayout >
 
-                    <Grid  RowDefinitions ="Auto,Auto,Auto"  ColumnDefinitions="Auto,Auto,Auto,Auto,Auto" VerticalOptions="Center" HorizontalOptions="Center" Margin="0,10,0,0">
+                    <Grid  RowDefinitions ="Auto,Auto,Auto,Auto"  ColumnDefinitions="Auto,Auto,Auto,Auto,Auto" VerticalOptions="Center" HorizontalOptions="Center" Margin="0,10,0,0">
                         <!-- Academic Achivements -->
                         <Button  Grid.Row="0" Grid.Column="1"
+                          Text="Classes"
+                          ImageSource="academicachievements_icon.png"
+                          LineBreakMode="WordWrap"
+                          FontAttributes="Bold"
+                          BackgroundColor="White"
+                          FontSize="14.9"
+                          FontFamily="regular"
+                          WidthRequest="165"
+                          HeightRequest="100"
+                          TextColor="#d94c7d"
+                          BorderColor="#d94c7d"
+                          BorderWidth="4"
+                          CornerRadius="5"
+                          Command= "{Binding EnterClassesCommand}"
+                          Margin="4,0,5,10"
+                           />
+
+                        <Button  Grid.Row="0" Grid.Column="2"
                                  Text="Academic Achivements"
-                                 ImageSource="academicachievements_icon.png"
+                                 ImageSource="trophy.png"
                                  LineBreakMode="WordWrap"
                                  FontAttributes="Bold"
                                  BackgroundColor="White"
-                                 FontSize="13"
+                                 FontSize="14.9"
+                                 FontFamily="regular"
                                  WidthRequest="165"
                                  HeightRequest="100"
                                  TextColor="#7A5FA4"
                                  BorderColor="#7A5FA4"
                                  BorderWidth="4"
                                  CornerRadius="5"
+                                  ContentLayout="Right,10"
                                  Command= "{Binding EnterAcademicAchievementsCommand}"
                                  Margin="4,0,5,10"
                          />
 
                         <!-- Clubs and Organizations -->
-                        <Button Grid.Row="0" Grid.Column="2"
+                        <Button Grid.Row="1" Grid.Column="1"
                                 Text="Clubs and Organizations"
                                 ImageSource="clubsandorganizations_icon.png"
                                 LineBreakMode="CharacterWrap"
                                 FontAttributes="Bold"
                                 BackgroundColor="White"
-                                FontSize="13.4"
+                                FontSize="14.9"
+                                FontFamily="regular"
                                 WidthRequest="165"
                                 HeightRequest="100"
                                 TextColor="#5DA55B"
@@ -121,19 +130,20 @@
                                 BorderWidth="4"
                                 CornerRadius="5"
                                 HorizontalOptions="FillAndExpand" 
-                                ContentLayout="Right,10"
+                                Command= "{Binding EnterClubsAndOrganizationsCommand}"
                                 Margin="4,0,5,10"/>
 
 
 
                         <!-- Community Service -->
-                        <Button Grid.Row="1" Grid.Column="1"
+                        <Button Grid.Row="1" Grid.Column="2"
                                 Text="Community Service"
                                 ImageSource="communityservice_icon.png"
                                 LineBreakMode="WordWrap"
                                 FontAttributes="Bold"
                                 BackgroundColor="White"
-                                FontSize="13.5"
+                                FontSize="14.9"
+                                FontFamily="regular"
                                 WidthRequest="165"
                                 HeightRequest="100"
                                 TextColor="#489CC1"
@@ -141,17 +151,19 @@
                                 BorderWidth="4"
                                 CornerRadius="5"
                                 HorizontalOptions="FillAndExpand" 
-                                ContentLayout="Left,10"
+                                 ContentLayout="Right,10"
+                                Command= "{Binding EnterCommunityServiceCommand}"
                                 Margin="4,0,5,10"/>
 
                         <!-- Create Account Button -->
-                        <Button   Grid.Row="1" Grid.Column="2"   
-                                  Text="Atheletic Participation"
+                        <Button   Grid.Row="2" Grid.Column="1"   
+                                  Text="Athletic Participation"
                                   ImageSource="football.png"
                                   LineBreakMode="CharacterWrap"
                                   FontAttributes="Bold"
                                   BackgroundColor="White"
-                                  FontSize="13"
+                                  FontSize="14.9"
+                                  FontFamily="regular"
                                   WidthRequest="165"
                                   HeightRequest="100"
                                   TextColor="#4A7CB9"
@@ -160,17 +172,18 @@
                                   CornerRadius="5"
                                   HorizontalOptions="FillAndExpand"
                                   VerticalOptions="Start"
-                                  ContentLayout="Right,10"
+                                  Command= "{Binding EnterAthleticParticipationCommand}"
                                   Margin="4,0,5,10" />
 
-                        <!-- Projects -->
-                        <Button Grid.Row="2" Grid.Column="1"
-                                Text="Projects"
-                                ImageSource="projects_icon.png"
+                        <!-- Work Experience -->
+                        <Button Grid.Row="2" Grid.Column="2"
+                                Text="Work Experience"
+                                ImageSource="work.png"
                                 LineBreakMode="WordWrap"
                                 FontAttributes="Bold"
                                 BackgroundColor="White"
-                                FontSize="15"
+                                FontSize="15.3"
+                                FontFamily="regular"
                                 WidthRequest="165"
                                 HeightRequest="100"
                                 TextColor="#FF9F09"
@@ -178,32 +191,56 @@
                                 BorderWidth="4"
                                 CornerRadius="5"
                                 HorizontalOptions="FillAndExpand" 
+                                ContentLayout="Right,10"
+                                 Command= "{Binding EnterWorkExperienceCommand}"
                                 Margin="4,0,5,10"/>
 
 
+                        <Button Grid.Row="3" Grid.Column="1"
+                        Text="Personal Endeavors"
+                        ImageSource="projects_icon.png"
+                        LineBreakMode="WordWrap"
+                        FontAttributes="Bold"
+                        BackgroundColor="White"
+                        Opacity="0.7"
+                        FontSize="14.1"
+                        FontFamily="regular"
+                        WidthRequest="165"
+                        HeightRequest="100"
+                        TextColor="#8e00c2"
+                        BorderColor="#8e00c2"
+                        BorderWidth="4"
+                        CornerRadius="5"
+                        HorizontalOptions="FillAndExpand" 
+                         Command= "{Binding EnterPersonalEndeavorsCommand}"
+                        Margin="4,0,5,10"/>
+
+
                         <!-- Additonal Information -->
-                        <Button Grid.Row="2" Grid.Column="2"
+                        <Button Grid.Row="3" Grid.Column="2"
                                 Text="Additonal Involvements"
                                 ImageSource="additionalinvolvments_icon.png"
                                 LineBreakMode="WordWrap"
                                 FontAttributes="Bold"
                                 BackgroundColor="White"
                                 Opacity="0.7"
-                                FontSize="12.3"
+                                FontSize="14.1"
+                                FontFamily="regular"
                                 WidthRequest="165"
                                 HeightRequest="100"
-                                TextColor="#6C35FF"
-                                BorderColor="#6C35FF"
+                                TextColor="#c22534"
+                                BorderColor="#c22534"
                                 BorderWidth="4"
                                 CornerRadius="5"
                                 HorizontalOptions="FillAndExpand" 
                                 ContentLayout="Right,10"
+                                 Command= "{Binding EnterAdditionalInvolvementsCommand}"
                                 Margin="4,0,5,10"/>
+                        
                     </Grid>
-                </StackLayout>      
+                </StackLayout>
             </Frame>
-
-
+           
             <Frame x:Name="ContactFrame"
                      BackgroundColor="White"
                      CornerRadius="15"
@@ -218,14 +255,16 @@
                          FontSize="18"
                          VerticalOptions="CenterAndExpand"       
                          Margin="0,0,0,8"/>
-                        <Label Text="Email: dhanasriprabhu03@gmail.com" TextColor="Black"  FontSize="13"
+                    <Label Text="{Binding StudentDetail.Email , StringFormat='Email: {0}'}"  TextColor="Black"  FontSize="13"
                          LineBreakMode="WordWrap"/>
-                        <Label Text="Phone: 425-606-9993" TextColor="Black"  FontSize="13"
+                    <Label Text="{Binding StudentDetail.PhoneNumber, StringFormat='Phone: {0}'}" TextColor="Black"  FontSize="13"
                          LineBreakMode="WordWrap"/>
                 </StackLayout>
             </Frame>
+            
 
-            <!-- About Me Section --><!--
+            <!-- About Me Section -->
+            <!--
              <StackLayout Margin="10">
                 <Grid Grid.Row="7" ColumnDefinitions="Auto,Auto,Auto,Auto,Auto" VerticalOptions="Center" HorizontalOptions="Start" Margin="0,0,0,0">
                     
@@ -236,7 +275,9 @@
 
             </StackLayout>
 
-            --><!-- Academic Activities Section --><!--
+            -->
+            <!-- Academic Activities Section -->
+            <!--
             <StackLayout Margin="10">
                 <Grid Grid.Row="7" ColumnDefinitions="Auto,Auto,Auto,Auto,Auto" VerticalOptions="Center" HorizontalOptions="Start" Margin="0,0,0,0">
                     
@@ -246,7 +287,9 @@
                 <Label Text="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin ac justo nec urna congue vehicula. Ut ac dictum odio, vitae malesuada ipsum." TextColor="#383b67" FontSize="16" />
             </StackLayout>
 
-            --><!-- Education Section --><!--
+            -->
+            <!-- Education Section -->
+            <!--
             <StackLayout Margin="10">
                 
                 <Label Text="Education" FontSize="20" FontAttributes="Bold" />
@@ -254,30 +297,36 @@
                 <Label Text="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin ac justo nec urna congue vehicula. Ut ac dictum odio, vitae malesuada ipsum." />
             </StackLayout>
 
-            --><!-- Athletic Participation --><!--
+            -->
+            <!-- Athletic Participation -->
+            <!--
             <StackLayout Margin="10">
                 <Image Source ="football.png" Aspect="AspectFit" WidthRequest="40" HeightRequest="40" />
                 <Label Text="Athletic Participation" FontSize="20" FontAttributes="Bold" />
                 <Label Text="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin ac justo nec urna congue vehicula. Ut ac dictum odio, vitae malesuada ipsum." />
             </StackLayout>
 
-                --><!-- Clubs & Organizations --><!--
+                -->
+            <!-- Clubs & Organizations -->
+            <!--
             <StackLayout Margin="10">
                 <Label Text="Clubs Organizations" FontSize="20" FontAttributes="Bold" />
 
                 <Label Text="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin ac justo nec urna congue vehicula. Ut ac dictum odio, vitae malesuada ipsum." />
             </StackLayout>
 
-            --><!-- Extracurriculars --><!--
+            -->
+            <!-- Extracurriculars -->
+            <!--
             <StackLayout Margin="10">
                 <Label Text="Extracurriculars" FontSize="20" FontAttributes="Bold" />
 
                 <Label Text="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin ac justo nec urna congue vehicula. Ut ac dictum odio, vitae malesuada ipsum." />
             </StackLayout>-->
 
-            
+
         </StackLayout>
-        
+
 
     </ScrollView>
 

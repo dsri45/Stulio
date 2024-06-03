@@ -27,7 +27,7 @@
             <Editor x:Name="editor"
             Placeholder="Enter your response here"
             HeightRequest="250"
-            Text="{Binding StudentDetail.AboutMe}"/>    
+            Text="{Binding StudentDetail.AboutMe}" MaxLength="500"/>    
         </VerticalStackLayout>
 
 

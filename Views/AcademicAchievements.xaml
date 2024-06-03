@@ -6,15 +6,125 @@
           xmlns:viewModels="clr-namespace:Stulio.ViewModels"
           x:DataType="viewModels:AcademicAchievementsViewModel"
           x:Class="Stulio.Views.AcademicAchievements"
-          Title="Academic Achievements">
-        
-        <Frame x:Name="AcademicFrame"
-       BackgroundColor="White"
-       CornerRadius="5"
-       Padding="5"
-       Margin="20,10,20,10" >
+          BackgroundColor="#7A5FA4">
 
-        <Shell.SearchHandler>
+    <Grid RowDefinitions=".23*,.7*">
+        <VerticalStackLayout Spacing="10">
+            <Label Margin="0,20,0,0"
+                FontAttributes="Bold"
+                FontFamily="bold"
+                Text="ACADEMIC ACHIEVEMENTS"
+                FontSize="30"
+                HorizontalTextAlignment="Center"
+                VerticalTextAlignment="Center"
+                TextColor="White"/>
+            <!--<Image Source="academicachievements_icon.png" 
+                   WidthRequest="75" 
+                   HeightRequest="57"
+                   Aspect="AspectFit" />-->
+            <Grid Margin="25,0,0,0" ColumnDefinitions="Auto,*">
+                <Label
+                 Margin="10,0,0,0"
+                 FontFamily="regular"
+                 Text= "Discover your passion by getting involved in clubs!"
+                 FontSize="16"
+                 TextColor="White"
+                 HorizontalTextAlignment="Center"
+                 VerticalTextAlignment="Center"/>
+                <Button Text="Add Achievement" 
+                     Command="{Binding AddUpdateAcademicAchievementsCommand}" 
+                     TextColor="#7A5FA4"
+                     BorderColor="#7A5FA4"
+                     BorderWidth="4" 
+                     BackgroundColor="White"
+                     FontSize="16"/>
+            </Grid>
+        </VerticalStackLayout>
+
+        <Grid Grid.Row="1">
+
+            <RoundRectangle BackgroundColor="White"  CornerRadius="25,25,0,0"/>
+
+
+
+            <CollectionView ItemsSource="{Binding AcademicAchievements}">
+                <CollectionView.ItemsLayout>
+                    <LinearItemsLayout ItemSpacing="0" Orientation="Vertical"/>
+                </CollectionView.ItemsLayout>
+                <CollectionView.ItemTemplate>
+                    <DataTemplate x:DataType="models:AcademicAchievementsModel">
+                        <SwipeView>
+                            <SwipeView.LeftItems>
+                                <SwipeItems>
+                                    <SwipeItem Text="Edit" IconImageSource="edit.png" BackgroundColor="LightBlue"
+                                    CommandParameter="{Binding .}"
+                                    Command="{Binding Source={x:RelativeSource AncestorType={x:Type viewModels:AcademicAchievementsViewModel}},Path=EditAcademicAchievementsCommand}" />
+                                    <SwipeItem Text="Delete" IconImageSource="delete.png" BackgroundColor="Red"  CommandParameter="{Binding .}"
+                                    Command="{Binding Source={x:RelativeSource AncestorType={x:Type viewModels:AcademicAchievementsViewModel}},Path=DeleteAcademicAchievementsCommand}" />
+                                </SwipeItems>
+                            </SwipeView.LeftItems>
+                            <Grid Padding="20,20,20,0">
+
+                                <RoundRectangle  Grid.RowSpan="2"
+                                             Background="#7A5FA4"
+                                             Opacity="0.2"
+                                             CornerRadius="10">
+                                    <RoundRectangle.Shadow>
+                                        <Shadow Brush="#CFD0D4"
+                                             Opacity=" 0.8"
+                                             Offset="10,10"/>
+                                    </RoundRectangle.Shadow>
+                                </RoundRectangle>
+
+                                <StackLayout Margin="10,10,10,10" Padding="10" >
+                                    <Label TextColor="Black"
+                                     FontAttributes="Bold"
+                                     FontSize="18"
+                                     VerticalOptions="Start"
+                                     Margin="0,0,0,0"
+                                     Text="{Binding Class}"/>   
+                                    <Label TextColor="Black"
+                                     FontAttributes="Bold"
+                                     FontSize="13"
+                                     VerticalOptions="Start"
+                                     Margin="0,0,0,0"
+                                     Text="{Binding Award}"/>
+                                    <Label TextColor="Black"
+                                     FontAttributes="Bold"
+                                     FontSize="13"
+                                     VerticalOptions="Start"
+                                     Margin="0,0,0,0"
+                                     Text="{Binding DateAchived}"/>
+                                    <Label Text="{Binding Description}" TextColor="Black"  FontSize="12" LineBreakMode="WordWrap"/>
+                                    <!--<Label Text="{Binding AcademicId}" TextColor="Black"  FontSize="12" LineBreakMode="WordWrap" Margin="0,6,0,0"/>-->
+
+                                </StackLayout>
+
+                            </Grid>
+
+                        </SwipeView>
+
+                    </DataTemplate>
+
+                </CollectionView.ItemTemplate>
+
+            </CollectionView>
+
+
+        </Grid>
+
+    </Grid>
+</ContentPage>
+
+
+
+    <!--<Frame x:Name="AcademicFrame"
+       BackgroundColor="White"
+       CornerRadius="0"
+       Padding="5"
+       Margin="0,200,0,0" >
+
+        --><!--<Shell.SearchHandler>
             <searchHandlers:AcademicAchievementSearchHandler
                 Placeholder="Search Name"
                 ShowsResults="True"
@@ -31,13 +141,15 @@
                     </DataTemplate>
                 </searchHandlers:AcademicAchievementSearchHandler.ItemTemplate>
             </searchHandlers:AcademicAchievementSearchHandler>
-        </Shell.SearchHandler>
-       
-        <StackLayout Margin="5">
-  
-            
+        </Shell.SearchHandler>--><!--
 
-            <CollectionView ItemsSource="{Binding AcademicAchievements}">
+       
+
+        <StackLayout Margin="5">
+        
+
+
+            <CollectionView ItemsSource="{Binding                       }">
                 <CollectionView.ItemTemplate>
                     <DataTemplate x:DataType="models:AcademicAchievementsModel">
                         <SwipeView>
@@ -54,9 +166,10 @@
                             <Frame Margin="20,10,20,10" Padding="5">
                                 <VerticalStackLayout>
                                     <HorizontalStackLayout Spacing="5">
-                                     <Label Text="{Binding Award}" FontSize="18" FontAttributes="Bold" />
+                                        <Label Text="{Binding AcademicId}" FontSize="18" FontAttributes="Bold" Padding="5,0,0,0" />
+                                        <Label Text="{Binding Award}" FontSize="18" FontAttributes="Bold" Padding="5,0,0,0"/>
                                     </HorizontalStackLayout>
-                                    <Label Text="{Binding DateAchived}" />
+                                    <Label Text="{Binding DateAchived}" Padding="5,0,0,0" />
                                     <Label Text="{Binding Class}" />
                                     <Label Text="{Binding Description}" />
                                 </VerticalStackLayout>
@@ -65,6 +178,7 @@
                                               CommandParameter="{Binding .}" />
                                 </Frame.GestureRecognizers>
                             </Frame>
+
                         </SwipeView>
 
                     </DataTemplate>
@@ -73,7 +187,11 @@
 
             <Button Text="Add Academic Achievements" Command="{Binding AddUpdateAcademicAchievementsCommand}"  />
             
+            
         </StackLayout>
+          
 
     </Frame>
-</ContentPage>
+
+
+</ContentPage>-->

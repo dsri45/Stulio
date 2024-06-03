@@ -2,7 +2,10 @@
 <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="Stulio.Views.AddUpdateAcademicAchievements"
-             Title="Update Academic Achievements">
+             xmlns:viewModels="clr-namespace:Stulio.ViewModels"
+             x:DataType="viewModels:AddUpdateAcademicAchievementsViewModel"
+             xmlns:models="clr-namespace:Stulio.Models"
+             Title="Academic Achievements">
     <ContentPage.Resources> 
         <ResourceDictionary>
             <Style TargetType="Label">
@@ -12,24 +15,33 @@
         </ResourceDictionary>
     </ContentPage.Resources>
     <StackLayout Margin="10" Spacing="15">
+        <!--<VerticalStackLayout>
+            <Label Text="ID" />
+            <Entry  Text="{Binding AcademicAchievements.AcademicId}" Placeholder="academicid" />
+        </VerticalStackLayout>
+        <VerticalStackLayout>
+            <Label Text="SID" />
+            <Entry  Text="{Binding AcademicAchievements.StudentID}" Placeholder="studentid" />
+        </VerticalStackLayout>-->
         <VerticalStackLayout>
             <Label Text="Award" />
-            <Entry  Text="{Binding AcademicAchievements.Award}" Placeholder="Award" />
+            <!--<Entry Text="{Binding AcademicAchievements.AcademicId, Mode=TwoWay}" Placeholder="ex. 1"  IsVisible="True"/>-->
+            <Entry Text="{Binding AcademicAchievements.Class, Mode=TwoWay}" Placeholder="ex.  National Merit Scholar" />
         </VerticalStackLayout>
         <VerticalStackLayout>
-            <Label Text="Date Achived"  />
-            <Entry Text="{Binding AcademicAchievements.DateAchived}" Placeholder="Mon-Year" />
+            <Label Text="Organization" />
+            <Entry  Text="{Binding AcademicAchievements.Award, Mode=TwoWay}" Placeholder="ex. NMSC" />
         </VerticalStackLayout>
         <VerticalStackLayout>
-            <Label Text="Class" />
-            <Entry Text="{Binding AcademicAchievements.Class}" Placeholder="Class" />
+            <Label Text="Date Achieved"  />
+            <Entry Text="{Binding AcademicAchievements.DateAchived, Mode=TwoWay}" Placeholder="Mon-Year" />
         </VerticalStackLayout>
         <VerticalStackLayout>
             <Label Text="Description" />
-            <Editor x:Name="editor" Placeholder="Description"   HeightRequest="150"  Text="{Binding AcademicAchievements.Description}"/>
+            <Editor x:Name="editor" Placeholder="Description"   HeightRequest="150"  Text="{Binding AcademicAchievements.Description, Mode=TwoWay}"/>
         </VerticalStackLayout>
-        
 
-        <Button Text="Save" Command="{Binding UpdateAcademicAchievementsCommand}"/>
+
+        <Button Text="Save" Command="{Binding UpdateAcademicAchievementsCommand}" CommandParameter="{Binding AcademicAchievements}"/>
     </StackLayout>
 </ContentPage>

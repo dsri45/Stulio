@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="Stulio.Views.AddUpdateAdditionalInvolvements"
+             xmlns:viewModels="clr-namespace:Stulio.ViewModels"
+             x:DataType="viewModels:AddUpdateAdditionalInvolvementsViewModel"
+             xmlns:models="clr-namespace:Stulio.Models"
+             Title="Additional Involvements">
+    <ContentPage.Resources> 
+        <ResourceDictionary>
+            <Style TargetType="Label">
+                <Setter Property="FontSize" Value="14" />
+                <Setter Property="TextColor" Value="SlateGray" />
+            </Style>
+        </ResourceDictionary>
+    </ContentPage.Resources>
+    <StackLayout Margin="10" Spacing="15">
+        <VerticalStackLayout>
+            <Label Text="Activity Name" />
+            <Entry  Text="{Binding AdditionalInvolvements.ActivityName}" Placeholder="Activity Name" />
+        </VerticalStackLayout>
+        <VerticalStackLayout>
+            <Label Text="Particpated Years"  />
+            <Entry Text="{Binding AdditionalInvolvements.ParticpatedYears}" Placeholder="Mon-Year" />
+        </VerticalStackLayout>
+        <VerticalStackLayout>
+            <Label Text="Description" />
+            <Editor x:Name="editor" Placeholder="Description"   HeightRequest="150"  Text="{Binding AdditionalInvolvements.Description}"/>
+        </VerticalStackLayout>
+
+
+
+        <Button Text="Save" Command="{Binding UpdateAdditionalInvolvementsCommand}"/>
+    </StackLayout>
+</ContentPage>
