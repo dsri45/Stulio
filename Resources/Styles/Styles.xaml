@@ -460,7 +460,7 @@ Custom Style you can apply to any Flyout Item
                     </VisualState>
                     <VisualState x:Name="Selected">
                         <VisualState.Setters>
-                            <Setter Property="BackgroundColor" Value="{StaticResource Primary}" />
+                            <Setter Property="BackgroundColor" Value="#90DBAB" />
                             <Setter TargetName="FlyoutItemLabel" Property="Label.TextColor" Value="White" />
                         </VisualState.Setters>
                     </VisualState>

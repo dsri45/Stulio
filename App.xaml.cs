@@ -13,11 +13,12 @@ namespace Stulio
             InitializeComponent();
 
             //MainPage = new AppShell();
-            //MainPage = new StudentHomePage();
-            //MainPage = new LoginPage();
-            UserService userservice = new UserService();
-            var userViewModel = new LoginPageViewModel(userservice);
-            MainPage = new NavigationPage(new LoginPage(userViewModel));
+            //MainPage = new StartPage();
+            
+           // UserService userservice = new UserService();
+            //var userViewModel = new LoginPageViewModel(userservice);
+            MainPage = new NavigationPage(new StartPage());
+            //MainPage = new NavigationPage(new LoginPage(userViewModel));
             //MainPage = new NavigationPage(new ProfilePage());
 
         }

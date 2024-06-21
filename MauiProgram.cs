@@ -3,6 +3,7 @@ using Stulio.Views;
 using Stulio.ViewModels;
 using Stulio.Services;
 using CommunityToolkit.Maui;
+using Microsoft.Extensions.DependencyInjection;
 
 namespace Stulio
 {
@@ -19,6 +20,7 @@ namespace Stulio
                 fonts.AddFont("OpenSans-Semibold.ttf", "OpenSansSemibold");
                 fonts.AddFont("Lalezar-Regular.ttf", "bold");
                 fonts.AddFont("LeagueSpartan-Regular.ttf", "regular");
+                fonts.AddFont("LexendDeca.ttf", "final");
             });
 
 #if DEBUG
@@ -41,6 +43,7 @@ namespace Stulio
             builder.Services.AddSingleton<Help>();
             builder.Services.AddSingleton<LoginPage>();
             builder.Services.AddSingleton<SignUpPage>();
+            builder.Services.AddSingleton<StartPage>();
 
             //Views Registration
             builder.Services.AddSingleton<ProfilePage>();
@@ -92,7 +95,11 @@ namespace Stulio
             builder.Services.AddSingleton<LoginPageViewModel>();
             builder.Services.AddSingleton<ForumPageViewModel>();
 
-
+            // Register the ApiService with HttpClient
+            builder.Services.AddHttpClient<ApiService>(client =>
+            {
+                client.BaseAddress = new Uri("https://yourapi.com/api/");
+            });
 
             return builder.Build();
         }

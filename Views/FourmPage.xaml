@@ -5,7 +5,8 @@
              x:DataType="viewModels:ForumPageViewModel"
              x:Class="Stulio.Views.FourmPage"
              Title=""
-             BackgroundColor="{StaticResource Primary}">
+             BackgroundImageSource="loginbg.png"
+             Shell.BackgroundColor="Transparent">
     
     <ScrollView>
 

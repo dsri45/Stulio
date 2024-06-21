@@ -50,7 +50,7 @@
     </FlyoutItem>
 
     <ShellContent 
-    Title="Help" Icon="help.png"
+    Title="Help" Icon="helpicon.png"
     ContentTemplate="{DataTemplate views:Help}"/>
     <ShellContent 
     Title="Logout"  Icon="logout.png"
