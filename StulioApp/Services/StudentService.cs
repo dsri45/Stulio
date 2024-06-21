@@ -50,8 +50,8 @@ namespace Stulio.Services
             await SetUpDb();
             // Retrieve and return the list of all students
             var studentList = await _dbConnection.Table<StudentModel>().ToListAsync();
-            studentList.Find(p => p.FirstName == "Adam").Profilepicture = "adam";
-            studentList.Find(p => p.FirstName == "Sophia").Profilepicture = "sophia";
+            //studentList.Find(p => p.FirstName == "Adam").Profilepicture = "adam";
+            //studentList.Find(p => p.FirstName == "Sophia").Profilepicture = "sophia";
            
             return studentList;
         }
