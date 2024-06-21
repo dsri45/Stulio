@@ -6,34 +6,34 @@
              xmlns:searchHandlers="clr-namespace:Stulio.SearchHandlers"
              xmlns:viewModels="clr-namespace:Stulio.ViewModels"
              x:DataType="viewModels:ClassesViewModel"
-             Background="#d94c7d">
+             BackgroundImageSource="classbg.png">
 
     <Grid RowDefinitions=".23*,.7*">
-        <VerticalStackLayout Spacing="10">
-            <Label Margin="0,20,15,0"
-                   FontAttributes="Bold"
-                   FontFamily="bold"
-                   Text=" CLASSES"
-                   FontSize="30"
-                   HorizontalTextAlignment="Center"
-                   VerticalTextAlignment="Center"
-                   TextColor="White"/>
+        <VerticalStackLayout Spacing="0">
+            <Label Margin="0,40,15,0"
+               FontAttributes="Bold"
+               FontFamily="bold"
+               Text="  CLASSES"
+               FontSize="35" 
+               HorizontalTextAlignment="Center"
+               VerticalTextAlignment="Center"
+               TextColor="White"/>
             <Grid Margin="25,0,0,0" ColumnDefinitions="Auto,*">
                 <Label
-                    Margin="10,0,0,0"
-                    FontFamily="regular"
-                    Text= "Discover your passion by getting involved in clubs!"
-                    FontSize="16"
-                    TextColor="White"
-                    HorizontalTextAlignment="Center"
-                    VerticalTextAlignment="Center"/>
+                Margin="10,0,0,0"
+                FontFamily="bold"
+                Text= "Discover your passion by getting involved in clubs!"
+                FontSize="16"
+                TextColor="White"
+                HorizontalTextAlignment="Center"
+                VerticalTextAlignment="Center"/>
                 <Button Text="Add Class" 
-                        Command="{Binding AddUpdateClassesCommand}" 
-                        TextColor="#d94c7d"
-                        BorderColor="#d94c7d"
-                        BorderWidth="4" 
-                        BackgroundColor="White"
-                        FontSize="16"/>
+                    Command="{Binding AddUpdateClassesCommand}" 
+                    TextColor="#d94c7d"
+                    BorderColor="#d94c7d"
+                    BorderWidth="4" 
+                    BackgroundColor="White"
+                    FontSize="16" />
             </Grid>
         </VerticalStackLayout>
 
@@ -50,7 +50,7 @@
                         <SwipeView>
                             <SwipeView.LeftItems>
                                 <SwipeItems>
-                                    <SwipeItem Text="Edit" IconImageSource="edit.png" BackgroundColor="LightBlue"  
+                                    <SwipeItem Text="Edit" IconImageSource="edit.png" BackgroundColor="LightBlue"   
                                        CommandParameter="{Binding .}"
                                        Command="{Binding Source={x:RelativeSource AncestorType={x:Type viewModels:ClassesViewModel}},Path=EditClassesCommand}" />
                                     <SwipeItem Text="Delete" IconImageSource="delete.png" BackgroundColor="Red"  CommandParameter="{Binding .}"
@@ -95,6 +95,7 @@
                             </Grid>
 
                         </SwipeView>
+                       
 
                     </DataTemplate>
 
@@ -102,10 +103,13 @@
 
             </CollectionView>
 
-
+          
         </Grid>
+
+       
 
     </Grid>
 
+    
 
 </ContentPage>
