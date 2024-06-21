@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="Stulio.Views.StartPage"
+             BackgroundImageSource="startbg.png">
+    <Grid RowDefinitions="390,20,45,65,50,50" VerticalOptions="FillAndExpand" RowSpacing="10" Padding="20">
+
+
+        <Label Grid.Row="1" Text="welcome to" FontSize="18" HorizontalTextAlignment="Start" TextColor="White" FontFamily="final"/>
+        <Label Grid.Row="2" Text="stulio" HorizontalTextAlignment="Start" FontSize="50" Padding="0,-10,0,0" TextColor="White" FontAttributes="Bold" FontFamily="final"/>
+        <Label Grid.Row="3" Text="Get ready for a world of networking, learning and exploring!" FontSize="18" HorizontalTextAlignment="Start" TextColor="White" FontFamily="final"/>
+        <Button Grid.Row="4" Text="login"  BackgroundColor="White" FontSize="20" HeightRequest="50"  TextColor="#90DBAB" WidthRequest="250" FontAttributes="Bold" FontFamily="final"  x:Name="login" Clicked="Login_Clicked"/>
+        <Button Grid.Row="5" Text="create account " BackgroundColor="White" FontSize="20" HeightRequest="50" WidthRequest="250" TextColor="#90DBAB" FontAttributes="Bold" FontFamily="final" Clicked="SignUpButton_Clicked"/>
+
+
+
+
+
+
+    </Grid>
+
+</ContentPage>

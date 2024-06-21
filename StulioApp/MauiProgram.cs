@@ -19,6 +19,7 @@ namespace Stulio
                 fonts.AddFont("OpenSans-Semibold.ttf", "OpenSansSemibold");
                 fonts.AddFont("Lalezar-Regular.ttf", "bold");
                 fonts.AddFont("LeagueSpartan-Regular.ttf", "regular");
+                fonts.AddFont("LexendDeca.ttf", "final");
             });
 
 #if DEBUG
@@ -41,6 +42,7 @@ namespace Stulio
             builder.Services.AddSingleton<Help>();
             builder.Services.AddSingleton<LoginPage>();
             builder.Services.AddSingleton<SignUpPage>();
+            builder.Services.AddSingleton<StartPage>();
 
             //Views Registration
             builder.Services.AddSingleton<ProfilePage>();

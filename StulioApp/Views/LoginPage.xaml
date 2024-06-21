@@ -5,8 +5,7 @@
              xmlns:viewModels="clr-namespace:Stulio.ViewModels"
              x:DataType="viewModels:LoginPageViewModel"
              x:Class="Stulio.Views.LoginPage"
-             Title=""
-             BackgroundColor="{StaticResource Primary}">
+             BackgroundImageSource="loginbg.png">
     <ContentPage.Resources>
         <Style x:Key="InvalidEntryStyle" TargetType="Entry">
             <Setter Property="TextColor" Value="Red" />
@@ -16,20 +15,20 @@
         </Style>
     </ContentPage.Resources>
 
-   <Grid RowDefinitions="2*,*" Margin="0,40,0,0">
+   <Grid RowDefinitions="2*,*" Margin="0,150,0,0">
         <VerticalStackLayout Padding="10" VerticalOptions="Center" HorizontalOptions="Center">
-            <Frame BorderColor="Gray"
+            <Frame BorderColor="Transparent"
                CornerRadius="10"
                HasShadow="True"
-               Margin="0,-20,0,0"
+               Margin="0,-50,0,0"
                ZIndex="0"
                Padding="8">
-                <Frame.Shadow>
+                <!--<Frame.Shadow>
                     <Shadow Brush="Black"
                 Offset="20,20"
                 Radius="10"
                 Opacity="0.3" />
-                </Frame.Shadow>
+                </Frame.Shadow>-->
                 <StackLayout Padding="10">
                     <VerticalStackLayout Padding="5" BackgroundColor="{StaticResource White}">
                         <Image
@@ -40,16 +39,15 @@
                 HorizontalOptions="Center" />
 
                         <StackLayout Orientation="Horizontal">
-                            <Label Text="Login" FontSize="30"
-                                FontAttributes="Bold"
+                            <Label Text="login" FontSize="30"
                                 TextColor="Black"
-                                FontFamily="Consolas"
-                                Padding="5" Margin="10,25,0,0"/>
+                                FontFamily="final"
+                                Padding="5" Margin="10,25,0,0" />
                             <Image Source="logoapp" Margin="30,0,-10,20" WidthRequest="120" HeightRequest="120" />
 
 
                         </StackLayout>
-                        <Label Grid.Row="1" Grid.Column="0" Text="to continue!" TextColor="Black"
+                        <Label Grid.Row="1" Grid.Column="0" Text="to continue!" TextColor="Black" FontFamily="final"
                             FontSize="17" Padding="5"
                             FontAttributes="Bold"  Margin="10,-70,0,0"/>
 
@@ -86,8 +84,8 @@
                             </Frame>
                         </VerticalStackLayout>
 
-                        <Button Text="→" Command="{Binding LoginUserCommand}" Margin="0,-40,-20,-30" BackgroundColor="Transparent" TextColor="Black"   FontSize="70" HorizontalOptions="End"/>
-                        <Label FontFamily="Consolas" TextColor="Red" Text="{Binding LoginDetail.LoginStatus,Mode=TwoWay}" FontSize="10" />
+                        <Button Text="→" Command="{Binding LoginUserCommand}" Margin="0,-40,-20,-30" BackgroundColor="Transparent" TextColor="Black" FontSize="70" HorizontalOptions="End"/>
+                        <Label FontFamily="Consolas" TextColor="Red" Text="{Binding LoginDetail.LoginStatus,Mode=TwoWay}" FontSize="30" />
                         <BoxView Color="Black"
                                  Margin="0,10,0,15"
                                  HeightRequest="1"
