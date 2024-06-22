@@ -27,6 +27,8 @@ namespace Stulio.ViewModels
         [RelayCommand]
         public async void UpdateAdditionalInvolvements()
         {
+           
+
             int response = -1;
             if (AdditionalInvolvements.InvolvementId > -1)
             {

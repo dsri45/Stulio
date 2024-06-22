@@ -4,6 +4,7 @@
              x:Class="Stulio.Views.AddUpdateAcademicAchievements"
              xmlns:viewModels="clr-namespace:Stulio.ViewModels"
              x:DataType="viewModels:AddUpdateAcademicAchievementsViewModel"
+             xmlns:toolkit="http://schemas.microsoft.com/dotnet/2022/maui/toolkit"
              xmlns:models="clr-namespace:Stulio.Models"
              Title="Academic Achievements">
     <ContentPage.Resources> 
@@ -11,6 +12,12 @@
             <Style TargetType="Label">
                 <Setter Property="FontSize" Value="14" />
                 <Setter Property="TextColor" Value="SlateGray" />
+            </Style>
+            <Style x:Key="InvalidEntryStyle" TargetType="Entry">
+                <Setter Property="TextColor" Value="Red" />
+            </Style>
+            <Style x:Key="ValidEntryStyle" TargetType="Entry">
+                <Setter Property="TextColor" Value="Green" />
             </Style>
         </ResourceDictionary>
     </ContentPage.Resources>
@@ -34,7 +41,7 @@
         </VerticalStackLayout>
         <VerticalStackLayout>
             <Label Text="Date Achieved"  />
-            <Entry Text="{Binding AcademicAchievements.DateAchived, Mode=TwoWay}" Placeholder="Mon-Year" />
+            <DatePicker Date="{Binding AcademicAchievements.DateAchived, Mode=TwoWay}" />
         </VerticalStackLayout>
         <VerticalStackLayout>
             <Label Text="Description" />

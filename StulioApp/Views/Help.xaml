@@ -6,6 +6,8 @@
            BackgroundImageSource="loginbg.png">
 
     <ScrollView>
+        <StackLayout>
+        <VerticalStackLayout>
         <Frame x:Name="HelpFrame"
          BackgroundColor="White"
          CornerRadius="15"
@@ -13,8 +15,8 @@
          Margin="20,30,20,10" >
 
             <StackLayout Padding="20">
-                
-                
+
+
                 <Label Margin="0,-10,0,10"
 
 FontFamily="bold"
@@ -43,28 +45,63 @@ Margin="0,0,0,0"/>
                 <Label Text="&#x2022; To share your profile, press the social media icon located in the dashoboard."  TextColor="Black"  FontSize="14" LineBreakMode="WordWrap" Margin="0,0,0,5"/>
                 <Label Text="&#x2022; For more information, refer to the app documentation."  TextColor="Black"  FontSize="14" LineBreakMode="WordWrap" Margin="0,0,0,15"/>
 
-                <Label Text="Love Stulio? Found a bug? " TextColor="DarkSlateGrey"
+                                 </StackLayout>
+        </Frame>
+   </VerticalStackLayout>
+        
+        
+        <VerticalStackLayout>
+
+                <Frame x:Name="FeedbackFrame"
+         BackgroundColor="White"
+         CornerRadius="15"
+         Padding="15"
+         Margin="20,5,20,10" >
+
+                    <StackLayout Padding="20">
+
+
+                        
+                        <Label Text="Love Stulio? Found a bug? " TextColor="DarkSlateGrey"
 FontFamily="bold"
 FontSize="25"/>
-                <Editor x:Name="BugDescriptionEditor" Placeholder="Send us your feedback here..." HeightRequest="200" />
-                <Button Text="Send Report" Clicked="OnSendReportClicked" />
+                        <Editor x:Name="BugDescriptionEditor" Placeholder="Send us your feedback here..." HeightRequest="200" />
+                        <Button Text="Send Report" Clicked="OnSendReportClicked" />
 
+                         </StackLayout>
+                </Frame>
 
+            </VerticalStackLayout>
+            <VerticalStackLayout>
 
-                <Label Text="Copyright Statement"
+                <Frame x:Name="CopyrightFrame"
+         BackgroundColor="White"
+         CornerRadius="15"
+         Padding="15"
+         Margin="20,5,20,10" >
+
+                    <StackLayout Padding="20">
+
+                        <Label Text="Copyright Statement"
 TextColor="DarkSlateGrey"
 FontFamily="bold"
 FontSize="25"
      
-Margin="0,30,0,0"/>
-                <Label Text="The Stulio project is licensed under the MIT License. "  TextColor="Black"  FontSize="14" LineBreakMode="WordWrap" Margin="0,0,0,0"/>
-                <Label Text="MIT License Copyright (c) 2024 Stulio "  TextColor="Black"  FontSize="14" LineBreakMode="WordWrap" Margin="0,0,0,0"/>
-                
-                <Label Text="Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated documentation files (the Software), to deal in the Software without restriction, including without limitation the rights to use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies of the Software, and to permit persons to whom the Software is furnished to do so, subject to the following conditions: The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software "  TextColor="Black"  FontSize="13" LineBreakMode="WordWrap" Margin="0,0,0,0"/>
-                
-                <Label Text="THE SOFTWARE IS PROVIDED AS IS, WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.  "  TextColor="Black"  FontSize="13" LineBreakMode="WordWrap" Margin="0,0,0,0"/>
-            </StackLayout>
-        </Frame>
-        
+Margin="0,-10,0,0"/>
+                        <Label Text="The Stulio project is licensed under the MIT License. "  TextColor="Black"  FontSize="14" LineBreakMode="WordWrap" Margin="0,0,0,0"/>
+                        <Label Text="MIT License Copyright (c) 2024 Stulio "  TextColor="Black"  FontSize="14" LineBreakMode="WordWrap" Margin="0,0,0,0"/>
+
+                        <Label Text="Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated documentation files (the Software), to deal in the Software without restriction, including without limitation the rights to use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies of the Software, and to permit persons to whom the Software is furnished to do so, subject to the following conditions: The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software "  TextColor="Black"  FontSize="13" LineBreakMode="WordWrap" Margin="0,0,0,0"/>
+
+                        <Label Text="THE SOFTWARE IS PROVIDED AS IS, WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.  "  TextColor="Black"  FontSize="13" LineBreakMode="WordWrap" Margin="0,0,0,0"/>
+
+                    </StackLayout>
+                </Frame>
+
+            </VerticalStackLayout>
+
+        </StackLayout>
+
+
     </ScrollView>
 </ContentPage>

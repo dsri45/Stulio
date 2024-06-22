@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="utf-8" ?>
+    <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:local="clr-namespace:Stulio.ViewModels"
+             x:Class="Stulio.Views.Resume"
+             Title="Resume Builder"
+                  BackgroundImageSource="resumebg2.png">
+
+    <ContentPage.Content>
+        <StackLayout Padding="20">
+            <!--<VerticalStackLayout>
+            --><!-- Your UI elements go here -->
+
+            <!-- Example button to generate resume PDF --><!--
+            <Button Text="Generate Resume PDF"
+                    Command="{Binding ExecuteGenerateResumeCommand}" BackgroundColor="White" TextColor="Black"
+                    />
+            </VerticalStackLayout>-->
+            <VerticalStackLayout Margin="0,300,0,10">
+                <Frame x:Name="HelpFrame"
+         BackgroundColor="White"
+         CornerRadius="15"
+                       
+                       BorderColor="Black"
+         Padding="15"
+         Margin="20,30,20,10" >
+
+                    <StackLayout Padding="10" Margin="0,10,0,10">
+
+
+                        <Label Margin="0,-10,0,10"
+
+FontFamily="bold"
+Text="Expand on your professional journey with Stulio's built-in Resume Builder!"
+FontSize="20"
+HorizontalTextAlignment="Center"
+VerticalTextAlignment="Center"
+TextColor="DarkSlateGrey"/>
+                        <Label Text="Stulio Resume builder takes all of your inputted expierences from your portfolio and creates your very own professional resume which you can send out to the carrer of your dreams!"  TextColor="Black"  FontSize="14" LineBreakMode="WordWrap" Margin="0,0,0,15"/>
+
+                        <Button Text="Generate Resume PDF"
+        Command="{Binding ExecuteGenerateResumeCommand}" BackgroundColor="#90DBAB" TextColor="White"
+        />
+
+                    </StackLayout>
+                </Frame>
+
+            </VerticalStackLayout>
+
+            <!-- Example of showing data from view model -->
+
+            <!-- Add more labels, lists, or other controls to display data -->
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

@@ -14,9 +14,11 @@ namespace Stulio.Models
         public int StudentID { get; set; }
         public string ActivityName { get; set; }
         public string ParticpatedYears { get; set; }
+
         public string Role { get; set; }
         public string Description { get; set; }
         public string Achivements { get; set; }
+
 
     }
 }

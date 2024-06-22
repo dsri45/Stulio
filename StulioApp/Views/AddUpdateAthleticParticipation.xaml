@@ -30,6 +30,6 @@
         </VerticalStackLayout>
 
 
-        <Button Text="Save" Command="{Binding UpdateAthleticParticipationCommand}"/>
+        <Button Text="Save" BackgroundColor="#4A7CB9" Command="{Binding UpdateAthleticParticipationCommand}"/>
     </StackLayout>
 </ContentPage>

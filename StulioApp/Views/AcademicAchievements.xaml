@@ -94,7 +94,7 @@
                                      FontSize="13"
                                      VerticalOptions="Start"
                                      Margin="0,0,0,0"
-                                     Text="{Binding DateAchived}"/>
+                                      Text="{Binding DateAchived, StringFormat='{0:MM/dd/yyyy}'}" />
                                     <Label Text="{Binding Description}" TextColor="Black"  FontSize="12" LineBreakMode="WordWrap"/>
                                     <!--<Label Text="{Binding AcademicId}" TextColor="Black"  FontSize="12" LineBreakMode="WordWrap" Margin="0,6,0,0"/>-->
 

@@ -34,6 +34,6 @@
         </VerticalStackLayout>
 
 
-        <Button Text="Save" Command="{Binding UpdateClubsAndOrganizationsCommand}"/>
+        <Button Text="Save" BackgroundColor="#5DA55B" Command="{Binding UpdateClubsAndOrganizationsCommand}"/>
     </StackLayout>
 </ContentPage>

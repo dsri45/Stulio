@@ -21,7 +21,9 @@
         </VerticalStackLayout>
         <VerticalStackLayout>
             <Label Text="Particpated Years"  />
+            <Label Text="Participated Years"  />
             <Entry Text="{Binding AdditionalInvolvements.ParticpatedYears}" Placeholder="Mon-Year" />
+
         </VerticalStackLayout>
         <VerticalStackLayout>
             <Label Text="Description" />
@@ -30,6 +32,6 @@
 
 
 
-        <Button Text="Save" Command="{Binding UpdateAdditionalInvolvementsCommand}"/>
+        <Button Text="Save" BackgroundColor="#c9554d" Command="{Binding UpdateAdditionalInvolvementsCommand}"/>
     </StackLayout>
 </ContentPage>

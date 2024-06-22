@@ -9,6 +9,8 @@ namespace Stulio
             InitializeComponent();
             Routing.RegisterRoute("login", typeof(LoginPage));
             Routing.RegisterRoute(nameof(Help), typeof(Help));
+            Routing.RegisterRoute(nameof(About), typeof(About));
+            Routing.RegisterRoute(nameof(Resume), typeof(Resume));
             Routing.RegisterRoute(nameof(StartPage), typeof(StartPage));
             Routing.RegisterRoute(nameof(SignUpPage), typeof(SignUpPage));
             Routing.RegisterRoute("home", typeof(ProfilePage));

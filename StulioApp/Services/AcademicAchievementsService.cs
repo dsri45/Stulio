@@ -55,7 +55,7 @@ namespace Stulio.Services
                 {
                     StudentID = 1, // Default ID
                     AcademicId = -1,
-                    DateAchived= "",
+                    DateAchived= new DateTime(2024, 6, 21),
                     Award = "",
                     Class = ""
 

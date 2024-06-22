@@ -28,8 +28,8 @@
             <Label Text="Description" />
             <Editor x:Name="editors" Placeholder="Description"   HeightRequest="150"  Text="{Binding CommunityService.Description}"/>
         </VerticalStackLayout>
-    
 
-        <Button Text="Save" Command="{Binding UpdateCommunityServiceCommand}"/>
+
+        <Button Text="Save" BackgroundColor="#489CC1" Command="{Binding UpdateCommunityServiceCommand}"/>
     </StackLayout>
 </ContentPage>

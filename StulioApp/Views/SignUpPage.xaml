@@ -63,7 +63,7 @@
             <!--<Label Text="Email" />-->
                 <Entry Text="{Binding UserDetail.Email}" Placeholder="Email" >
                     <Entry.Behaviors>
-                        <toolkit:EmailValidationBehavior 
+                    <toolkit:EmailValidationBehavior 
                         InvalidStyle="{StaticResource InvalidEntryStyle}"
                         ValidStyle="{StaticResource ValidEntryStyle}"
                         Flags="ValidateOnValueChanged" />

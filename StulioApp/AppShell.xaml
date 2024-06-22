@@ -53,6 +53,10 @@
     Title="Help" Icon="help.png"
     ContentTemplate="{DataTemplate views:Help}"/>
     <ShellContent 
+ Title="Resume" Icon="help.png"
+ ContentTemplate="{DataTemplate views:Resume}"/>
+
+    <ShellContent 
     Title="Logout"  Icon="logout.png"
     ContentTemplate="{DataTemplate views:LoginPage}"
     Route="login"/>

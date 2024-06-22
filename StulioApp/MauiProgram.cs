@@ -40,6 +40,8 @@ namespace Stulio
             builder.Services.AddSingleton<IShowStudentProfileService, ShowStudentProfileService>();
 
             builder.Services.AddSingleton<Help>();
+            builder.Services.AddSingleton<About>();
+            builder.Services.AddSingleton<Resume>();
             builder.Services.AddSingleton<LoginPage>();
             builder.Services.AddSingleton<SignUpPage>();
             builder.Services.AddSingleton<StartPage>();

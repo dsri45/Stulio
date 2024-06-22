@@ -20,9 +20,9 @@
             <Label Text="Description"  />
             <Editor x:Name="editor" Placeholder="Description"  HeightRequest="150"  Text="{Binding PersonalEndeavors.Description}"/>
         </VerticalStackLayout>
-        
 
-        <Button Text="Save" Command="{Binding UpdatePersonalEndeavorsCommand}"/>
+
+        <Button Text="Save" BackgroundColor="#8e00c2" Command="{Binding UpdatePersonalEndeavorsCommand}"/>
     </StackLayout>
 </ContentPage>
 
