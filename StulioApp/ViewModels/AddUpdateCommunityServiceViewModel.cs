@@ -23,7 +23,25 @@ namespace Stulio.ViewModels
             _Service = communityServiceService;
         }
 
-        
+        public string ParticipatedYears
+        {
+            get
+            {
+                if (CommunityService.StartDate == null || CommunityService.EndDate == null)
+                {
+                    return ""; // Return empty string if either date is null
+                }
+                else
+                {
+                    // Format the dates as needed (assuming you want MM/dd/yyyy format)
+                    string startDateStr = CommunityService.StartDate.ToString("MM/dd/yyyy");
+                    string endDateStr = CommunityService.EndDate.ToString("MM/dd/yyyy");
+                    return $"{startDateStr} - {endDateStr}";
+                }
+            }
+        }
+
+
         [RelayCommand]
         public async void UpdateCommunityService()
         {
@@ -31,6 +49,7 @@ namespace Stulio.ViewModels
            
             if (CommunityService.CommunityId > -1)
             {
+                CommunityService.ParticpatedYears = ParticipatedYears;
                 response = await _Service.UpdateCommunityService(CommunityService);
             }
             else
@@ -40,7 +59,7 @@ namespace Stulio.ViewModels
                     //CommunityId = CommunityService.CommunityId,
                     StudentID = Preferences.Get("UserID", 999),
                     ServiceName = CommunityService.ServiceName,
-                    ParticpatedYears = CommunityService.ParticpatedYears,
+                    ParticpatedYears = ParticipatedYears,
                     VoulnteeredHours = CommunityService.VoulnteeredHours,
                     Description = CommunityService.Description
                 });

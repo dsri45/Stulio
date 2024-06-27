@@ -20,6 +20,7 @@ namespace Stulio.Views
         {
             base.OnAppearing();
 
+            Microsoft.Maui.Storage.Preferences.Set("ResumeBuild", "True");
             // Optionally, load initial data or perform actions when the page appears
             await _viewModel.LoadRecords(); // Example method to load student records
         }

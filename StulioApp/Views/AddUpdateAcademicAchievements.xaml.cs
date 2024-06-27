@@ -22,5 +22,35 @@ namespace Stulio.Views
             _viewMode.LoadAcademicAchievementsByID();
 
         }
+
+        private async void UpdateAcademicAchievementsCommand_Clicked(object sender, EventArgs e)
+        {
+
+            // Perform field validation
+            if (string.IsNullOrWhiteSpace(_viewMode.AcademicAchievements.Class))
+            {
+                await DisplayAlert("Error", "Club Name cannot be empty", "OK");
+                return;
+            }
+
+            if (string.IsNullOrWhiteSpace(_viewMode.AcademicAchievements.Award))
+            {
+                await DisplayAlert("Error", "Organization cannot be empty", "OK");
+                return;
+            }
+
+            if (string.IsNullOrWhiteSpace(_viewMode.AcademicAchievements.Description))
+            {
+                await DisplayAlert("Error", "Description cannot be empty", "OK");
+                return;
+            }
+
+            else
+            {
+
+                _viewMode.UpdateAcademicAchievementsCommand.Execute(null);
+
+            }
+        }
     }
 }

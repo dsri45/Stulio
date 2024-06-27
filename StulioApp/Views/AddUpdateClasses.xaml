@@ -18,7 +18,7 @@
         </VerticalStackLayout>
         <VerticalStackLayout>
             <Label Text="Year Taken"  />
-            <Entry Text="{Binding Classes.ClassYear}" Placeholder="Mon-Year" />
+            <Entry Text="{Binding Classes.ClassYear}" Placeholder="Freshman, Sophomore, Junior or Senior Year" />
         </VerticalStackLayout>
         <VerticalStackLayout>
             <Label Text="Grade Achieved"  />
@@ -27,7 +27,7 @@
 
 
 
-        <Button Text="Save" BackgroundColor="#d94c7d" Command="{Binding UpdateClassesCommand}"/>
+        <Button Text="Save" BackgroundColor="#d94c7d" Clicked="UpdateClassesCommand_Clicked"/>
     </StackLayout>
 </ContentPage>
 

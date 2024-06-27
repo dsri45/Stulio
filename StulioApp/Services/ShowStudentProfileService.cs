@@ -42,6 +42,12 @@ namespace Stulio.Services
         {
             // Simulated data retrieval from Model 1
             int userID = Preferences.Get("ShowUserID", 999);
+            if (Preferences.Get("ResumeBuild", "False") == "True")
+            {
+                userID = Preferences.Get("UserID", 999);
+            }
+                       
+         
             StudentModel studentDetail = await _studentService.LoadStudentByID(userID);
             return studentDetail;
         }
@@ -50,6 +56,10 @@ namespace Stulio.Services
         {
             // Simulated data retrieval from Model 1
             int userID = Preferences.Get("ShowUserID", 999);
+            if (Preferences.Get("ResumeBuild", "False") == "True")
+            {
+                userID = Preferences.Get("UserID", 999);
+            }
             List<AcademicAchievementsModel> academicAchievements = await _academicAchievementservice.GetAcademicAchievementsList(userID);
             return academicAchievements;
         }
@@ -58,6 +68,10 @@ namespace Stulio.Services
         {
             // Simulated data retrieval from Model 1
             int userID = Preferences.Get("ShowUserID", 999);
+            if (Preferences.Get("ResumeBuild", "False") == "True")
+            {
+                userID = Preferences.Get("UserID", 999);
+            }
             List<ClubsAndOrganizationsModel> clubsAndOrganizations = await _clubsAndOrganizationsService.GetClubsAndOrganizationsList(userID);
             return clubsAndOrganizations;
         }
@@ -66,6 +80,10 @@ namespace Stulio.Services
         {
             // Simulated data retrieval from Model 1
             int userID = Preferences.Get("ShowUserID", 999);
+            if (Preferences.Get("ResumeBuild", "False") == "True")
+            {
+                userID = Preferences.Get("UserID", 999);
+            }
             List<CommunityServiceModel> communityService = await _communityServiceService.GetCommunityServiceList(userID);
             return communityService;
         }
@@ -74,6 +92,10 @@ namespace Stulio.Services
         {
             // Simulated data retrieval from Model 1
             int userID = Preferences.Get("ShowUserID", 999);
+            if (Preferences.Get("ResumeBuild", "False") == "True")
+            {
+                userID = Preferences.Get("UserID", 999);
+            }
             List<AthleticParticipationModel> athleticParticipation = await _athleticParticipationService.GetAthleticParticipationList(userID);
             return athleticParticipation;
         }
@@ -82,6 +104,10 @@ namespace Stulio.Services
         {
             // Simulated data retrieval from Model 1
             int userID = Preferences.Get("ShowUserID", 999);
+            if (Preferences.Get("ResumeBuild", "False") == "True")
+            {
+                userID = Preferences.Get("UserID", 999);
+            }
             List<WorkExperienceModel> workExperience = await _workExperienceService.GetWorkExperienceList(userID);
             return workExperience;
         }
@@ -90,6 +116,10 @@ namespace Stulio.Services
         {
             // Simulated data retrieval from Model 1
             int userID = Preferences.Get("ShowUserID", 999);
+            if (Preferences.Get("ResumeBuild", "False") == "True")
+            {
+                userID = Preferences.Get("UserID", 999);
+            }
             List<ClassesModel> classes = await _classesService.GetClassesList(userID);
             return classes;
         }
@@ -98,6 +128,10 @@ namespace Stulio.Services
         {
             // Simulated data retrieval from Model 1
             int userID = Preferences.Get("ShowUserID", 999);
+            if (Preferences.Get("ResumeBuild", "False") == "True")
+            {
+                userID = Preferences.Get("UserID", 999);
+            }
             List<AdditionalInvolvementsModel> additionalInvolvements = await _additionalInvolvementsService.GetAdditionalInvolvementsList(userID);
             return additionalInvolvements;
         }
@@ -106,6 +140,10 @@ namespace Stulio.Services
         {
             // Simulated data retrieval from Model 1
             int userID = Preferences.Get("ShowUserID", 999);
+            if (Preferences.Get("ResumeBuild", "False") == "True")
+            {
+                userID = Preferences.Get("UserID", 999);
+            }
             List<PersonalEndeavorsModel> personalEndeavors = await _personalEndeavorsService.GetPersonalEndeavorsList(userID);
             return personalEndeavors;
         }

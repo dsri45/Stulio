@@ -57,6 +57,8 @@ namespace Stulio.Services
                     CommunityId = -1,
                     ServiceName = "",
                     ParticpatedYears = "",
+                    StartDate = new DateTime(2024, 6, 21),
+                    EndDate = new DateTime(2024, 6, 21),
                     VoulnteeredHours = "",
                     Description = ""
  

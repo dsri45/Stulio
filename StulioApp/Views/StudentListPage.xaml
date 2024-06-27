@@ -13,7 +13,7 @@
             ShowsResults="True"
             QueryIcon="search"
             ClearIcon="clear"
-            NavigationRoute="AddUpdateStudentDetail"
+            NavigationRoute="ShowStudentProfile"
             Students="{x:Static viewModels:StudentListPageViewModel.StudentsListForSearch}">
             <searchHandlers:StudentSearchHandler.ItemTemplate>
                 <DataTemplate x:DataType="models:StudentModel">
@@ -26,7 +26,9 @@
         </searchHandlers:StudentSearchHandler>
     </Shell.SearchHandler>
     <StackLayout Margin="10">
-        
+
+
+ 
         <CollectionView ItemsSource="{Binding Students}">
             <CollectionView.ItemTemplate>
                 <DataTemplate x:DataType="models:StudentModel">
@@ -83,5 +85,6 @@
                 </DataTemplate>
             </CollectionView.ItemTemplate>
         </CollectionView>
+   
     </StackLayout>
 </ContentPage>

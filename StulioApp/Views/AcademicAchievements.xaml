@@ -82,13 +82,13 @@
                                      FontSize="18"
                                      VerticalOptions="Start"
                                      Margin="0,0,0,0"
-                                     Text="{Binding Class}"/>   
+                                     Text="{Binding Award}"/>   
                                     <Label TextColor="Black"
                                      FontAttributes="Bold"
                                      FontSize="13"
                                      VerticalOptions="Start"
                                      Margin="0,0,0,0"
-                                     Text="{Binding Award}"/>
+                                     Text="{Binding Class}"/>
                                     <Label TextColor="Black"
                                      FontAttributes="Bold"
                                      FontSize="13"

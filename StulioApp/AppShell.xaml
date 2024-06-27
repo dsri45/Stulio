@@ -20,7 +20,7 @@
 
 
 
-    <FlyoutItem   Title="Home"  FlyoutIcon="home.png" StyleClass="FlyoutItemLayoutStyle">
+    <FlyoutItem   Title="Home"  FlyoutIcon="home1.png" StyleClass="FlyoutItemLayoutStyle">
 
        
 
@@ -48,13 +48,15 @@
 
 
     </FlyoutItem>
+    
+    <ShellContent 
+Title="Resume Builder" Icon="resume.png"
+ContentTemplate="{DataTemplate views:Resume}"/>
 
     <ShellContent 
     Title="Help" Icon="help.png"
     ContentTemplate="{DataTemplate views:Help}"/>
-    <ShellContent 
- Title="Resume" Icon="help.png"
- ContentTemplate="{DataTemplate views:Resume}"/>
+    
 
     <ShellContent 
     Title="Logout"  Icon="logout.png"

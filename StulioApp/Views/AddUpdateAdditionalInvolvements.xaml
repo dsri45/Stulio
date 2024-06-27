@@ -19,12 +19,11 @@
             <Label Text="Activity Name" />
             <Entry  Text="{Binding AdditionalInvolvements.ActivityName}" Placeholder="Activity Name" />
         </VerticalStackLayout>
-        <VerticalStackLayout>
-            <Label Text="Particpated Years"  />
+        <!--<VerticalStackLayout>
             <Label Text="Participated Years"  />
             <Entry Text="{Binding AdditionalInvolvements.ParticpatedYears}" Placeholder="Mon-Year" />
 
-        </VerticalStackLayout>
+        </VerticalStackLayout>-->
         <VerticalStackLayout>
             <Label Text="Description" />
             <Editor x:Name="editor" Placeholder="Description"   HeightRequest="150"  Text="{Binding AdditionalInvolvements.Description}"/>
@@ -32,6 +31,6 @@
 
 
 
-        <Button Text="Save" BackgroundColor="#c9554d" Command="{Binding UpdateAdditionalInvolvementsCommand}"/>
+        <Button Text="Save" BackgroundColor="#c9554d" Clicked="UpdateAdditionalInvolvementsCommand_Clicked"/>
     </StackLayout>
 </ContentPage>

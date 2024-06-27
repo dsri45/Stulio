@@ -21,8 +21,9 @@
             <Entry Text="{Binding WorkExperience.Establishment}" Placeholder="ex. Mercury's Coffee" />
         </VerticalStackLayout>
         <VerticalStackLayout>
-            <Label Text="Participated Years"  />
-            <Entry Text="{Binding WorkExperience.ParticpatedYears}" Placeholder="Mon-Year" />
+            <Label Text="Duration of Participation (Start-End)" />
+            <DatePicker Date="{Binding WorkExperience.StartDate, Mode=TwoWay}" />
+            <DatePicker Date="{Binding WorkExperience.EndDate, Mode=TwoWay}" />
         </VerticalStackLayout>
         <VerticalStackLayout>
             <Label Text="Description" />
@@ -30,6 +31,6 @@
         </VerticalStackLayout>
 
 
-        <Button Text="Save" BackgroundColor="#FF9F09" Command="{Binding UpdateWorkExperienceCommand}"/>
+        <Button Text="Save" BackgroundColor="#FF9F09" Clicked="UpdateWorkExperienceCommand_Clicked"/>
     </StackLayout>
 </ContentPage>

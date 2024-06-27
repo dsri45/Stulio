@@ -15,6 +15,8 @@ namespace Stulio.Models
         public string Role { get; set; }
         public string Establishment { get; set; }
         public string ParticpatedYears { get; set; }
+        public DateTime StartDate { get; set; }
+        public DateTime EndDate { get; set; }
         public string Description { get; set; }
     }
 }

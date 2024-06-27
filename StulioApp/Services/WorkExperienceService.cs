@@ -57,6 +57,8 @@ namespace Stulio.Services
                     WorkId = -1,
                     Establishment = "",
                     ParticpatedYears = "",
+                    StartDate = new DateTime(2024, 6, 21),
+                    EndDate = new DateTime(2024, 6, 21),
                     Role = "",
                     Description = ""
 

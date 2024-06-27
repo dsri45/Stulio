@@ -23,13 +23,34 @@ namespace Stulio.ViewModels
             _Service = clubsAndOrganizationsService;
         }
 
-        
+
+
+
+        public string ParticipatedYears
+        {
+            get
+            {
+                if (ClubsAndOrganizations.StartDate == null || ClubsAndOrganizations.EndDate == null)
+                {
+                    return ""; // Return empty string if either date is null
+                }
+                else
+                {
+                    // Format the dates as needed (assuming you want MM/dd/yyyy format)
+                    string startDateStr = ClubsAndOrganizations.StartDate.ToString("MM/dd/yyyy");
+                    string endDateStr = ClubsAndOrganizations.EndDate.ToString("MM/dd/yyyy");
+                    return $"{startDateStr} - {endDateStr}";
+                }
+            }
+        }
+
         [RelayCommand]
         public async void UpdateClubsAndOrganizations()
         {
             int response = -1;
             if (ClubsAndOrganizations.ClubId > -1)
             {
+                ClubsAndOrganizations.ParticpatedYears = ParticipatedYears;
                 response = await _Service.UpdateClubsAndOrganizations(ClubsAndOrganizations);
             }
             else
@@ -39,7 +60,9 @@ namespace Stulio.ViewModels
                     //ClubId = ClubsAndOrganizations.ClubId,
                     StudentID = Preferences.Get("UserID", 999),
                     ClubName = ClubsAndOrganizations.ClubName,
-                    ParticpatedYears = ClubsAndOrganizations.ParticpatedYears,
+                    ParticpatedYears = ParticipatedYears,
+                    StartDate = ClubsAndOrganizations.StartDate,
+                    EndDate = ClubsAndOrganizations.EndDate,
                     Role = ClubsAndOrganizations.Role,
                     Description = ClubsAndOrganizations.Description,
                     Achivements = ClubsAndOrganizations.Achivements

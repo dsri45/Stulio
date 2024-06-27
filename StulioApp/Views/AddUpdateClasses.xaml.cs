@@ -21,5 +21,25 @@ namespace Stulio.Views
             _viewMode.LoadClassesByID();
 
         }
+
+        private async void UpdateClassesCommand_Clicked(object sender, EventArgs e)
+        {
+
+            // Perform field validation
+            if (string.IsNullOrWhiteSpace(_viewMode.Classes.Name))
+            {
+                await DisplayAlert("Error", "Class Name cannot be empty", "OK");
+                return;
+            }
+            if (string.IsNullOrWhiteSpace(_viewMode.Classes.Grade))
+            {
+                await DisplayAlert("Error", "Grade cannot be empty", "OK");
+                return;
+            }
+            else
+            {
+                _viewMode.UpdateClassesCommand.Execute(null);
+            }
+        }
     }
 }

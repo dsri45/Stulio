@@ -24,22 +24,28 @@ namespace Stulio.ViewModels
             _userService = userService;
         }
 
+
+
         [RelayCommand]
-        public async void LoginUser()
+        public async Task LoginUser()
         {
             int response = -1;
             var userExists = await _userService.LoadUserByUserName(LoginDetail.Username, LoginDetail.Password);
             if (userExists.Username == LoginDetail.Username)
             {
+                LoginDetail.LoginStatus = "false";
                 App.Current.MainPage = new AppShell();
+
                 //await Shell.Current.DisplayAlert("Student Signup", "SignUp Successful! Welcome to Stulio!", "OK");
                 //await Shell.Current.GoToAsync("..");
             }
             else
             {
-                LoginDetail.LoginStatus = "Invalid User. Sign Up for Stulio!";
-                //await Shell.Current.DisplayAlert("Heads Up!", "Something went wrong while adding record", "OK");
-                //await DisplayAlert("Login failed", "Uusername or password if invalid", "Try again");
+               // await DisplayAlert("Error", "Invalid User. Sign Up for Stulio!", "OK");
+                LoginDetail.LoginStatus = "true";
+                
+               // await Shell.Current.DisplayAlert("Heads Up!", "Something went wrong while adding record", "OK");
+               // await DisplayAlert("Login failed", "Uusername or password if invalid", "Try again");
             }
         }
 

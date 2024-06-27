@@ -22,7 +22,7 @@
         </VerticalStackLayout>
 
 
-        <Button Text="Save" BackgroundColor="#8e00c2" Command="{Binding UpdatePersonalEndeavorsCommand}"/>
+        <Button Text="Save" BackgroundColor="#8e00c2" Clicked="UpdatePersonalEndeavorsCommand_Clicked"/>
     </StackLayout>
 </ContentPage>
 

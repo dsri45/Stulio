@@ -49,6 +49,6 @@
         </VerticalStackLayout>
 
 
-        <Button Text="Save" BackgroundColor="#7A5FA4" Command="{Binding UpdateAcademicAchievementsCommand}" CommandParameter="{Binding AcademicAchievements}"/>
+        <Button Text="Save" BackgroundColor="#7A5FA4"  Clicked="UpdateAcademicAchievementsCommand_Clicked" CommandParameter="{Binding AcademicAchievements}"/>
     </StackLayout>
 </ContentPage>

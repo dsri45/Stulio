@@ -17,6 +17,7 @@ using System.IO;
 using System.Globalization;
 using Xamarin.Essentials;
 using iText.Layout.Properties;
+using iText.Kernel.Pdf.Action;
 
 namespace Stulio.ViewModels
 {
@@ -52,13 +53,12 @@ namespace Stulio.ViewModels
 
             public async Task LoadRecords()
             {
-           
+            //Microsoft.Maui.Storage.Preferences.Set("ShowUserID", ShowStudent.StudentID);
             // Retrieve data from DataService
             //var studentModels = await _dataService.GetStudent(); // Assuming GetStudentModels returns a list of StudentModel
             //var academicAchievements = await _dataService.GetAcademicAchievement(); // Assuming GetAcademicAchievements returns a list of AcademicAchievement
-
-            GetAcademicAchievementsList();
             LoadByStudentID();
+            GetAcademicAchievementsList();
             GetClubsAndOrganizationsList();
             GetCommunityServiceList();
             GetAthleticParticipationList();
@@ -87,7 +87,7 @@ namespace Stulio.ViewModels
        [RelayCommand]
         public async void LoadByStudentID()
         {
-            int UserID = Microsoft.Maui.Storage.Preferences.Get("UserID", 999);
+
             ShowStudent = await _dataService.GetStudent();
 
         }
@@ -213,118 +213,216 @@ namespace Stulio.ViewModels
                 // Create a new PDF document
                 using (var stream = new FileStream(filePath, FileMode.Create))
                 {
-                    //    var writer = new PdfWriter(stream);
-                    //    var pdf = new PdfDocument(writer);
-                    //    var document = new Document(pdf);
-
-                    //    // Add title
-                    //    document.Add(new Paragraph($"Resume for {ShowStudent.FullName}")
-                    //        .SetTextAlignment(iText.Layout.Properties.TextAlignment.CENTER)
-                    //        .SetFontSize(20));
-
-                    //    // Add academic achievements
-                    //    document.Add(new Paragraph("Academic Achievements")
-                    //        .SetBold()
-                    //        .SetFontSize(16));
-                    //    foreach (var achievement in ShowAcademicAchievements)
-                    //    {
-                    //        document.Add(new Paragraph($"{achievement.Award} - {achievement.Description}")
-                    //            .SetFontSize(12));
-                    //    }
-
-                    //    // Add clubs and organizations
-                    //    document.Add(new Paragraph("Clubs and Organizations")
-                    //        .SetBold()
-                    //        .SetFontSize(16));
-                    //    if (ShowClubsAndOrganizations.Count > 0)
-                    //    {
-                    //        foreach (var club in ShowClubsAndOrganizations)
-                    //        {
-                    //            document.Add(new Paragraph($"{club.ClubName} - {club.Role}")
-                    //                .SetFontSize(12));
-                    //        }
-                    //    }
-                    //    // Add work experience
-                    //    document.Add(new Paragraph("Work Experience")
-                    //        .SetBold()
-                    //        .SetFontSize(16));
-                    //    if (ShowWorkExperience.Count > 0)
-                    //    {
-                    //        foreach (var experience in ShowWorkExperience)
-                    //        {
-                    //            document.Add(new Paragraph($"{experience.Role} at {experience.Establishment} - {experience.Establishment}")
-                    //                .SetFontSize(12));
-                    //        }
-                    //    }
-
-                    //    // Close the document
-                    //    document.Close();
-
+                    
                     var writer = new PdfWriter(stream);
                     var pdf = new PdfDocument(writer);
                     var document = new Document(pdf);
 
                     // Add title
-                    document.Add(new Paragraph($"Resume for {ShowStudent.FullName}")
+                    document.Add(new Paragraph($"{ShowStudent.FullName}")
                         .SetTextAlignment(iText.Layout.Properties.TextAlignment.CENTER)
-                        .SetFontSize(20));
+                        .SetFontSize(20)
+                        .SetBold()
+                        .SetMarginBottom(0));
 
                     // Add personal details
-                    document.Add(new Paragraph("Personal Details")
-                        .SetBold()
-                        .SetFontSize(16));
-                    document.Add(new Paragraph($"Name: {ShowStudent.FullName}")
-                        .SetFontSize(12));
+
+                    //string email = $"{ShowStudent.Email}";
+                    //PdfAction emailAction = PdfAction.CreateURI(email);
+                    //Link emailLink = new Link($"{ShowStudent.Email}", emailAction);
+
+                    //// Add the link to a paragraph
+                    //Paragraph paragraph = new Paragraph($"{ShowStudent.Email}").Add(emailLink);
+
+                    //// Add the paragraph to the document
+                    //document.Add(paragraph.SetTextAlignment(iText.Layout.Properties.TextAlignment.CENTER)
+                    //    .SetFontSize(12)
+                    //    .SetMarginBottom(0)); 
+
                     document.Add(new Paragraph($"Email: {ShowStudent.Email}")
-                        .SetFontSize(12));
-                    
+                        .SetTextAlignment(iText.Layout.Properties.TextAlignment.CENTER)
+                        .SetFontSize(12)
+                        .SetMarginBottom(0));
+                    document.Add(new Paragraph($"Phone: {ShowStudent.PhoneNumber}")
+                       .SetTextAlignment(iText.Layout.Properties.TextAlignment.CENTER)
+                       .SetFontSize(12)
+                       .SetMarginBottom(0));
+                 
+                    document.Add(new Paragraph("Objective")
+                     .SetBold()
+                     .SetUnderline()
+                     .SetMarginTop(10)
+                     .SetFontSize(18));
+                    document.Add(new Paragraph($"{ShowStudent.AboutMe}")
+                      .SetMarginTop(0)
+                      .SetFontSize(9));
 
-                    // Add academic achievements
-                    document.Add(new Paragraph("Academic Achievements")
-                        .SetBold()
-                        .SetFontSize(16));
-                    var academicTable = new Table(UnitValue.CreatePercentArray(new float[] { 4, 6 }));
-                    academicTable.SetWidth(UnitValue.CreatePercentValue(100));
-                    academicTable.AddHeaderCell("Award");
-                    academicTable.AddHeaderCell("Description");
-                    foreach (var achievement in ShowAcademicAchievements)
-                    {
-                        academicTable.AddCell(new Paragraph(achievement.Award).SetFontSize(12));
-                        academicTable.AddCell(new Paragraph(achievement.Description).SetFontSize(12));
-                    }
-                    document.Add(academicTable);
+                    document.Add(new Paragraph("Experiences")
+                     .SetBold()
+                     .SetUnderline()
+                     .SetMarginTop(5)
+                     .SetFontSize(18));
 
-                    // Add work experience
                     document.Add(new Paragraph("Work Experience")
-                        .SetBold()
-                        .SetFontSize(16));
-                    var workTable = new Table(UnitValue.CreatePercentArray(new float[] { 4, 4, 4 }));
-                    workTable.SetWidth(UnitValue.CreatePercentValue(100));
-                    workTable.AddHeaderCell("Role");
-                    workTable.AddHeaderCell("Establishment");
-                    workTable.AddHeaderCell("Description");
-                    foreach (var experience in ShowWorkExperience)
-                    {
-                        workTable.AddCell(new Paragraph(experience.Role).SetFontSize(12));
-                        workTable.AddCell(new Paragraph(experience.Establishment).SetFontSize(12));
-                        workTable.AddCell(new Paragraph(experience.Description).SetFontSize(12)); // Add Description in your model if not present
-                    }
-                    document.Add(workTable);
+                      .SetBold()
+                      .SetUnderline()
+                      .SetMarginTop(-5)
+                      .SetFontSize(13));
 
-                    // Add clubs and organizations
-                    document.Add(new Paragraph("Clubs and Organizations")
-                        .SetBold()
-                        .SetFontSize(16));
-                    var clubsTable = new Table(UnitValue.CreatePercentArray(new float[] { 4, 6 }));
-                    clubsTable.SetWidth(UnitValue.CreatePercentValue(100));
-                    clubsTable.AddHeaderCell("Club Name");
-                    clubsTable.AddHeaderCell("Role");
-                    foreach (var club in ShowClubsAndOrganizations)
+                    if (ShowWorkExperience.Count > 0)
                     {
-                        clubsTable.AddCell(new Paragraph(club.ClubName).SetFontSize(12));
-                        clubsTable.AddCell(new Paragraph(club.Role).SetFontSize(12));
+                        foreach (var experience in ShowWorkExperience)
+                        {
+                            document.Add(new Paragraph(experience.Role).SetFontSize(12).SetBold().SetMarginBottom(-5));
+                            document.Add(new Paragraph(experience.Establishment).SetFontSize(10).SetMarginBottom(-5));
+                            document.Add(new Paragraph(experience.Description).SetFontSize(9).SetMarginBottom(5));
+
+
+
+                        }
                     }
-                    document.Add(clubsTable);
+
+                    document.Add(new Paragraph("Clubs and Organizations")
+                      .SetBold()
+                      .SetUnderline()
+                      .SetMarginTop(5)
+                      .SetFontSize(13));
+
+                    if (ShowClubsAndOrganizations.Count > 0)
+                    {
+                        foreach (var club in ShowClubsAndOrganizations)
+                        {
+                            document.Add(new Paragraph(club.ClubName).SetFontSize(12).SetBold().SetMarginBottom(-5));
+                            document.Add(new Paragraph(club.Role).SetFontSize(12).SetMarginBottom(-5));
+                            document.Add(new Paragraph(club.Description).SetFontSize(9).SetMarginBottom(-5));
+                            document.Add(new Paragraph(club.Achivements).SetFontSize(9).SetMarginBottom(5));
+
+
+
+                        }
+                    }
+
+                    document.Add(new Paragraph("Community Service")
+                      .SetBold()
+                      .SetUnderline()
+                      .SetMarginTop(5)
+                      .SetFontSize(13));
+
+                    if (ShowCommunityService.Count > 0)
+                    {
+                        foreach (var service in ShowCommunityService)
+                        {
+                            document.Add(new Paragraph(service.ServiceName).SetFontSize(12).SetBold().SetMarginBottom(-5));
+                            //document.Add(new Paragraph(service.VoulnteeredHours).SetFontSize(10).SetMarginBottom(5));
+                            document.Add(new Paragraph(service.Description).SetFontSize(9).SetMarginBottom(5));
+
+                        }
+
+
+                    }
+
+                    document.Add(new Paragraph("Personal Endeavors")
+                     .SetBold()
+                     .SetUnderline()
+                     .SetMarginTop(5)
+                     .SetFontSize(13));
+
+                    if (ShowPersonalEndeavors.Count > 0)
+                    {
+                        foreach (var endeavors in ShowPersonalEndeavors)
+                        {
+                            document.Add(new Paragraph(endeavors.Title).SetFontSize(12).SetBold().SetMarginBottom(-5));
+                            document.Add(new Paragraph(endeavors.Description).SetFontSize(9).SetMarginBottom(5));
+
+                            //document.Add(new AreaBreak());
+
+                        }
+                    }
+
+                    document.Add(new Paragraph("Academic Achievements")
+                     .SetBold()
+                     .SetUnderline()
+                     .SetMarginTop(5)
+                     .SetFontSize(13));
+                    // List list = new List();
+                    if (ShowAcademicAchievements.Count > 0)
+                    {
+                        foreach (var achievements in ShowAcademicAchievements)
+                        {
+                            document.Add(new Paragraph(achievements.Award).SetFontSize(12).SetBold().SetMarginBottom(-5));
+                            document.Add(new Paragraph(achievements.Class).SetFontSize(10).SetMarginBottom(-5));
+                            document.Add(new Paragraph(achievements.Description).SetFontSize(9).SetMarginBottom(5));
+                            // list.Add(new ListItem(achievements.Award + "-" + achievements.Class + "-" + achievements.Description)); 
+
+
+                        }
+                        // document.Add(list);
+                    }
+
+                    document.Add(new Paragraph("Additional Involvements")
+                     .SetBold()
+                     .SetUnderline()
+                     .SetMarginTop(5)
+                     .SetFontSize(13));
+
+                    if (ShowAdditionalInvolvements.Count > 0)
+                    {
+                        foreach (var involvements in ShowAdditionalInvolvements)
+                        {
+                            document.Add(new Paragraph(involvements.ActivityName).SetFontSize(12).SetBold().SetMarginBottom(-5));
+                            document.Add(new Paragraph(involvements.Description).SetFontSize(9).SetMarginBottom(5));
+
+                        }
+                    }
+
+
+
+                    //// Add academic achievements
+                    //document.Add(new Paragraph("Academic Achievements")
+                    //    .SetBold()
+                    //    .SetFontSize(16));
+                    //var academicTable = new Table(UnitValue.CreatePercentArray(new float[] { 4, 6 }));
+                    //academicTable.SetWidth(UnitValue.CreatePercentValue(100));
+                    //academicTable.AddHeaderCell("Award");
+                    //academicTable.AddHeaderCell("Description");
+                    //foreach (var achievement in ShowAcademicAchievements)
+                    //{
+                    //    academicTable.AddCell(new Paragraph(achievement.Award).SetFontSize(12));
+                    //    academicTable.AddCell(new Paragraph(achievement.Description).SetFontSize(12));
+                    //}
+                    //document.Add(academicTable);
+
+                    //// Add work experience
+                    //document.Add(new Paragraph("Work Experience")
+                    //    .SetBold()
+                    //    .SetFontSize(16));
+                    //var workTable = new Table(UnitValue.CreatePercentArray(new float[] { 4, 4, 4 }));
+                    //workTable.SetWidth(UnitValue.CreatePercentValue(100));
+                    //workTable.AddHeaderCell("Role");
+                    //workTable.AddHeaderCell("Establishment");
+                    //workTable.AddHeaderCell("Description");
+                    //foreach (var experience in ShowWorkExperience)
+                    //{
+                    //    workTable.AddCell(new Paragraph(experience.Role).SetFontSize(12));
+                    //    workTable.AddCell(new Paragraph(experience.Establishment).SetFontSize(12));
+                    //    workTable.AddCell(new Paragraph(experience.Description).SetFontSize(12)); // Add Description in your model if not present
+                    //}
+                    //document.Add(workTable);
+
+                    //// Add clubs and organizations
+                    //document.Add(new Paragraph("Clubs and Organizations")
+                    //    .SetBold()
+                    //    .SetFontSize(16));
+                    //var clubsTable = new Table(UnitValue.CreatePercentArray(new float[] { 4, 6 }));
+                    //clubsTable.SetWidth(UnitValue.CreatePercentValue(100));
+                    //clubsTable.AddHeaderCell("Club Name");
+                    //clubsTable.AddHeaderCell("Role");
+                    //foreach (var club in ShowClubsAndOrganizations)
+                    //{
+                    //    clubsTable.AddCell(new Paragraph(club.ClubName).SetFontSize(12));
+                    //    clubsTable.AddCell(new Paragraph(club.Role).SetFontSize(12));
+                    //}
+                    //document.Add(clubsTable);
 
                     document.Close();
                 }
@@ -364,6 +462,9 @@ namespace Stulio.ViewModels
         [RelayCommand]
         private async Task ExecuteGenerateResume()
         {
+            // int UserID = Microsoft.Maui.Storage.Preferences.Get("UserID", 999);
+            
+
             string fileName = "resume.pdf";
             string filePath = Path.Combine(Xamarin.Essentials.FileSystem.AppDataDirectory, fileName);
            // var filename = "resume" + DateTime.Now.ToString("yyyyMMddHHmmss", CultureInfo.InvariantCulture) + ".pdf";
@@ -373,6 +474,7 @@ namespace Stulio.ViewModels
             await EmailResume(filePath);
             // Optionally, show a message or perform other actions after generating PDF
             // Example: await Application.Current.MainPage.DisplayAlert("Success", "Resume PDF generated.", "OK");
+           
         }
 
 

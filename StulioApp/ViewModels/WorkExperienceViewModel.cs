@@ -25,7 +25,7 @@ namespace Stulio.ViewModels
             _workExperienceService = workExperienceservice;
         }
 
-
+        
 
         [RelayCommand]
         public async void GetWorkExperienceList()

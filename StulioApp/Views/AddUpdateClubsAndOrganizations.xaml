@@ -21,8 +21,9 @@
             <Entry Text="{Binding ClubsAndOrganizations.Role}" Placeholder="Role" />
         </VerticalStackLayout>
         <VerticalStackLayout>
-            <Label Text="Particpated Years" />
-            <Entry Text="{Binding ClubsAndOrganizations.ParticpatedYears}" Placeholder="Mon-Year" />
+            <Label Text="Duration of Participation (Start-End)" />
+            <DatePicker Date="{Binding ClubsAndOrganizations.StartDate, Mode=TwoWay}" />
+            <DatePicker Date="{Binding ClubsAndOrganizations.EndDate, Mode=TwoWay}" />
         </VerticalStackLayout>
         <VerticalStackLayout>
             <Label Text="Description" />
@@ -34,6 +35,6 @@
         </VerticalStackLayout>
 
 
-        <Button Text="Save" BackgroundColor="#5DA55B" Command="{Binding UpdateClubsAndOrganizationsCommand}"/>
+        <Button Text="Save" BackgroundColor="#5DA55B" Clicked="UpdateClubsAndOrganizationsCommand_Clicked" />
     </StackLayout>
 </ContentPage>

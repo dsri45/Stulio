@@ -16,6 +16,7 @@ namespace Stulio.Views
         protected override async void OnAppearing()
         {
             base.OnAppearing();
+            Microsoft.Maui.Storage.Preferences.Set("ResumeBuild", "False");
             await _viewModel.LoadRecords();
         }
 

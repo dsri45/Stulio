@@ -39,4 +39,21 @@ public partial class Help : ContentPage
             await DisplayAlert("Error", $"An unexpected error occurred: {ex.Message}", "OK");
         }
     }
+
+    private void OnLabelTapped(object sender, EventArgs e)
+    {
+        // URL you want to navigate to
+        string url = "https://sway.cloud.microsoft/alwvbN8IahMV9jpz?ref=Link"; // Replace with your actual URL
+
+        // Open the URL in the default web browser
+        try
+        {
+            Browser.OpenAsync(url, BrowserLaunchMode.SystemPreferred);
+        }
+        catch (Exception ex)
+        {
+            // Handle any errors that might occur during the opening of the URL
+            DisplayAlert("Error", $"Unable to open URL: {ex.Message}", "OK");
+        }
+    }
 }

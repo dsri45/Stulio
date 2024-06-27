@@ -21,5 +21,29 @@ namespace Stulio.Views
             _viewMode.LoadPersonalEndeavorsByID();
 
         }
+
+        private async void UpdatePersonalEndeavorsCommand_Clicked(object sender, EventArgs e)
+        {
+
+            // Perform field validation
+            if (string.IsNullOrWhiteSpace(_viewMode.PersonalEndeavors.Title))
+            {
+                await DisplayAlert("Error", "Endeavor cannot be empty", "OK");
+                return;
+            }
+
+            if (string.IsNullOrWhiteSpace(_viewMode.PersonalEndeavors.Description))
+            {
+                await DisplayAlert("Error", "Description cannot be empty", "OK");
+                return;
+            }
+
+            else
+            {
+                _viewMode.UpdatePersonalEndeavorsCommand.Execute(null);
+
+            }
+        }
+
     }
 }

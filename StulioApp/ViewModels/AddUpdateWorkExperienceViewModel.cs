@@ -23,13 +23,32 @@ namespace Stulio.ViewModels
             _Service = workExperienceService;
         }
 
-        
+        public string ParticipatedYears
+        {
+            get
+            {
+                if (WorkExperience.StartDate == null || WorkExperience.EndDate == null)
+                {
+                    return ""; // Return empty string if either date is null
+                }
+                else
+                {
+                    // Format the dates as needed (assuming you want MM/dd/yyyy format)
+                    string startDateStr = WorkExperience.StartDate.ToString("MM/dd/yyyy");
+                    string endDateStr = WorkExperience.EndDate.ToString("MM/dd/yyyy");
+                    return $"{startDateStr} - {endDateStr}";
+                }
+            }
+        }
+
+
         [RelayCommand]
         public async void UpdateWorkExperience()
         {
             int response = -1;
             if (WorkExperience.WorkId > -1)
             {
+                WorkExperience.ParticpatedYears = ParticipatedYears;
                 response = await _Service.UpdateWorkExperience(WorkExperience);
             }
             else
@@ -40,7 +59,7 @@ namespace Stulio.ViewModels
                     StudentID = Preferences.Get("UserID", 999),
                     Role = WorkExperience.Role,
                     Establishment = WorkExperience.Establishment,
-                    ParticpatedYears = WorkExperience.ParticpatedYears,
+                    ParticpatedYears = ParticipatedYears,
                     Description = WorkExperience.Description
                 });
             }

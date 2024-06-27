@@ -15,6 +15,8 @@ namespace Stulio.Models
         public int StudentID { get; set; }
         public string ServiceName { get; set; }
         public string ParticpatedYears { get; set; }
+        public DateTime StartDate { get; set; }
+        public DateTime EndDate { get; set; }
         public string VoulnteeredHours { get; set; }
         public string Description { get; set; }
     }

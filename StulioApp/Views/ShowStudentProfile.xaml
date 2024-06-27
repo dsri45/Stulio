@@ -333,7 +333,7 @@
                                      FontSize="13"
                                      VerticalOptions="Start"
                                      Margin="0,0,0,0"
-                                     Text="{Binding DateAchived}"/>
+                                     Text="{Binding DateAchived, StringFormat='{0:MM/dd/yyyy}'}"/>
                                     <Label Text="{Binding Description}" TextColor="Black"  FontSize="12" LineBreakMode="WordWrap"/>
                                 </StackLayout>
                             </Grid>

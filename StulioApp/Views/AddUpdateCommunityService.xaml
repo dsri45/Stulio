@@ -17,8 +17,9 @@
             <Entry  Text="{Binding CommunityService.ServiceName}" Placeholder="Name" />
         </VerticalStackLayout>
         <VerticalStackLayout>
-            <Label Text="Particpated Years"  />
-            <Entry Text="{Binding CommunityService.ParticpatedYears}" Placeholder="Mon Year - Mon Year" />
+            <Label Text="Duration of Participation (Start-End)" />
+            <DatePicker Date="{Binding CommunityService.StartDate, Mode=TwoWay}" />
+            <DatePicker Date="{Binding CommunityService.EndDate, Mode=TwoWay}" />
         </VerticalStackLayout>
         <VerticalStackLayout>
             <Label Text="Volunteered Hours" />
@@ -30,6 +31,6 @@
         </VerticalStackLayout>
 
 
-        <Button Text="Save" BackgroundColor="#489CC1" Command="{Binding UpdateCommunityServiceCommand}"/>
+        <Button Text="Save" BackgroundColor="#489CC1" Clicked="UpdateCommunityServiceCommand_Clicked"/>
     </StackLayout>
 </ContentPage>

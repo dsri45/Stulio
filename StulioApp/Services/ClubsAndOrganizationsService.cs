@@ -57,6 +57,8 @@ namespace Stulio.Services
                     ClubId = -1,
                     ClubName = "",
                     ParticpatedYears = "",
+                    StartDate = new DateTime(2024, 6, 21),
+                    EndDate = new DateTime(2024, 6, 21),
                     Role = "",
                     Description = "",
                     Achivements = ""
@@ -67,7 +69,9 @@ namespace Stulio.Services
         }
 
         public async Task<int> UpdateClubsAndOrganizations(ClubsAndOrganizationsModel clubsAndOrganizationsModel)
-        {
+        { 
+
+
             await SetUpDb();
             return await _dbConnection.UpdateAsync(clubsAndOrganizationsModel);
         }

@@ -20,16 +20,17 @@
             <Label Text="Role"  />
             <Entry Text="{Binding AthleticParticipation.Role}" Placeholder="Role" />
         </VerticalStackLayout>
-        <VerticalStackLayout>
-            <Label Text="Participated Years"  />
-            <Entry Text="{Binding AthleticParticipation.ParticpatedYears}" Placeholder="Mon-Year" />
-        </VerticalStackLayout>
+        <!--<VerticalStackLayout>
+            <Label Text="Duration of Participation (Start-End)" />
+            <DatePicker Date="{Binding WorkExperience.StartDate, Mode=TwoWay}" />
+            <DatePicker Date="{Binding WorkExperience.EndDate, Mode=TwoWay}" />
+        </VerticalStackLayout>-->
         <VerticalStackLayout>
             <Label Text="Achievements" />
             <Editor x:Name="editor" Placeholder="Achivements"   HeightRequest="150"  Text="{Binding AthleticParticipation.Achivements}"/>
         </VerticalStackLayout>
 
 
-        <Button Text="Save" BackgroundColor="#4A7CB9" Command="{Binding UpdateAthleticParticipationCommand}"/>
+        <Button Text="Save" BackgroundColor="#4A7CB9" Clicked="UpdateAthleticParticipationCommand_Clicked"/>
     </StackLayout>
 </ContentPage>
