@@ -1,4 +1,4 @@
-Introduction 
+**Introduction**
 
 Stulio is a high school student portfolio app that allows students to showcase their academic and extracurricular achievements, skills, and interests. The app is designed to help students prepare for college applications, scholarships, internships, and future careers. Stulio is built using .NET MAUI, a cross-platform framework that enables developers to create native apps for multiple platforms with a single codebase. 
 
