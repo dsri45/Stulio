@@ -1,3 +1,5 @@
+# STULIO - A STUDENT PORTFOLIO APP #
+
 ## Introduction ##
 
 Stulio is a high school student portfolio app that allows students to showcase their academic and extracurricular achievements, skills, and interests. The app is designed to help students prepare for college applications, scholarships, internships, and future careers. Stulio is built using .NET MAUI, a cross-platform framework that enables developers to create native apps for multiple platforms with a single codebase. 
@@ -6,7 +8,7 @@ THIS APP WAS CREATED FOR THE FUTURE BUSINESS LEADERS OF AMERICA - MOBILE APPLICA
 
 https://connect.fbla.org/headquarters/files/High%20School%20Competitive%20Events%20Resources/Individual%20Guidelines/Presentation%20Events/Mobile-Application-Development.pdf 
 
-Objectives 
+## Objectives ##
 
 The main objectives of the app are to: 
 
@@ -22,23 +24,23 @@ Enhance students' confidence and motivation.
 
 Target Audience: High school students 
 
-Portfolio Features 
+## Portfolio Features ##
 
 The app also provides features such as customization, sharing, feedback, and analytics. The student can customize their portfolio by choosing a theme, a layout, a font, and a color scheme. The student can also share their portfolio with others, such as teachers, counselors, mentors, or peers, and receive feedback and suggestions. The app also provides analytics and insights on the student's portfolio, such as views, likes, comments, and ratings. 
 
-Social Media Integration 
+### Social Media Integration ###
 
 The app integrates with social media platforms, such as Facebook, Twitter, Instagram, and LinkedIn, to allow the student to connect and network with others. The student can also sync their portfolio with their social media profiles and post their updates and achievements on their feeds. 
 
-Cross-Platform Support 
+### Cross-Platform Support ###
 
 The app is built using .NET MAUI, a cross-platform framework that enables developers to create native apps for multiple platforms with a single codebase. The app supports Android, iOS, Windows, and Mac devices, and adapts to different screen sizes and orientations. 
 
-Downloading Instructions for Stulio 
+## Downloading Instructions for Stulio ##
 
 To set up and begin working on the Stulio project on a Windows 11 Pro environment, please follow these step-by-step instructions: 
 
-Requirements 
+**Requirements**
 
 Operating System: Windows 11 Pro 
 
